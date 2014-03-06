@@ -1,3 +1,45 @@
-/**
- * Created by Jerome on 06/03/14.
- */
+{
+    "name": "Test",
+    "grid": {
+        "width": 100,
+        "height": 100
+    },
+    "collector": {
+        "x": 50,
+        "y": 50
+    },
+    "robots": [{
+        "pilot" : "stdClass",
+        "sleepString" : "something",
+        "x" : 10,
+        "y" : 20,
+        "orientation" : "north",
+        "life" : "1"
+    },{
+        "pilot" : "stdClass",
+        "sleepString" : "something",
+        "x" : 20,
+        "y" : 10,
+        "orientation" : "south",
+        "life" : "0.35"
+    }],
+    "minerals" : [{
+        "x" : 5,
+        "y" : 5
+    },{
+        "x" : 55,
+        "y" : 45
+    },{
+        "x" : 95,
+        "y" : 35
+    }],
+    "rockets" : [{
+        "x" : 11,
+        "y" : 12,
+        "orientation" : "west"
+    },{
+        "x" : 22,
+        "y" : 33,
+        "orientation" : "east"
+    }]
+}
