@@ -1,0 +1,2 @@
+_game:
+    resource: "@MineRobotGameBundle/Resources/config/routing.yml"

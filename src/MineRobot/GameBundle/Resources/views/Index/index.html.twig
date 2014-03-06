@@ -1,0 +1,14 @@
+{% extends "MineRobotGameBundle::layout.html.twig" %}
+
+{% block title "MineRobot - Home" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1 class="title">Home</h1>
+    <ul id="demo-list">
+        <li><a href="{{ path('_view_selectgame') }}">View a game</a></li>
+        <li><a href="{{ path('_create') }}">Create a new game</a></li>
+        {# <li><a href="{{ path('_demo_contact') }}">Send a Message</a></li> #}
+    </ul>
+{% endblock %}

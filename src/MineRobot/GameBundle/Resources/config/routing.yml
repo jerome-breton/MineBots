@@ -1,0 +1,11 @@
+_index:
+    pattern:  /
+    defaults: { _controller: MineRobotGameBundle:Index:index }
+
+_view:
+    resource: "@MineRobotGameBundle/Controller/ViewController.php"
+    type:     annotation
+
+_create:
+    resource: "@MineRobotGameBundle/Controller/CreateController.php"
+    type:     annotation
