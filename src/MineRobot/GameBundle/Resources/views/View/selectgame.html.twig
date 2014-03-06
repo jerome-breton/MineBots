@@ -1,0 +1,14 @@
+{% extends "MineRobotGameBundle::layout.html.twig" %}
+
+{% block title "MineRobot - View - Select a game" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1 class="title">Select a game to view</h1>
+    <ul id="demo-list">
+        {% for file,game in games %}
+        <li><a href="{{ path('_view', {'game' : game}) }}">View {{ game }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
