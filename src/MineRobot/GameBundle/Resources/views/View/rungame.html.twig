@@ -1,20 +1,20 @@
 {% extends "MineRobotGameBundle::layout.html.twig" %}
 
-{% block title "MineRobot - View {{ game.game.name }}" %}   {# @TODO COmment on fait ? #}
+{% block title "MineRobot - View - " ~ game.name %}
 
 {% block content_header '' %}
 
 {% block content %}
-    <h1 class="title">{{ game.getName() }}</h1>
+    <h1 class="title">{{ game.name }}</h1>
 
-    <table border="1">
-    {% for row in 0..game.getOptions().grid.width %}
-        <tr height="10px">
-            {% for col in 0..game.getOptions().grid.height %}
-                <td width="10px">
+    <table id="grid" style="width:{{ game.options.grid.width * 16 }}px;height:{{ game.options.grid.height * 16 }}px">
+    {% for row in 1..game.options.grid.width %}
+        <tr>
+            {% for col in 1..game.options.grid.height %}
+                <td>
                     {% if game.readGrid(col,row) %}
                         {% for object in game.readGrid(col,row) %}
-                            {{ object.getPicture() }}
+                            {{ object.picture }}
                         {% endfor %}
                     {% endif %}
                 </td>
