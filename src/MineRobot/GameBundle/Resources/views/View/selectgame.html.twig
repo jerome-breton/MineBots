@@ -8,7 +8,8 @@
     <h1 class="title">Select a game to view</h1>
     <ul id="demo-list">
         {% for file,game in games %}
-        <li><a href="{{ path('_view', {'game' : game}) }}">View {{ game }}</a></li>
+        <li><a href="{{ path('_view', {'game' : file}) }}">View {{ game.game.name }}
+                ({{ game.game.status }}, {{ game.options.grid.width }}x{{ game.options.grid.height }})</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

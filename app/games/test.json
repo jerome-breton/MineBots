@@ -1,8 +1,25 @@
 {
-    "name": "Test",
-    "grid": {
-        "width": 100,
-        "height": 100
+    "game" : {
+        "name": "Test",
+        "iteration" : 50,
+        "status" : "running"
+    },
+    "options" : {
+        "weapons" : {
+            "gauntlet" : 1,
+            "rail" : 0.5,
+            "rocket" : 0.2
+        },
+        "robots" : {
+            "life" : 1
+        },
+        "minerals" : {
+            "score" : 3
+        },
+        "grid": {
+            "width": 100,
+            "height": 100
+        }
     },
     "collector": {
         "x": 50,
@@ -14,14 +31,18 @@
         "x" : 10,
         "y" : 20,
         "orientation" : "north",
-        "life" : "1"
+        "life" : "1",
+        "score" : 3,
+        "minerals" : 2
     },{
         "pilot" : "stdClass",
         "sleepString" : "something",
         "x" : 20,
         "y" : 10,
         "orientation" : "south",
-        "life" : "0.35"
+        "life" : "0.35",
+        "score" : 1,
+        "minerals" : 5
     }],
     "minerals" : [{
         "x" : 5,

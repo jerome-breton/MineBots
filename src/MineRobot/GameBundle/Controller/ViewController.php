@@ -19,9 +19,7 @@ class ViewController extends Controller
     {
         $rootDir = $this->get('kernel')->getRootDir();
 
-        $gameManager = new GameManager();
-
-        return array('games' => $gameManager->getGamesList($rootDir));
+        return array('games' => GameManager::getGamesList($rootDir));
     }
 
     /**
@@ -30,6 +28,8 @@ class ViewController extends Controller
      */
     public function rungameAction($game)
     {
-        return array('game' => $game);
+        $rootDir = $this->get('kernel')->getRootDir();
+
+        return array('game' => GameManager::loadGame($rootDir, $game));
     }
 }

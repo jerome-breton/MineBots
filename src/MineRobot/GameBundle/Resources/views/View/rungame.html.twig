@@ -1,9 +1,9 @@
 {% extends "MineRobotGameBundle::layout.html.twig" %}
 
-{% block title "MineRobot - View - Select a game" %}
+{% block title "MineRobot - View {{ game.game.name }}" %}   {# @TODO COmment on fait ? #}
 
 {% block content_header '' %}
 
 {% block content %}
-    <h1 class="title">{{ game }}</h1>
+    <h1 class="title">{{ game.game.name }}</h1>
 {% endblock %}
