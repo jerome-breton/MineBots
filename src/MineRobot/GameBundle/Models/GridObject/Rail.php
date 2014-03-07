@@ -3,19 +3,17 @@
  * Created by PhpStorm.
  * User: Jerome
  * Date: 07/03/14
- * Time: 07:03
+ * Time: 06:53
  */
 
 namespace MineRobot\GameBundle\Models\GridObject;
 
 
-class Robot extends GridObjectAbstract{
+class Rail extends GridObjectAbstract{
     protected $_useOrientation = true;
     protected $_useVariation = true;
 
-    protected $_variations = ['black','blue','cyan','gray','green','pink','purple','red','white','yellow'];
+    protected $_variations = ['suite','source'];
 
-    protected $_base_picture = 'robot';
-
-
+    protected $_base_picture = 'rail';
 } 

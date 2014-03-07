@@ -7,14 +7,14 @@
 {% block content %}
     <h1 class="title">{{ game.name }}</h1>
 
-    <table id="grid" style="width:{{ game.options.grid.width * 16 }}px;height:{{ game.options.grid.height * 16 }}px">
+    <table id="grid" style="width:{{ game.options.grid.width * 16 + 1}}px;height:{{ game.options.grid.height * 16 + 1}}px">
     {% for row in 1..game.options.grid.width %}
         <tr>
             {% for col in 1..game.options.grid.height %}
                 <td>
                     {% if game.readGrid(col,row) %}
                         {% for object in game.readGrid(col,row) %}
-                            {{ object.picture }}
+                            <img src="{{ asset('minerobot/images/' ~ object.picture) }}" />
                         {% endfor %}
                     {% endif %}
                 </td>

@@ -15,9 +15,15 @@ abstract class GridObjectAbstract
     protected $_y = null;
 
     protected $_useOrientation = true;
-    protected $_picture = '?';
+    protected $_useVariation = false;
+
+    protected $_picture = 'nothing';
+    protected $_base_picture = 'nothing';
 
     protected $_orientation = null;
+    protected $_variation = null;
+
+    protected $_variations = array();
 
     const ORIENTATION_NORTH = 'north';
     const ORIENTATION_SOUTH = 'south';
@@ -31,6 +37,27 @@ abstract class GridObjectAbstract
         if ($this->_useOrientation) {
             $this->_orientation = $data['orientation'];
         }
+        if ($this->_useVariation){
+            if(isset($data['variation'])){
+                $this->setVariation($data['variation']);
+            }else{
+                $this->setVariation(0);
+            }
+        }
+    }
+
+    public function setVariation($variation){
+        if(is_numeric($variation)){
+            $this->_variation = $this->_variations[$variation % count($this->_variations)];
+        }elseif(in_array($variation, $this->_variations)){
+            $this->_variation = $variation;
+        }else{
+            throw new \OutOfBoundsException('Invalid variation');
+        }
+
+        $this->_picture = $this->_base_picture . '/'.$this->_variation;
+
+        return $this;
     }
 
     /**
@@ -62,7 +89,11 @@ abstract class GridObjectAbstract
      */
     public function getPicture()
     {
-        return $this->_picture;
+        if ($this->_useOrientation) {
+            return $this->_picture . '/' . $this->getOrientation() . '.gif';
+        }else{
+            return $this->_picture . '.gif';
+        }
     }
 
     protected function _rotateLeft()

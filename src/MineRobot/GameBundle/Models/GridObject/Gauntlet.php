@@ -9,8 +9,8 @@
 namespace MineRobot\GameBundle\Models\GridObject;
 
 
-class Rocket extends GridObjectAbstract{
+class Gauntlet extends GridObjectAbstract{
     protected $_useOrientation = true;
 
-    protected $_picture = 'rocket';
+    protected $_picture = 'gauntlet';
 } 

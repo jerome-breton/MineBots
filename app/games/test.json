@@ -28,9 +28,10 @@
     "robot": [{
         "pilot" : "stdClass",
         "sleepString" : "something",
-        "x" : 10,
-        "y" : 20,
-        "orientation" : "north",
+        "x" : 4,
+        "y" : 4,
+        "variation" : 3,
+        "orientation" : "west",
         "life" : "1",
         "score" : 3,
         "minerals" : 2
@@ -39,10 +40,16 @@
         "sleepString" : "something",
         "x" : 20,
         "y" : 10,
+        "variation" : 7,
         "orientation" : "south",
         "life" : "0.35",
         "score" : 1,
         "minerals" : 5
+    }],
+    "gauntlet" : [{
+        "x" : 20,
+        "y" : 11,
+        "orientation" : "south"
     }],
     "mineral" : [{
         "x" : 5,
@@ -62,5 +69,35 @@
         "x" : 22,
         "y" : 33,
         "orientation" : "east"
+    }],
+    "explosion" : [{
+        "x" : 45,
+        "y" : 45
+    }],
+    "rail" : [{
+        "x" : 40,
+        "y" : 40,
+        "orientation" : "west",
+        "variation" : "source"
+    },{
+        "x" : 39,
+        "y" : 40,
+        "orientation" : "west",
+        "variation" : "suite"
+    },{
+        "x" : 38,
+        "y" : 40,
+        "orientation" : "west",
+        "variation" : "suite"
+    },{
+        "x" : 37,
+        "y" : 40,
+        "orientation" : "west",
+        "variation" : "suite"
+    },{
+        "x" : 36,
+        "y" : 40,
+        "orientation" : "west",
+        "variation" : "suite"
     }]
 }
