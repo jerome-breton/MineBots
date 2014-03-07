@@ -53,9 +53,9 @@ class GameManager {
 
         /** @var SplFileInfo $file */
         foreach($finder as $file){}
-//        $game = new Game(self::decodeJsonFile($file));
+        $game = new Game(self::decodeJsonFile($file));
 
-        return self::decodeJsonFile($file);
+        return $game;
     }
 
     /**

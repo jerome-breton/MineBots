@@ -5,5 +5,21 @@
 {% block content_header '' %}
 
 {% block content %}
-    <h1 class="title">{{ game.game.name }}</h1>
+    <h1 class="title">{{ game.getName() }}</h1>
+
+    <table border="1">
+    {% for row in 0..game.getOptions().grid.width %}
+        <tr height="10px">
+            {% for col in 0..game.getOptions().grid.height %}
+                <td width="10px">
+                    {% if game.readGrid(col,row) %}
+                        {% for object in game.readGrid(col,row) %}
+                            {{ object.getPicture() }}
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
 {% endblock %}

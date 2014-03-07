@@ -21,11 +21,11 @@
             "height": 100
         }
     },
-    "collector": {
+    "collector": [{
         "x": 50,
         "y": 50
-    },
-    "robots": [{
+    }],
+    "robot": [{
         "pilot" : "stdClass",
         "sleepString" : "something",
         "x" : 10,
@@ -44,7 +44,7 @@
         "score" : 1,
         "minerals" : 5
     }],
-    "minerals" : [{
+    "mineral" : [{
         "x" : 5,
         "y" : 5
     },{
@@ -54,7 +54,7 @@
         "x" : 95,
         "y" : 35
     }],
-    "rockets" : [{
+    "rocket" : [{
         "x" : 11,
         "y" : 12,
         "orientation" : "west"

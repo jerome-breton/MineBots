@@ -8,6 +8,7 @@
 
 namespace MineRobot\GameBundle\Models;
 
+use MineRobot\GameBundle\Models\GridObject\GridObjectAbstract;
 
 class Game
 {
@@ -39,6 +40,10 @@ class Game
      */
     protected $_options = null;
 
+    protected $_grid = array();
+
+    protected $_objectsInGrid = ['collector','robot','mineral','rocket'];
+
     public function __construct($data)
     {
         if ($data['game']) {
@@ -46,6 +51,15 @@ class Game
         }
         if ($data['options']) {
             $this->_options = new Options($data['options']);
+        }
+        foreach($this->_objectsInGrid as $objectType){
+            if($data[$objectType]){
+                $objectClassName = 'MineRobot\\GameBundle\\Models\\GridObject\\'.ucwords($objectType);
+                foreach($data[$objectType] as $objectData){
+                    $object = new $objectClassName($objectData);
+                    $this->_writeGrid($object);
+                }
+            }
         }
     }
 
@@ -63,11 +77,45 @@ class Game
     }
 
     /**
-     * @return null
+     * @return string
      */
     public function getName()
     {
         return $this->_name;
     }
 
+    /**
+     * @return \MineRobot\GameBundle\Models\Options
+     */
+    public function getOptions()
+    {
+        return $this->_options;
+    }
+
+    public function readGrid($x, $y){
+        if(!isset($this->_grid[$x])){
+            return null;
+        }
+        if(!isset($this->_grid[$x][$y])){
+            return null;
+        }
+        return $this->_grid[$x][$y];
+    }
+
+    protected function _writeGrid(GridObjectAbstract $gridObject){
+        $x = $gridObject->getX();
+        $y = $gridObject->getY();
+        if(!isset($this->_grid[$x])){
+            $this->_grid[$x] = array();
+        }
+        if(!isset($this->_grid[$x][$y])){
+            $this->_grid[$x][$y] = array();
+        }
+        $this->_grid[$x][$y][] = $gridObject;
+        return $this;
+    }
+
+    public function getGrid(){
+        return $this->_grid;
+    }
 } 
