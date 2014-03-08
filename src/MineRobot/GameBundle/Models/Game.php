@@ -8,7 +8,6 @@
 
 namespace MineRobot\GameBundle\Models;
 
-use MineRobot\GameBundle\Helpers\GameManager;
 use MineRobot\GameBundle\Models\GridObject\GridObjectAbstract;
 
 class Game
@@ -55,7 +54,7 @@ class Game
         }
         foreach ($this->_objectsInGrid as $objectType) {
             if (isset($data[$objectType])) {
-                $objectClassName = GameManager::getClassByType($objectType);
+                $objectClassName = $this->getClassByType($objectType);
                 foreach ($data[$objectType] as $objectData) {
                     $object = new $objectClassName($objectData);
                     $this->_writeGrid($object);
@@ -132,16 +131,20 @@ class Game
         $inGridObjects = array();
         foreach ($this->getGrid() as $x => $column) {
             foreach ($column as $y => $objects) {
+
+                /** @var GridObjectAbstract $object */
                 foreach ($objects as $o => $object) {
-                    $inGridObject = $object->run();
-                    if (!is_null($inGridObject)) {
-                        if (is_array($inGridObject)) {
-                            foreach ($inGridObject as $inGridObjectCreation) {
-                                $inGridObjects[] = $inGridObjectCreation;
-                            }
-                        } else {
-                            $inGridObjects[] = $inGridObject;
+                    $object->run();
+                    if(!$object->isDestroyed()){
+                        $inGridObjects[] = $object;
+                    }
+                    $objectsToCreate = $object->getObjectsToCreate();
+                    if (!empty($objectsToCreate)) {
+                        foreach ($objectsToCreate as $objectToCreate) {
+                            $class = $this->getClassByType($objectToCreate['type']);
+                                $inGridObjects[] = new $class($objectToCreate);
                         }
+                        $object->resetObjectsToCreate();
                     }
                 }
                 $this->_grid[$x][$y] = array();
@@ -169,5 +172,16 @@ class Game
     public function getStatus()
     {
         return $this->_status;
+    }
+
+
+    public function getTypeByClass($object)
+    {
+        return strtolower(str_replace('MineRobot\\GameBundle\\Models\\GridObject\\', '', get_class($object)));
+    }
+
+    public function getClassByType($type)
+    {
+        return 'MineRobot\\GameBundle\\Models\\GridObject\\' . ucwords($type);
     }
 } 

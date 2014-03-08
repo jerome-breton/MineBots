@@ -8,9 +8,6 @@
 
 namespace MineRobot\GameBundle\Models\GridObject;
 
-
-use MineRobot\GameBundle\Helpers\GameManager;
-
 abstract class GridObjectAbstract
 {
     protected $_x = null;
@@ -28,7 +25,7 @@ abstract class GridObjectAbstract
     protected $_variations = array();
 
     protected $_destroyed = false;
-    protected $_createdObjects = array();
+    protected $_objectsToCreate = array();
 
     const ORIENTATION_NORTH = 'north';
     const ORIENTATION_SOUTH = 'south';
@@ -52,13 +49,6 @@ abstract class GridObjectAbstract
     }
 
     public function run(){
-        if($this->_destroyed){
-            return null;
-        }
-        if(!empty($this->_createdObjects)){
-            $this->_createdObjects[] = $this;
-            return $this->_createdObjects;
-        }
         return $this;
     }
 
@@ -127,6 +117,46 @@ abstract class GridObjectAbstract
         }
     }
 
+    /**
+     * @return boolean
+     */
+    public function isDestroyed()
+    {
+        return (boolean)$this->_destroyed;
+    }
+
+    /**
+     * @param boolean $destroyed
+     */
+    public function setDestroyed($destroyed)
+    {
+        $this->_destroyed = $destroyed;
+    }
+
+    /**
+     * @return array
+     */
+    public function getObjectsToCreate()
+    {
+        return $this->_objectsToCreate;
+    }
+
+    /**
+     * @param array $objects
+     */
+    public function setObjectsToCreate($objects)
+    {
+        $this->_objectsToCreate = $objects;
+    }
+
+    /**
+     * @param array $createdObjects
+     */
+    public function resetObjectsToCreate()
+    {
+        $this->setObjectsToCreate(array());
+    }
+
     protected function _rotateLeft()
     {
         switch ($this->_orientation) {
@@ -188,7 +218,6 @@ abstract class GridObjectAbstract
     }
 
     protected function _createObject($type, $distance = 1, $side = 0, $rotation = 0, $variation = null){
-        $class = GameManager::getClassByType($type);
 
         switch ($this->_orientation) {
             case self::ORIENTATION_NORTH:
@@ -211,6 +240,7 @@ abstract class GridObjectAbstract
         }
 
         $data = array(
+            'type' => $type,
             'x' => $x,
             'y' => $y,
             'orientation' => $this->getOrientation()
@@ -218,8 +248,13 @@ abstract class GridObjectAbstract
         if(!is_null($variation)){
             $data['variation'] = $variation;
         }
-        $this->_createdObjects[] = new $class($data);
+        $this->_objectsToCreate[] = $data;
 
         return $this;
+    }
+
+    public function getType()
+    {
+        return strtolower(str_replace('MineRobot\\GameBundle\\Models\\GridObject\\', '', get_class($this)));
     }
 } 

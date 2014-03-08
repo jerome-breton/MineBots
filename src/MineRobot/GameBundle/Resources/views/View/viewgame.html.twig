@@ -9,15 +9,22 @@
     <input type="checkbox" value="1" name="run" id="run"><label for="run">Run</label>
 
     <div id="gridArea">
-    {# { render(controller("MineRobotGameBundle:View:rungame", {'gameFileName': filename})) } #}
+        {% include '@MineRobotGame/View/rungame.html.twig' %}
     </div>
 
     <script type="text/javascript">
         function refreshGrid(){
             if(jQuery('#run:checked').length){
+                var from = (new Date()).getTime();
                 jQuery.get('{{ path("_view_run", {'gameFileName': filename}) }}', function( data ) {
                     $( "#gridArea" ).html( data );
-                    window.setTimeout(refreshGrid,500);
+                    var to = (new Date()).getTime();
+                    var delay = 500;
+                    if(to-from>delay){
+                        refreshGrid();
+                    }else{
+                        window.setTimeout(refreshGrid,delay-to+from);
+                    }
                 });
             }
         }

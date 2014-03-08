@@ -19,7 +19,7 @@ class ViewController extends Controller
     {
         $rootDir = $this->get('kernel')->getRootDir();
 
-        return array('games' => GameManager::getGamesList($rootDir));
+        return array('games' => $this->get('minerobot_game.manager')->getGamesList($rootDir));
     }
 
     /**
@@ -30,7 +30,7 @@ class ViewController extends Controller
     {
         $rootDir = $this->get('kernel')->getRootDir();
 
-        $game = GameManager::loadGame($rootDir, $gameFileName, false);
+        $game = $this->get('minerobot_game.manager')->loadGame($rootDir, $gameFileName, false);
 
         return array('game' => $game, 'filename' => $gameFileName);
     }
@@ -43,11 +43,11 @@ class ViewController extends Controller
     {
         $rootDir = $this->get('kernel')->getRootDir();
 
-        $game = GameManager::loadGame($rootDir, $gameFileName);
+        $game = $this->get('minerobot_game.manager')->loadGame($rootDir, $gameFileName, false);
 
         $game->run();
 
-        GameManager::saveGame($rootDir, $game, $gameFileName);
+        $this->get('minerobot_game.manager')->saveGame($rootDir, $game, $gameFileName);
 
         return array('game' => $game);
     }
