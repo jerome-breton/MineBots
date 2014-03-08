@@ -46,6 +46,21 @@ abstract class GridObjectAbstract
         }
     }
 
+    public function getSleepArray(){
+        $array = array(
+            'x' => $this->getX(),
+            'y' => $this->getY()
+        );
+        if ($this->_useOrientation) {
+            $array['orientation'] = $this->_orientation;
+        }
+        if ($this->_useVariation){
+            $array['variation'] = $this->_variation;
+        }
+
+        return $array;
+    }
+
     public function setVariation($variation){
         if(is_numeric($variation)){
             $this->_variation = $this->_variations[$variation % count($this->_variations)];

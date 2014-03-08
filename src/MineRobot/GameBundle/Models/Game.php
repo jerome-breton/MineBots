@@ -8,6 +8,7 @@
 
 namespace MineRobot\GameBundle\Models;
 
+use MineRobot\GameBundle\Helpers\GameManager;
 use MineRobot\GameBundle\Models\GridObject\GridObjectAbstract;
 
 class Game
@@ -54,7 +55,7 @@ class Game
         }
         foreach($this->_objectsInGrid as $objectType){
             if($data[$objectType]){
-                $objectClassName = 'MineRobot\\GameBundle\\Models\\GridObject\\'.ucwords($objectType);
+                $objectClassName = GameManager::getClassByType($objectType);
                 foreach($data[$objectType] as $objectData){
                     $object = new $objectClassName($objectData);
                     $this->_writeGrid($object);
@@ -117,5 +118,23 @@ class Game
 
     public function getGrid(){
         return $this->_grid;
+    }
+
+    public function run(){}
+
+    /**
+     * @return int
+     */
+    public function getIteration()
+    {
+        return $this->_iteration;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->_status;
     }
 } 
