@@ -5,8 +5,11 @@
 {% block content_header '' %}
 
 {% block content %}
-    <h1 class="title">{{ game.name }}</h1>
-    <input type="checkbox" value="1" name="run" id="run"><label for="run">Run</label>
+    <h1 class="title">{{ game.name }}
+        <input type="checkbox" value="1" name="run" id="run" style="display:none">
+        <label id="run_label" class="pointer icon" for="run">+</label>
+        <span class="pointer icon" id="next">}</span>
+    </h1>
 
     <div id="gridArea">
         {% include '@MineRobotGame/View/rungame.html.twig' %}
@@ -14,10 +17,10 @@
 
     <script type="text/javascript">
         function refreshGrid(){
-            if(jQuery('#run:checked').length){
-                var from = (new Date()).getTime();
-                jQuery.get('{{ path("_view_run", {'gameFileName': filename}) }}', function( data ) {
-                    $( "#gridArea" ).html( data );
+            var from = (new Date()).getTime();
+            jQuery.get('{{ path("_view_run", {'gameFileName': filename}) }}', function( data ) {
+                $( "#gridArea" ).html( data );
+                if(jQuery('#run:checked').length){
                     var to = (new Date()).getTime();
                     var delay = 500;
                     if(to-from>delay){
@@ -25,10 +28,23 @@
                     }else{
                         window.setTimeout(refreshGrid,delay-to+from);
                     }
-                });
-            }
+                }
+            });
         }
 
-        jQuery('#run').click(refreshGrid);
+        jQuery('#run').click(function(){
+            if(jQuery('#run').prop( "checked" )){
+                jQuery('#run_label').html('P');
+                refreshGrid();
+            }else{
+                jQuery('#run_label').html('+');
+            }
+        });
+
+        jQuery('#next').click(function(){
+            if(!jQuery('#run').prop( "checked" )){
+                refreshGrid();
+            }
+        });
     </script>
 {% endblock %}
