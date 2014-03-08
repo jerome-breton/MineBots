@@ -113,4 +113,26 @@ class Robot extends GridObjectAbstract
         }
         return parent::setDestroyed($destroyed);
     }
+
+    public function atCollector(){
+        $this->_score += $this->_minerals;
+        $this->_minerals = 0;
+    }
+
+    /**
+     * @param Mineral $mineral
+     */
+    public function collect($mineral){
+        $this->_minerals++;
+        $mineral->setDestroyed();
+    }
+
+    /**
+     * @param $robotInCell
+     */
+    public function cellTaken($robotInCell){
+        if($this->getX() == $robotInCell->getX() && $this->getY() == $robotInCell->getY()){
+            $this->_resetPosition();
+        }
+    }
 }

@@ -8,7 +8,10 @@
 
 namespace MineRobot\GameBundle\Models;
 
+use MineRobot\GameBundle\MineRobotGameBundle;
 use MineRobot\GameBundle\Models\GridObject\GridObjectAbstract;
+use MineRobot\GameBundle\Models\GridObject\Mineral;
+use MineRobot\GameBundle\Models\GridObject\Robot;
 
 class Game
 {
@@ -103,12 +106,17 @@ class Game
         return $this->_grid[$x][$y];
     }
 
-    protected function _writeGrid(GridObjectAbstract $gridObject)
+    protected function _writeGrid(GridObjectAbstract $gridObject, $handleCollisions = false)
     {
+        $hash = spl_object_hash($gridObject);
+        if(isset($this->_grid[$gridObject->getOriginalX()][$gridObject->getOriginalY()][$hash])){
+            unset($this->_grid[$gridObject->getOriginalX()][$gridObject->getOriginalY()][$hash]);
+        }
         $x = $gridObject->getX();
         $y = $gridObject->getY();
         $gridSize = $this->getOptions()->getGrid();
         if ($x < 0 || $x >= $gridSize['width'] || $y < 0 || $y >= $gridSize['height']) {
+            $gridObject->setDestroyed();
             return $this;
         }
         if (!isset($this->_grid[$x])) {
@@ -117,8 +125,170 @@ class Game
         if (!isset($this->_grid[$x][$y])) {
             $this->_grid[$x][$y] = array();
         }
-        $this->_grid[$x][$y][] = $gridObject;
+        if($handleCollisions){
+            $this->_handleCollisions($this->_grid[$x][$y], $gridObject);
+        }
+        $objectsToCreate = $gridObject->getObjectsToCreate();
+        if (!empty($objectsToCreate)) {
+            foreach ($objectsToCreate as $objectToCreate) {
+                $class = $this->getClassByType($objectToCreate['type']);
+                $this->_writeGrid(new $class($objectToCreate), $handleCollisions);
+            }
+            $gridObject->resetObjectsToCreate();
+        }
+
+        if(!$gridObject->isDestroyed()){
+            $this->_grid[$x][$y][$hash] = $gridObject;
+        }
         return $this;
+    }
+
+    /**
+     * @param array $inCellObjects
+     * @param GridObjectAbstract $incomingObject
+     */
+    protected function _handleCollisions($inCellObjects, $incomingObject){
+        /** @var GridObjectAbstract $inCellObject */
+        foreach($inCellObjects as $inCellObject){
+            if(!$inCellObject->isDestroyed() && !$incomingObject->isDestroyed()){
+                $this->_handleCollision($inCellObject, $incomingObject);
+            }
+        }
+    }
+
+    protected function _handleCollision($inCellObject, $incomingObject){
+        $inCellObjectType = $inCellObject->getType();
+        $incomingObjectType = $incomingObject->getType();
+        $functionReach = '_when'.ucwords($incomingObjectType).'Reaches'.ucwords($inCellObjectType);
+        $functionReverse = '_when'.ucwords($inCellObjectType).'Reaches'.ucwords($incomingObjectType);
+
+        if(is_callable(array($this,$functionReach))){
+            $this->$functionReach($incomingObject, $inCellObject);
+        }elseif(is_callable(array($this,$functionReverse))){
+            $this->$functionReverse($inCellObject, $incomingObject);
+        }
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $shield
+     */
+    protected function _whenExplosionReachesRobot($explosion, $robot){
+        $robot->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $shield
+     */
+    protected function _whenExplosionReachesRocket($explosion, $rocket){
+        $rocket->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $shield
+     */
+    protected function _whenRocketReachesShield($rocket, $shield){
+        $rocket->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $robot
+     */
+    protected function _whenGauntletReachesRocket($gauntlet, $rocket){
+        $rocket->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $robot
+     */
+    protected function _whenRocketReachesRocket($rocketA, $rocketB){
+        $rocketA->setDestroyed();
+        $rocketB->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $robot
+     */
+    protected function _whenRocketReachesCollector($rocket, $collector){
+        $rocket->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $robot
+     */
+    protected function _whenRocketReachesRobot($rocket, $robot){
+        $rocket->setDestroyed();
+        $robot->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $robot
+     */
+    protected function _whenGauntletReachesRobot($gauntlet, $robot){
+        $robot->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $robot
+     */
+    protected function _whenGauntletReachesShield($gauntlet, $shield){
+        $gauntlet->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $robot
+     */
+    protected function _whenRailReachesShield($rail, $shield){
+        $rail->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $robot
+     */
+    protected function _whenRailReachesRobot($rail, $robot){
+        $robot->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param GridObjectAbstract $robot
+     */
+    protected function _whenRailReachesRocket($rail, $rocket){
+        $rocket->setDestroyed();
+    }
+
+    /**
+     * @param GridObjectAbstract $rocket
+     * @param Robot $robot
+     */
+    protected function _whenRobotReachesCollector($robot, $collector){
+        $robot->atCollector();
+    }
+
+    /**
+     * @param Mineral $mineral
+     * @param Robot $robot
+     */
+    protected function _whenRobotReachesMineral($robot, $mineral){
+        $robot->collect($mineral);
+    }
+
+    /**
+     * @param Mineral $mineral
+     * @param Robot $robot
+     */
+    protected function _whenRobotReachesRobot($robotIncoming, $robotInCell){
+        $robotIncoming->cellTaken($robotInCell);
     }
 
     public function getGrid()
@@ -143,28 +313,26 @@ class Game
                     $timeStop = microtime(true);
                     $celerity = (double)round(($timeStop - $timeStart) * pow(10, 15));
 
-                    if (!$object->isDestroyed()) {
-                        $inGridObjects[] = array('object' => $object, 'celerity' => $celerity++);
-                    }
-                    $objectsToCreate = $object->getObjectsToCreate();
+                    $inGridObjects[] = array('object' => $object, 'celerity' => $celerity++);
+                    /*$objectsToCreate = $object->getObjectsToCreate();
                     if (!empty($objectsToCreate)) {
                         foreach ($objectsToCreate as $objectToCreate) {
                             $class = $this->getClassByType($objectToCreate['type']);
                             $inGridObjects[] = array('object' => new $class($objectToCreate), 'celerity' => $celerity++);
                         }
                         $object->resetObjectsToCreate();
-                    }
+                    }*/
                 }
             }
         }
-        $this->_grid = array();
+        //$this->_grid = array();
 
         usort($inGridObjects, function($a,$b){
             if($b['celerity'] == $a['celerity']){   return 0;   }
             return ($b['celerity'] < $a['celerity'])?1:-1;
         });
         foreach ($inGridObjects as $inGridObject) {
-            $this->_writeGrid($inGridObject['object']);
+            $this->_writeGrid($inGridObject['object'], true);
         }
 
         $this->_iteration++;

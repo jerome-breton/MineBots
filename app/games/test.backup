@@ -1,103 +1,94 @@
 {
-    "game" : {
+    "game": {
         "name": "Test",
-        "iteration" : 50,
-        "status" : "running"
+        "iteration": 0,
+        "status": "running"
     },
-    "options" : {
-        "weapons" : {
-            "gauntlet" : 1,
-            "rail" : 0.5,
-            "rocket" : 0.2
+    "options": {
+        "weapons": {
+            "gauntlet": 1,
+            "rail": 0.5,
+            "rocket": 0.2
         },
-        "robots" : {
-            "life" : 1
+        "robots": {
+            "life": 1
         },
-        "minerals" : {
-            "score" : 3
+        "minerals": {
+            "score": 3
         },
         "grid": {
-            "width": 100,
-            "height": 100
+            "width": 50,
+            "height": 50
         }
     },
-    "collector": [{
-        "x": 50,
-        "y": 50
-    }],
-    "robot": [{
-        "pilot" : "stdClass",
-        "sleepString" : "something",
-        "x" : 4,
-        "y" : 4,
-        "variation" : 3,
-        "orientation" : "west",
-        "life" : "1",
-        "score" : 3,
-        "minerals" : 2
-    },{
-        "pilot" : "stdClass",
-        "sleepString" : "something",
-        "x" : 20,
-        "y" : 10,
-        "variation" : 7,
-        "orientation" : "south",
-        "life" : "0.35",
-        "score" : 1,
-        "minerals" : 5
-    }],
-    "gauntlet" : [{
-        "x" : 20,
-        "y" : 11,
-        "orientation" : "south"
-    }],
-    "mineral" : [{
-        "x" : 5,
-        "y" : 5
-    },{
-        "x" : 55,
-        "y" : 45
-    },{
-        "x" : 95,
-        "y" : 35
-    }],
-    "rocket" : [{
-        "x" : 11,
-        "y" : 12,
-        "orientation" : "west"
-    },{
-        "x" : 22,
-        "y" : 33,
-        "orientation" : "east"
-    }],
-    "explosion" : [{
-        "x" : 45,
-        "y" : 45
-    }],
-    "rail" : [{
-        "x" : 40,
-        "y" : 40,
-        "orientation" : "west",
-        "variation" : "source"
-    },{
-        "x" : 39,
-        "y" : 40,
-        "orientation" : "west",
-        "variation" : "suite"
-    },{
-        "x" : 38,
-        "y" : 40,
-        "orientation" : "west",
-        "variation" : "suite"
-    },{
-        "x" : 37,
-        "y" : 40,
-        "orientation" : "west",
-        "variation" : "suite"
-    },{
-        "x" : 36,
-        "y" : 40,
-        "orientation" : "west",
-        "variation" : "suite"
-    }]
+    "collector": [
+        {
+            "x": 25,
+            "y": 25
+        }
+    ],
+    "robot": [
+        {
+            "pilot": "stdClass",
+            "sleepString": "something",
+            "x": 4,
+            "y": 4,
+            "variation": 3,
+            "orientation": "west",
+            "life": "1",
+            "score": 3,
+            "minerals": 2
+        },
+        {
+            "pilot": "stdClass",
+            "sleepString": "something",
+            "x": 20,
+            "y": 10,
+            "variation": 7,
+            "orientation": "south",
+            "life": "0.35",
+            "score": 1,
+            "minerals": 5
+        },
+        {
+            "pilot": "stdClass",
+            "sleepString": "something",
+            "x": 10,
+            "y": 10,
+            "variation": 5,
+            "orientation": "west",
+            "life": "1",
+            "score": 3,
+            "minerals": 2
+        },
+        {
+            "pilot": "stdClass",
+            "sleepString": "something",
+            "x": 10,
+            "y": 20,
+            "variation": 8,
+            "orientation": "south",
+            "life": "0.35",
+            "score": 1,
+            "minerals": 5
+        }
+    ],
+    "mineral": [
+        {
+            "x": 5,
+            "y": 5
+        },
+        {
+            "x": 25,
+            "y": 35
+        },
+        {
+            "x": 35,
+            "y": 25
+        },
+        {
+            "x": 15,
+            "y": 15
+        }
+    ]
 }

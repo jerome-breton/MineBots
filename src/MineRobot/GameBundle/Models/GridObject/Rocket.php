@@ -15,12 +15,7 @@ class Rocket extends GridObjectAbstract{
     protected $_picture = 'rocket';
 
     public function run(){
-        $this->_forward();
-        $this->_forward();
-
-        if(rand(1,10)==10){
-            $this->_destroy();
-        }
+        $this->_forward(2);
 
         return parent::run();
     }

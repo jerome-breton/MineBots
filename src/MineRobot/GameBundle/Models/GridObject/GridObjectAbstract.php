@@ -12,6 +12,8 @@ abstract class GridObjectAbstract
 {
     protected $_x = null;
     protected $_y = null;
+    protected $_originalX = null;
+    protected $_originalY = null;
 
     protected $_useOrientation = true;
     protected $_useVariation = false;
@@ -36,6 +38,8 @@ abstract class GridObjectAbstract
     {
         $this->_x = $data['x'];
         $this->_y = $data['y'];
+        $this->_originalX = $data['x'];
+        $this->_originalY = $data['y'];
         if ($this->_useOrientation) {
             $this->_orientation = $data['orientation'];
         }
@@ -123,6 +127,22 @@ abstract class GridObjectAbstract
     public function isDestroyed()
     {
         return (boolean)$this->_destroyed;
+    }
+
+    /**
+     * @return null
+     */
+    public function getOriginalX()
+    {
+        return $this->_originalX;
+    }
+
+    /**
+     * @return null
+     */
+    public function getOriginalY()
+    {
+        return $this->_originalY;
     }
 
     /**
@@ -260,5 +280,10 @@ abstract class GridObjectAbstract
     public function getType()
     {
         return strtolower(str_replace('MineRobot\\GameBundle\\Models\\GridObject\\', '', get_class($this)));
+    }
+
+    protected function _resetPosition(){
+        $this->_x = $this->_originalX;
+        $this->_y = $this->_originalY;
     }
 } 
