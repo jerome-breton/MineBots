@@ -9,6 +9,8 @@
 namespace MineRobot\GameBundle\Models\GridObject;
 
 
+use MineRobot\GameBundle\Helpers\GameManager;
+
 abstract class GridObjectAbstract
 {
     protected $_x = null;
@@ -26,6 +28,7 @@ abstract class GridObjectAbstract
     protected $_variations = array();
 
     protected $_destroyed = false;
+    protected $_createdObjects = array();
 
     const ORIENTATION_NORTH = 'north';
     const ORIENTATION_SOUTH = 'south';
@@ -51,6 +54,10 @@ abstract class GridObjectAbstract
     public function run(){
         if($this->_destroyed){
             return null;
+        }
+        if(!empty($this->_createdObjects)){
+            $this->_createdObjects[] = $this;
+            return $this->_createdObjects;
         }
         return $this;
     }
@@ -178,5 +185,41 @@ abstract class GridObjectAbstract
 
     protected function _destroy(){
         $this->_destroyed = true;
+    }
+
+    protected function _createObject($type, $distance = 1, $side = 0, $rotation = 0, $variation = null){
+        $class = GameManager::getClassByType($type);
+
+        switch ($this->_orientation) {
+            case self::ORIENTATION_NORTH:
+                $y = $this->getY() - $distance;
+                $x = $this->getX() + $side;
+                break;
+            case self::ORIENTATION_EAST:
+                $x = $this->getX() + $distance;
+                $y = $this->getY() - $side;
+                break;
+            case self::ORIENTATION_SOUTH:
+                $y = $this->getY() + $distance;
+                $x = $this->getX() - $side;
+                break;
+            case self::ORIENTATION_WEST:
+                $x = $this->getX() - $distance;
+                $y = $this->getY() + $side;
+                break;
+            default:
+        }
+
+        $data = array(
+            'x' => $x,
+            'y' => $y,
+            'orientation' => $this->getOrientation()
+        );
+        if(!is_null($variation)){
+            $data['variation'] = $variation;
+        }
+        $this->_createdObjects[] = new $class($data);
+
+        return $this;
     }
 } 

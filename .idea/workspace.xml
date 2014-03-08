@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa0afe08-347d-498c-9592-0d604eb8fb07" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridInstantObjectAbstract.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/viewgame.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Explosion.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Explosion.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Helpers/GameManager.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Helpers/GameManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Gauntlet.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Gauntlet.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectAbstract.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectAbstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rail.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rocket.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rocket.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Controller/ViewController.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Controller/ViewController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/rungame.html.twig" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/rungame.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/selectgame.html.twig" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/selectgame.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/games/test.json" afterPath="$PROJECT_DIR$/app/games/test.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/viewgame.html.twig" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/viewgame.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="E:\Projets\MineBots\app\games\backup.json" afterPath="$PROJECT_DIR$/app/games/test.backup" />
     </list>
     <ignored path="MineBots.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,81 +32,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="rungame.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/rungame.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="634" selection-end="634" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="viewgame.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/viewgame.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="44" selection-start="534" selection-end="534" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="561">
-              <folding>
-                <element signature="e#574#583#0" expanded="true" />
-              </folding>
+            <state line="19" column="53" selection-start="742" selection-end="742" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="561">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.backup" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/games/test.backup">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/minerobot/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="22" selection-start="973" selection-end="973" vertical-scroll-proportion="-12.92" vertical-offset="459" max-vertical-offset="1853">
+            <state line="1" column="13" selection-start="22" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="test.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/games/test.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
+            <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Robot.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="59" selection-start="560" selection-end="599" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="629">
+              <folding>
+                <element signature="e#12#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="16" selection-start="818" selection-end="818" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="561">
+              <folding>
+                <element signature="e#699#705#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Controller/ViewController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="34" selection-start="681" selection-end="693" vertical-scroll-proportion="-12.423077" vertical-offset="102" max-vertical-offset="1020">
+              <folding>
+                <element signature="e#51#96#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selectgame.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/selectgame.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="0" selection-start="521" selection-end="521" vertical-scroll-proportion="0.307971" vertical-offset="0" max-vertical-offset="828">
+              <folding>
+                <element signature="e#300#305#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Robot.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="51" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.5483092" vertical-offset="362" max-vertical-offset="1224">
+            <state line="99" column="30" selection-start="2369" selection-end="2369" vertical-scroll-proportion="-58.653847" vertical-offset="73" max-vertical-offset="1768">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gauntlet.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Gauntlet.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="48" selection-start="188" selection-end="188" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="272">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rocket.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rocket.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="29" selection-start="369" selection-end="369" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameManager.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Helpers/GameManager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="1444" selection-end="1444" vertical-scroll-proportion="-21.73077" vertical-offset="421" max-vertical-offset="2533">
-              <folding>
-                <element signature="e#129#166#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -122,19 +124,11 @@
       <file leaf-file-name="Game.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="25" selection-start="2610" selection-end="2610" vertical-scroll-proportion="-20.423077" vertical-offset="1254" max-vertical-offset="2771">
+            <state line="137" column="54" selection-start="3373" selection-end="3373" vertical-scroll-proportion="-28.26923" vertical-offset="1594" max-vertical-offset="3026">
               <folding>
+                <element signature="e#6#86#0" expanded="true" />
                 <element signature="e#128#173#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Options.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Options.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="39" selection-start="336" selection-end="336" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="612">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -161,31 +155,31 @@
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Controller/CreateController.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Controller/IndexController.php" />
-        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Filesystem/README.md" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/index.html.twig" />
         <option value="$PROJECT_DIR$/app/games/test.json.js" />
-        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/selectgame.html.twig" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Interfaces/GridObjectInterface.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectInterface.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Options.php" />
-        <option value="$PROJECT_DIR$/web/minerobot/css/main.css" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Collector.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Mineral.php" />
-        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rail.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Gauntlet.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Explosion.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridInstantObjectAbstract.php" />
-        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectAbstract.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Helpers/GameManager.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Controller/ViewController.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/rungame.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/viewgame.html.twig" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rocket.php" />
+        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectAbstract.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php" />
+        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php" />
         <option value="$PROJECT_DIR$/app/games/test.json" />
+        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/viewgame.html.twig" />
+        <option value="$PROJECT_DIR$/web/minerobot/css/main.css" />
+        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/selectgame.html.twig" />
       </list>
     </option>
   </component>
@@ -237,6 +231,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MineBots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MineBots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MineBots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MineBots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MineBots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minerobot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MineBots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MineBots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minerobot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -563,10 +611,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projets\MineBots\src\MineRobot\GameBundle\Resources\views" />
       <recent name="E:\Projets\MineBots\app\games" />
       <recent name="E:\Projets\MineBots\src\MineRobot\GameBundle\Resources\views\View" />
       <recent name="E:\Projets\MineBots\src\MineRobot\GameBundle\Models\GridObject" />
-      <recent name="E:\Projets\MineBots\src\MineRobot\GameBundle\Resources\views" />
       <recent name="E:\Projets\MineBots\src\MineRobot\GameBundle\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -657,7 +705,11 @@
       <created>1394237241736</created>
       <updated>1394237241736</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Ajout des déplacements des éléments +run en continu en Ajax">
+      <created>1394241028081</created>
+      <updated>1394241028081</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -671,7 +723,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24973376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25239617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25239617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -707,26 +759,13 @@
     <MESSAGE value="Instanciation de Game + rendu de la grille" />
     <MESSAGE value="Assets + nouveaux objets" />
     <MESSAGE value="Ajout de la sauvegarde d'un Game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la sauvegarde d'un Game" />
+    <MESSAGE value="Ajout des déplacements des éléments +run en continu en Ajax" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout des déplacements des éléments +run en continu en Ajax" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="16" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="157" max-vertical-offset="714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="30" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="15" selection-start="0" selection-end="4307" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="850">
@@ -911,13 +950,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/minerobot/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="12" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/minerobot/images/robot/black/east.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -951,13 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="44" selection-start="159" selection-end="184" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="340">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Explosion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="49" selection-start="189" selection-end="189" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="272">
@@ -969,70 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="4" selection-start="188" selection-end="223" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="272">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridInstantObjectAbstract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="200" selection-end="200" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectAbstract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="26" selection-start="4195" selection-end="4195" vertical-scroll-proportion="-19.423077" vertical-offset="2232" max-vertical-offset="3094">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Controller/ViewController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="65" selection-start="987" selection-end="987" vertical-scroll-proportion="-18.307692" vertical-offset="102" max-vertical-offset="1020">
-          <folding>
-            <element signature="e#51#96#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="800" selection-end="800" vertical-scroll-proportion="-20.26923" vertical-offset="0" max-vertical-offset="629">
-          <folding>
-            <element signature="e#12#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="483" selection-end="483" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/selectgame.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="98" selection-start="453" selection-end="453" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Helpers/GameManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="1444" selection-end="1444" vertical-scroll-proportion="-21.73077" vertical-offset="421" max-vertical-offset="2533">
-          <folding>
-            <element signature="e#129#166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/viewgame.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="44" selection-start="534" selection-end="534" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="561">
-          <folding>
-            <element signature="e#574#583#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1057,19 +1018,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/rungame.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridInstantObjectAbstract.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="634" selection-end="634" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
+        <state line="11" column="44" selection-start="184" selection-end="184" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="306">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php">
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="25" selection-start="2610" selection-end="2610" vertical-scroll-proportion="-20.423077" vertical-offset="1254" max-vertical-offset="2771">
+        <state line="11" column="27" selection-start="167" selection-end="167" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="191" column="0" selection-start="4966" selection-end="4966" vertical-scroll-proportion="-6.3461537" vertical-offset="2997" max-vertical-offset="3825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Helpers/GameManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="1444" selection-end="1444" vertical-scroll-proportion="-21.73077" vertical-offset="421" max-vertical-offset="2533">
           <folding>
-            <element signature="e#128#173#0" expanded="true" />
+            <element signature="e#129#166#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/rungame.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="634" selection-end="634" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1083,17 +1065,84 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/games/test.json">
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1853">
+        <state line="99" column="30" selection-start="2369" selection-end="2369" vertical-scroll-proportion="-58.653847" vertical-offset="73" max-vertical-offset="1768">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php">
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="51" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.5483092" vertical-offset="362" max-vertical-offset="1224">
+        <state line="137" column="54" selection-start="3373" selection-end="3373" vertical-scroll-proportion="-28.26923" vertical-offset="1594" max-vertical-offset="3026">
+          <folding>
+            <element signature="e#6#86#0" expanded="true" />
+            <element signature="e#128#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/minerobot/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="13" selection-start="22" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/games/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="854">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="59" selection-start="560" selection-end="599" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="629">
+          <folding>
+            <element signature="e#12#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="16" selection-start="818" selection-end="818" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="561">
+          <folding>
+            <element signature="e#699#705#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Controller/ViewController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="34" selection-start="681" selection-end="693" vertical-scroll-proportion="-12.423077" vertical-offset="102" max-vertical-offset="1020">
+          <folding>
+            <element signature="e#51#96#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/viewgame.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="53" selection-start="742" selection-end="742" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="561">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/selectgame.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="521" selection-end="521" vertical-scroll-proportion="0.307971" vertical-offset="0" max-vertical-offset="828">
+          <folding>
+            <element signature="e#300#305#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

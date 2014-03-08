@@ -17,7 +17,7 @@
             if(jQuery('#run:checked').length){
                 jQuery.get('{{ path("_view_run", {'gameFileName': filename}) }}', function( data ) {
                     $( "#gridArea" ).html( data );
-                    refreshGrid();
+                    window.setTimeout(refreshGrid,500);
                 });
             }
         }

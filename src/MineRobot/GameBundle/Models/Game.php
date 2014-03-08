@@ -43,7 +43,7 @@ class Game
 
     protected $_grid = array();
 
-    protected $_objectsInGrid = ['collector','robot','mineral','rocket','explosion','gauntlet','rail'];
+    protected $_objectsInGrid = ['collector', 'robot', 'mineral', 'rocket', 'explosion', 'gauntlet', 'rail'];
 
     public function __construct($data)
     {
@@ -53,10 +53,10 @@ class Game
         if ($data['options']) {
             $this->_options = new Options($data['options']);
         }
-        foreach($this->_objectsInGrid as $objectType){
-            if(isset($data[$objectType])){
+        foreach ($this->_objectsInGrid as $objectType) {
+            if (isset($data[$objectType])) {
                 $objectClassName = GameManager::getClassByType($objectType);
-                foreach($data[$objectType] as $objectData){
+                foreach ($data[$objectType] as $objectData) {
                     $object = new $objectClassName($objectData);
                     $this->_writeGrid($object);
                 }
@@ -93,52 +93,62 @@ class Game
         return $this->_options;
     }
 
-    public function readGrid($x, $y){
-        if(!isset($this->_grid[$x])){
+    public function readGrid($x, $y)
+    {
+        if (!isset($this->_grid[$x])) {
             return null;
         }
-        if(!isset($this->_grid[$x][$y])){
+        if (!isset($this->_grid[$x][$y])) {
             return null;
         }
         return $this->_grid[$x][$y];
     }
 
-    protected function _writeGrid(GridObjectAbstract $gridObject){
+    protected function _writeGrid(GridObjectAbstract $gridObject)
+    {
         $x = $gridObject->getX();
         $y = $gridObject->getY();
         $gridSize = $this->getOptions()->getGrid();
-        if($x<0 || $x>=$gridSize['width'] || $y<0 || $y>=$gridSize['height']){
+        if ($x < 0 || $x >= $gridSize['width'] || $y < 0 || $y >= $gridSize['height']) {
             return $this;
         }
-        if(!isset($this->_grid[$x])){
+        if (!isset($this->_grid[$x])) {
             $this->_grid[$x] = array();
         }
-        if(!isset($this->_grid[$x][$y])){
+        if (!isset($this->_grid[$x][$y])) {
             $this->_grid[$x][$y] = array();
         }
         $this->_grid[$x][$y][] = $gridObject;
         return $this;
     }
 
-    public function getGrid(){
+    public function getGrid()
+    {
         return $this->_grid;
     }
 
-    public function run(){
+    public function run()
+    {
         $inGridObjects = array();
-        foreach($this->getGrid() as $x => $column){
-            foreach($column as $y => $objects){
-                foreach($objects as $o => $object){
+        foreach ($this->getGrid() as $x => $column) {
+            foreach ($column as $y => $objects) {
+                foreach ($objects as $o => $object) {
                     $inGridObject = $object->run();
-                    if(!is_null($inGridObject)){
-                        $inGridObjects[] = $inGridObject;
+                    if (!is_null($inGridObject)) {
+                        if (is_array($inGridObject)) {
+                            foreach ($inGridObject as $inGridObjectCreation) {
+                                $inGridObjects[] = $inGridObjectCreation;
+                            }
+                        } else {
+                            $inGridObjects[] = $inGridObject;
+                        }
                     }
                 }
                 $this->_grid[$x][$y] = array();
             }
         }
 
-        foreach($inGridObjects as $inGridObject){
+        foreach ($inGridObjects as $inGridObject) {
             $this->_writeGrid($inGridObject);
         }
 
