@@ -84,6 +84,7 @@ class Robot extends GridObjectAbstract
                 $this->_forward();
                 break;
         }
+        usleep(rand(10,10000));
 
         return parent::run();
     }

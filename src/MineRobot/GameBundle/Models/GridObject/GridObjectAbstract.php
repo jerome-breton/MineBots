@@ -128,7 +128,7 @@ abstract class GridObjectAbstract
     /**
      * @param boolean $destroyed
      */
-    public function setDestroyed($destroyed)
+    public function setDestroyed($destroyed = true)
     {
         $this->_destroyed = $destroyed;
     }

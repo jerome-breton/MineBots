@@ -134,25 +134,37 @@ class Game
 
                 /** @var GridObjectAbstract $object */
                 foreach ($objects as $o => $object) {
-                    $object->run();
-                    if(!$object->isDestroyed()){
-                        $inGridObjects[] = $object;
+                    $timeStart = microtime(true);
+                    try{
+                        $object->run();
+                    }catch(Exception $e){
+                        $object->setDestroyed();
+                    }
+                    $timeStop = microtime(true);
+                    $celerity = (double)round(($timeStop - $timeStart) * pow(10, 15));
+
+                    if (!$object->isDestroyed()) {
+                        $inGridObjects[] = array('object' => $object, 'celerity' => $celerity++);
                     }
                     $objectsToCreate = $object->getObjectsToCreate();
                     if (!empty($objectsToCreate)) {
                         foreach ($objectsToCreate as $objectToCreate) {
                             $class = $this->getClassByType($objectToCreate['type']);
-                                $inGridObjects[] = new $class($objectToCreate);
+                            $inGridObjects[] = array('object' => new $class($objectToCreate), 'celerity' => $celerity++);
                         }
                         $object->resetObjectsToCreate();
                     }
                 }
-                $this->_grid[$x][$y] = array();
             }
         }
+        $this->_grid = array();
 
+        usort($inGridObjects, function($a,$b){
+            if($b['celerity'] == $a['celerity']){   return 0;   }
+            return ($b['celerity'] < $a['celerity'])?1:-1;
+        });
         foreach ($inGridObjects as $inGridObject) {
-            $this->_writeGrid($inGridObject);
+            $this->_writeGrid($inGridObject['object']);
         }
 
         $this->_iteration++;
