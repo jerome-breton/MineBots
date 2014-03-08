@@ -8,9 +8,6 @@
 
 namespace MineRobot\GameBundle\Models\GridObject;
 
-
-use MineRobot\GameBundle\Helpers\GameManager;
-
 class Robot extends GridObjectAbstract
 {
     protected $_useOrientation = true;
@@ -80,6 +77,9 @@ class Robot extends GridObjectAbstract
             case 5:
                 $this->_rocket();
                 break;
+            case 6:
+                $this->_shield();
+                break;
             default:
                 $this->_forward();
                 break;
@@ -87,6 +87,10 @@ class Robot extends GridObjectAbstract
         usleep(rand(10,10000));
 
         return parent::run();
+    }
+
+    protected function _shield(){
+        $this->_createObject('shield',0);
     }
 
     protected function _gauntlet(){
@@ -101,5 +105,12 @@ class Robot extends GridObjectAbstract
         for($i=1;$i<=10;$i++){
             $this->_createObject('rail',$i,0,0,($i==1)?'source':'suite');
         }
+    }
+
+    public function setDestroyed($destroyed = true){
+        if($destroyed){
+            $this->_createObject('explosion',0);
+        }
+        return parent::setDestroyed($destroyed);
     }
 }

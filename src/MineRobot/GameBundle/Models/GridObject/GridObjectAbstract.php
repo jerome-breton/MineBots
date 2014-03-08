@@ -131,6 +131,8 @@ abstract class GridObjectAbstract
     public function setDestroyed($destroyed = true)
     {
         $this->_destroyed = $destroyed;
+
+        return $this;
     }
 
     /**
@@ -195,26 +197,26 @@ abstract class GridObjectAbstract
         }
     }
 
-    protected function _forward(){
+    protected function _forward($distance = 1){
         switch ($this->_orientation) {
             case self::ORIENTATION_NORTH:
-                $this->_y = $this->getY() - 1;
+                $this->_y = $this->getY() - $distance;
                 break;
             case self::ORIENTATION_EAST:
-                $this->_x = $this->getX() + 1;
+                $this->_x = $this->getX() + $distance;
                 break;
             case self::ORIENTATION_SOUTH:
-                $this->_y = $this->getY() + 1;
+                $this->_y = $this->getY() + $distance;
                 break;
             case self::ORIENTATION_WEST:
-                $this->_x = $this->getX() - 1;
+                $this->_x = $this->getX() - $distance;
                 break;
             default:
         }
     }
 
     protected function _destroy(){
-        $this->_destroyed = true;
+        $this->setDestroyed();
     }
 
     protected function _createObject($type, $distance = 1, $side = 0, $rotation = 0, $variation = null){
@@ -237,6 +239,8 @@ abstract class GridObjectAbstract
                 $y = $this->getY() + $side;
                 break;
             default:
+                $x = $this->getX();
+                $y = $this->getY();
         }
 
         $data = array(

@@ -42,7 +42,7 @@ class Game
 
     protected $_grid = array();
 
-    protected $_objectsInGrid = ['collector', 'robot', 'mineral', 'rocket', 'explosion', 'gauntlet', 'rail'];
+    protected $_objectsInGrid = ['collector', 'robot', 'mineral', 'rocket', 'explosion', 'shield','gauntlet', 'rail'];
 
     public function __construct($data)
     {
