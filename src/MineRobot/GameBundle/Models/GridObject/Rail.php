@@ -9,11 +9,12 @@
 namespace MineRobot\GameBundle\Models\GridObject;
 
 
-class Rail extends GridObjectAbstract{
+class Rail extends GridInstantObjectAbstract{
     protected $_useOrientation = true;
     protected $_useVariation = true;
 
     protected $_variations = ['suite','source'];
 
     protected $_base_picture = 'rail';
+
 } 

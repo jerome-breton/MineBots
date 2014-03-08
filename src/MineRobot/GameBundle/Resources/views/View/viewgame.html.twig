@@ -1,0 +1,27 @@
+{% extends "MineRobotGameBundle::layout.html.twig" %}
+
+{% block title "MineRobot - View - " ~ game.name %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1 class="title">{{ game.name }}</h1>
+    <input type="checkbox" value="1" name="run" id="run"><label for="run">Run</label>
+
+    <div id="gridArea">
+    {# { render(controller("MineRobotGameBundle:View:rungame", {'gameFileName': filename})) } #}
+    </div>
+
+    <script type="text/javascript">
+        function refreshGrid(){
+            if(jQuery('#run:checked').length){
+                jQuery.get('{{ path("_view_run", {'gameFileName': filename}) }}', function( data ) {
+                    $( "#gridArea" ).html( data );
+                    refreshGrid();
+                });
+            }
+        }
+
+        jQuery('#run').click(refreshGrid);
+    </script>
+{% endblock %}

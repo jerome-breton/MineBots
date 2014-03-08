@@ -54,7 +54,7 @@ class Game
             $this->_options = new Options($data['options']);
         }
         foreach($this->_objectsInGrid as $objectType){
-            if($data[$objectType]){
+            if(isset($data[$objectType])){
                 $objectClassName = GameManager::getClassByType($objectType);
                 foreach($data[$objectType] as $objectData){
                     $object = new $objectClassName($objectData);
@@ -106,6 +106,10 @@ class Game
     protected function _writeGrid(GridObjectAbstract $gridObject){
         $x = $gridObject->getX();
         $y = $gridObject->getY();
+        $gridSize = $this->getOptions()->getGrid();
+        if($x<0 || $x>=$gridSize['width'] || $y<0 || $y>=$gridSize['height']){
+            return $this;
+        }
         if(!isset($this->_grid[$x])){
             $this->_grid[$x] = array();
         }
@@ -120,7 +124,26 @@ class Game
         return $this->_grid;
     }
 
-    public function run(){}
+    public function run(){
+        $inGridObjects = array();
+        foreach($this->getGrid() as $x => $column){
+            foreach($column as $y => $objects){
+                foreach($objects as $o => $object){
+                    $inGridObject = $object->run();
+                    if(!is_null($inGridObject)){
+                        $inGridObjects[] = $inGridObject;
+                    }
+                }
+                $this->_grid[$x][$y] = array();
+            }
+        }
+
+        foreach($inGridObjects as $inGridObject){
+            $this->_writeGrid($inGridObject);
+        }
+
+        $this->_iteration++;
+    }
 
     /**
      * @return int

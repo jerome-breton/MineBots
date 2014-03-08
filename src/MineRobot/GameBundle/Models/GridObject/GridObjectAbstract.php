@@ -25,6 +25,8 @@ abstract class GridObjectAbstract
 
     protected $_variations = array();
 
+    protected $_destroyed = false;
+
     const ORIENTATION_NORTH = 'north';
     const ORIENTATION_SOUTH = 'south';
     const ORIENTATION_EAST = 'east';
@@ -44,6 +46,13 @@ abstract class GridObjectAbstract
                 $this->setVariation(0);
             }
         }
+    }
+
+    public function run(){
+        if($this->_destroyed){
+            return null;
+        }
+        return $this;
     }
 
     public function getSleepArray(){
@@ -147,5 +156,27 @@ abstract class GridObjectAbstract
                 $this->_orientation = self::ORIENTATION_NORTH;
                 break;
         }
+    }
+
+    protected function _forward(){
+        switch ($this->_orientation) {
+            case self::ORIENTATION_NORTH:
+                $this->_y = $this->getY() - 1;
+                break;
+            case self::ORIENTATION_EAST:
+                $this->_x = $this->getX() + 1;
+                break;
+            case self::ORIENTATION_SOUTH:
+                $this->_y = $this->getY() + 1;
+                break;
+            case self::ORIENTATION_WEST:
+                $this->_x = $this->getX() - 1;
+                break;
+            default:
+        }
+    }
+
+    protected function _destroy(){
+        $this->_destroyed = true;
     }
 } 

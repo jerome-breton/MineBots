@@ -56,4 +56,17 @@ class Robot extends GridObjectAbstract{
 
         return $array;
     }
+
+    public function run(){
+        switch(rand(1,5)){
+            case 1:
+                $this->_rotateLeft();   break;
+            case 2:
+                $this->_rotateRight();  break;
+            default:
+                $this->_forward();  break;
+        }
+
+        return parent::run();
+    }
 }

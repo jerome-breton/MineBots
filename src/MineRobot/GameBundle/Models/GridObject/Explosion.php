@@ -9,7 +9,7 @@
 namespace MineRobot\GameBundle\Models\GridObject;
 
 
-class Explosion extends GridObjectAbstract{
+class Explosion extends GridInstantObjectAbstract{
     protected $_useOrientation = false;
 
     protected $_picture = 'explosion';

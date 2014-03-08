@@ -26,6 +26,19 @@ class ViewController extends Controller
      * @Route("/view/{gameFileName}", name="_view")
      * @Template()
      */
+    public function viewgameAction($gameFileName)
+    {
+        $rootDir = $this->get('kernel')->getRootDir();
+
+        $game = GameManager::loadGame($rootDir, $gameFileName, false);
+
+        return array('game' => $game, 'filename' => $gameFileName);
+    }
+
+    /**
+     * @Route("/view/run/{gameFileName}", name="_view_run")
+     * @Template()
+     */
     public function rungameAction($gameFileName)
     {
         $rootDir = $this->get('kernel')->getRootDir();

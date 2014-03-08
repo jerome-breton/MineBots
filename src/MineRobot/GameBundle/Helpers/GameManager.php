@@ -15,12 +15,14 @@ use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Serializer;
 
-class GameManager {
+class GameManager
+{
 
     static protected $_jsonEncoder = null;
     static protected $_serializer = null;
 
-    static public function getGamesList($rootDir){
+    static public function getGamesList($rootDir)
+    {
 
         $finder = new Finder();
 
@@ -40,12 +42,13 @@ class GameManager {
         return $games;
     }
 
-    static public function loadGame($rootDir, $gameFileName){
+    static public function loadGame($rootDir, $gameFileName, $deleteFile = true)
+    {
         $finder = new Finder();
 
         $finder
             ->files()
-            ->name($gameFileName.'.json')
+            ->name($gameFileName . '.json')
             ->depth(0)
             ->in($rootDir . DIRECTORY_SEPARATOR . 'games');
 
@@ -53,17 +56,21 @@ class GameManager {
 
 
         /** @var SplFileInfo $file */
-        foreach($finder as $file){}
+        foreach ($finder as $file) {
+        }
         $game = new Game(self::decodeJsonFile($file));
 
-        $fs = new Filesystem();
+        if ($deleteFile) {
 
-        $fs->remove($file->getRealPath());
+            $fs = new Filesystem();
+            $fs->remove($file->getRealPath());
+        }
 
         return $game;
     }
 
-    static public function saveGame($rootDir, Game $game, $gameFileName){
+    static public function saveGame($rootDir, Game $game, $gameFileName)
+    {
         $gameData = array(
             'game' => array(
                 'name' => $game->getName(),
@@ -77,11 +84,11 @@ class GameManager {
                 'grid' => $game->getOptions()->getGrid(),
             )
         );
-        foreach($game->getGrid() as $x => $column){
-            foreach($column as $y => $objects){
-                foreach($objects as $object){
+        foreach ($game->getGrid() as $x => $column) {
+            foreach ($column as $y => $objects) {
+                foreach ($objects as $object) {
                     $type = self::getTypeByClass($object);
-                    if(!isset($gameData[$type])){
+                    if (!isset($gameData[$type])) {
                         $gameData[$type] = array();
                     }
                     $gameData[$type][] = $object->getSleepArray();
@@ -96,12 +103,14 @@ class GameManager {
         return $game;
     }
 
-    static public function getTypeByClass($object){
-        return strtolower(str_replace('MineRobot\\GameBundle\\Models\\GridObject\\','',get_class($object)));
+    static public function getTypeByClass($object)
+    {
+        return strtolower(str_replace('MineRobot\\GameBundle\\Models\\GridObject\\', '', get_class($object)));
     }
 
-    static public function getClassByType($type){
-        return 'MineRobot\\GameBundle\\Models\\GridObject\\'.ucwords($type);
+    static public function getClassByType($type)
+    {
+        return 'MineRobot\\GameBundle\\Models\\GridObject\\' . ucwords($type);
     }
 
     /**
@@ -109,7 +118,7 @@ class GameManager {
      */
     public static function getJsonEncoder()
     {
-        if(is_null(self::$_jsonEncoder)){
+        if (is_null(self::$_jsonEncoder)) {
             self::$_jsonEncoder = new JsonEncoder();
         }
         return self::$_jsonEncoder;
@@ -120,7 +129,7 @@ class GameManager {
      */
     public static function getSerializer()
     {
-        if(is_null(self::$_serializer)){
+        if (is_null(self::$_serializer)) {
             self::$_serializer = new Serializer(array(), array(self::getJsonEncoder()));
         }
         return self::$_serializer;
@@ -134,7 +143,7 @@ class GameManager {
     private static function decodeJsonFile($file)
     {
         return self::getSerializer()->decode(
-            $file->getContents(),'json', array('json_decode_associative' => true)
+            $file->getContents(), 'json', array('json_decode_associative' => true)
         );
     }
 } 
