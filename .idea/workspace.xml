@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa0afe08-347d-498c-9592-0d604eb8fb07" name="Default" comment="Gestion des collisions, y compris quand les objets se déplacent de plus d'une case">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php" />
+    <list default="true" id="fa0afe08-347d-498c-9592-0d604eb8fb07" name="Default" comment="Gestion des collisions, pour les objets qui ne se déplacent pas (rail/shield/etc.)&#10;+ Correction de boucle infinie quand un objet créée un objet sur sa propre case (shield)">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Jerome.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Pilots/PilotAbstract.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Pilots/AI/Dumb/Random.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php" afterPath="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/games/test.backup" afterPath="$PROJECT_DIR$/app/games/test.backup" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/games/test.json" afterPath="$PROJECT_DIR$/app/games/test.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -28,10 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Game.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Game.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="32" selection-start="3249" selection-end="3249" vertical-scroll-proportion="0.41595092" vertical-offset="1837" max-vertical-offset="7225">
+            <state line="128" column="32" selection-start="3249" selection-end="3249" vertical-scroll-proportion="-13.038462" vertical-offset="1837" max-vertical-offset="7225">
               <folding>
                 <element signature="e#6#86#0" expanded="true" />
                 <element signature="e#128#190#0" expanded="true" />
@@ -40,10 +43,67 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="PilotAbstract.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Pilots/PilotAbstract.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="35" selection-start="540" selection-end="540" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="408">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Random.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Pilots/AI/Dumb/Random.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="48" selection-start="1002" selection-end="1002" vertical-scroll-proportion="-24.192308" vertical-offset="0" max-vertical-offset="833">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="578">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_dev.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/app_dev.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="0" selection-start="938" selection-end="938" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="595">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/games/test.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="1008" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="815">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.backup" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/games/test.backup">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="10" selection-start="0" selection-end="2120" vertical-scroll-proportion="-6.64" vertical-offset="497" max-vertical-offset="1632">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="GridObjectAbstract.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectAbstract.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="276" column="23" selection-start="6308" selection-end="6308" vertical-scroll-proportion="-10.615385" vertical-offset="4331" max-vertical-offset="5593">
+            <state line="57" column="20" selection-start="1402" selection-end="1402" vertical-scroll-proportion="-10.615385" vertical-offset="608" max-vertical-offset="5593">
               <folding />
             </state>
           </provider>
@@ -52,55 +112,7 @@
       <file leaf-file-name="Robot.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="25" selection-start="1566" selection-end="1566" vertical-scroll-proportion="-3.0769231" vertical-offset="906" max-vertical-offset="2346">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MineRobotGameBundle.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/MineRobotGameBundle.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="255">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Manager.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Services/Manager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="47" selection-start="2521" selection-end="2521" vertical-scroll-proportion="-61.46154" vertical-offset="0" max-vertical-offset="2533">
-              <folding>
-                <element signature="e#6#86#0" expanded="true" />
-                <element signature="e#130#167#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="16" selection-start="440" selection-end="440" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="629">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rungame.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/rungame.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="634" selection-end="634" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
+            <state line="61" column="41" selection-start="1441" selection-end="1441" vertical-scroll-proportion="-13.230769" vertical-offset="608" max-vertical-offset="2601">
               <folding />
             </state>
           </provider>
@@ -110,15 +122,6 @@
         <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Resources/views/View/viewgame.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state line="13" column="23" selection-start="439" selection-end="439" vertical-scroll-proportion="-6.3461537" vertical-offset="56" max-vertical-offset="952">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/games/test.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="1072" selection-start="1072" selection-end="1072" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
               <folding />
             </state>
           </provider>
@@ -171,11 +174,14 @@
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Shield.php" />
         <option value="$PROJECT_DIR$/web/minerobot/css/main.css" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Rocket.php" />
-        <option value="$PROJECT_DIR$/app/games/test.backup" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectAbstract.php" />
-        <option value="$PROJECT_DIR$/app/games/test.json" />
-        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php" />
         <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php" />
+        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Pilots/PilotAbstract.php" />
+        <option value="$PROJECT_DIR$/web/app_dev.php" />
+        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php" />
+        <option value="$PROJECT_DIR$/src/MineRobot/GameBundle/Pilots/AI/Dumb/Random.php" />
+        <option value="$PROJECT_DIR$/app/games/test.backup" />
+        <option value="$PROJECT_DIR$/app/games/test.json" />
       </list>
     </option>
   </component>
@@ -254,204 +260,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FrameworkBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FrameworkBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Command" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -500,7 +308,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Services" />
+              <option name="myItemId" value="Pilots" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -526,75 +334,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
+              <option name="myItemId" value="Pilots" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
+              <option name="myItemId" value="AI" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GameBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GameBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="Dumb" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -682,46 +430,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MineBots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="games" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -760,6 +468,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="LayoutCode.rearrangeEntriesJSON" value="false" />
     <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -895,7 +604,11 @@
       <created>1394363157040</created>
       <updated>1394363157040</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Gestion des collisions, pour les objets qui ne se déplacent pas (rail/shield/etc.)&#10;+ Correction de boucle infinie quand un objet créée un objet sur sa propre case (shield)">
+      <created>1394377953702</created>
+      <updated>1394377953702</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -953,7 +666,8 @@
     <MESSAGE value="Ajout de l'objet Shield" />
     <MESSAGE value="Début de gestion des collisions" />
     <MESSAGE value="Gestion des collisions, y compris quand les objets se déplacent de plus d'une case" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestion des collisions, y compris quand les objets se déplacent de plus d'une case" />
+    <MESSAGE value="Gestion des collisions, pour les objets qui ne se déplacent pas (rail/shield/etc.)&#10;+ Correction de boucle infinie quand un objet créée un objet sur sa propre case (shield)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestion des collisions, pour les objets qui ne se déplacent pas (rail/shield/etc.)&#10;+ Correction de boucle infinie quand un objet créée un objet sur sa propre case (shield)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -961,43 +675,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Serializer/Encoder/JsonEncoder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="70" selection-start="1623" selection-end="1623" vertical-scroll-proportion="-8.115385" vertical-offset="877" max-vertical-offset="1513">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Serializer/Encoder/JsonDecode.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="59" selection-start="2690" selection-end="2713" vertical-scroll-proportion="-17.26923" vertical-offset="962" max-vertical-offset="2210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Serializer/Serializer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="26" selection-start="6454" selection-end="6454" vertical-scroll-proportion="-6.6153846" vertical-offset="3228" max-vertical-offset="5049">
-          <folding>
-            <element signature="e#7#236#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_c.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="10" selection-start="447" selection-end="447" vertical-scroll-proportion="-6.9615383" vertical-offset="193" max-vertical-offset="5916">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Finder/Finder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="36" selection-start="979" selection-end="979" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="14008">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Serializer/Normalizer/CustomNormalizer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="9.807693" vertical-offset="255" max-vertical-offset="1105">
@@ -1209,16 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/games/test.backup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="20" selection-start="0" selection-end="1900" vertical-scroll-proportion="-5.96" vertical-offset="803" max-vertical-offset="1700">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="34" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="986">
@@ -1250,13 +917,6 @@
     <entry file="file://$PROJECT_DIR$/app/games/test.backup.rocket">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="69" selection-start="0" selection-end="1158" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/games/test.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="1072" selection-start="1072" selection-end="1072" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
           <folding />
         </state>
       </provider>
@@ -1306,27 +966,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="32" selection-start="3249" selection-end="3249" vertical-scroll-proportion="-13.038462" vertical-offset="1837" max-vertical-offset="7225">
+          <folding>
+            <element signature="e#6#86#0" expanded="true" />
+            <element signature="e#128#190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_c.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="20" selection-start="4091" selection-end="4091" vertical-scroll-proportion="-10.769231" vertical-offset="2304" max-vertical-offset="5916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/GridObjectAbstract.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="23" selection-start="6308" selection-end="6308" vertical-scroll-proportion="-10.615385" vertical-offset="4331" max-vertical-offset="5593">
+        <state line="57" column="20" selection-start="1402" selection-end="1402" vertical-scroll-proportion="-10.615385" vertical-offset="608" max-vertical-offset="5593">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="841">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app_dev.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="938" selection-end="938" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Pilots/PilotAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="35" selection-start="540" selection-end="540" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="408">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/GridObject/Robot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="25" selection-start="1566" selection-end="1566" vertical-scroll-proportion="-3.0769231" vertical-offset="906" max-vertical-offset="2346">
+        <state line="61" column="41" selection-start="1441" selection-end="1441" vertical-scroll-proportion="-13.230769" vertical-offset="608" max-vertical-offset="2601">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Models/Game.php">
+    <entry file="file://$PROJECT_DIR$/src/MineRobot/GameBundle/Pilots/AI/Dumb/Random.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="32" selection-start="3249" selection-end="3249" vertical-scroll-proportion="0.41595092" vertical-offset="1837" max-vertical-offset="7225">
-          <folding>
-            <element signature="e#6#86#0" expanded="true" />
-            <element signature="e#128#190#0" expanded="true" />
-          </folding>
+        <state line="42" column="48" selection-start="1002" selection-end="1002" vertical-scroll-proportion="-24.192308" vertical-offset="0" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/games/test.backup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="10" selection-start="0" selection-end="2120" vertical-scroll-proportion="-6.64" vertical-offset="497" max-vertical-offset="1632">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/games/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="1008" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="815">
+          <folding />
         </state>
       </provider>
     </entry>

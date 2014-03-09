@@ -8,6 +8,8 @@
 
 namespace MineRobot\GameBundle\Models\GridObject;
 
+use MineRobot\GameBundle\Pilots\PilotAbstract;
+
 class Robot extends GridObjectAbstract
 {
     protected $_useOrientation = true;
@@ -37,12 +39,7 @@ class Robot extends GridObjectAbstract
             $this->_minerals = $data['minerals'];
         }
         if (isset($data['pilot'])) {
-            $class = $data['pilot'];
-            $this->_pilot = new $class();
-
-            if (isset($data['sleepString'])) {
-                $this->_pilot->sleepString = $data['sleepString'];
-            }
+            $this->_pilot = $data['pilot'];
         }
     }
 
@@ -53,68 +50,83 @@ class Robot extends GridObjectAbstract
         $array['life'] = $this->_life;
         $array['score'] = $this->_score;
         $array['minerals'] = $this->_minerals;
-        $array['pilot'] = get_class($this->_pilot);
-        $array['sleepString'] = $this->_pilot->sleepString;
+        $array['pilot'] = $this->_pilot;
 
         return $array;
     }
 
     public function run()
     {
-        switch (rand(3, 6)) {
-            case 1:
-                $this->_rotateLeft();
-                break;
-            case 2:
-                $this->_rotateRight();
-                break;
-            case 3:
-                $this->_gauntlet();
-                break;
-            case 4:
-                $this->_rail();
-                break;
-            case 5:
-                $this->_rocket();
-                break;
-            case 6:
-                $this->_shield();
-                break;
-            default:
+        $pilot = unserialize($this->_pilot);
+
+        $order = $pilot->getOrder('@todo');
+
+        $this->_pilot = serialize($pilot);
+
+        switch ($order) {
+            case PilotAbstract::ORDER_MOVE_FORWARD:
                 $this->_forward();
                 break;
+            case PilotAbstract::ORDER_ATTACK_ROCKET:
+                $this->_rocket();
+                break;
+            case PilotAbstract::ORDER_ATTACK_GAUNTLET:
+            $this->_gauntlet();
+                break;
+            case PilotAbstract::ORDER_ATTACK_RAIL:
+            $this->_rail();
+                break;
+            case PilotAbstract::ORDER_DEFEND_SHIELD:
+            $this->_shield();
+                break;
+            case PilotAbstract::ORDER_REPAIR:
+                //Do nothing;
+            break;
+            case PilotAbstract::ORDER_TURN_LEFT:
+                $this->_rotateLeft();
+                break;
+            case PilotAbstract::ORDER_TURN_RIGHT:
+                $this->_rotateRight();
+                break;
+            default:
+                $this->setDestroyed();
         }
-        usleep(rand(10,10000));
 
         return parent::run();
     }
 
-    protected function _shield(){
-        $this->_createObject('shield',0);
+    protected function _shield()
+    {
+        $this->_createObject('shield', 0);
     }
 
-    protected function _gauntlet(){
+    protected function _gauntlet()
+    {
         $this->_createObject('gauntlet');
     }
 
-    protected function _rocket(){
+    protected function _rocket()
+    {
         $this->_createObject('rocket');
     }
 
-    protected function _rail(){
-        for($i=1;$i<=10;$i++){
-            $this->_createObject('rail',$i,0,0,($i==1)?'source':'suite');
+    protected function _rail()
+    {
+        for ($i = 1; $i <= 10; $i++) {
+            $this->_createObject('rail', $i, 0, 0, ($i == 1) ? 'source' : 'suite');
         }
     }
 
-    public function setDestroyed($destroyed = true){
-        if($destroyed){
-            $this->_createObject('explosion',0);
+    public function setDestroyed($destroyed = true)
+    {
+        if ($destroyed) {
+            $this->_createObject('explosion', 0);
         }
         return parent::setDestroyed($destroyed);
     }
 
-    public function atCollector(){
+    public function atCollector()
+    {
         $this->_score += $this->_minerals;
         $this->_minerals = 0;
     }
@@ -122,7 +134,8 @@ class Robot extends GridObjectAbstract
     /**
      * @param Mineral $mineral
      */
-    public function collect($mineral){
+    public function collect($mineral)
+    {
         $this->_minerals++;
         $mineral->setDestroyed();
     }
@@ -130,8 +143,9 @@ class Robot extends GridObjectAbstract
     /**
      * @param $robotInCell
      */
-    public function cellTaken($robotInCell){
-        if($this->getX() == $robotInCell->getX() && $this->getY() == $robotInCell->getY()){
+    public function cellTaken($robotInCell)
+    {
+        if ($this->getX() == $robotInCell->getX() && $this->getY() == $robotInCell->getY()) {
             $this->_resetPosition();
         }
     }

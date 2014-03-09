@@ -1,6 +1,6 @@
 {"game": {
     "name": "Test",
-    "iteration": 1505,
+    "iteration": 32,
     "status": "running"
 }, "options": {
     "weapons": {
@@ -33,90 +33,53 @@
         "y": 5
     },
     {
-        "x": 15,
-        "y": 15
-    },
-    {
         "x": 35,
         "y": 25
+    },
+    {
+        "x": 15,
+        "y": 15
     }
 ], "robot": [
     {
-        "x": 5,
-        "y": 11,
-        "orientation": "east",
+        "x": 20,
+        "y": 8,
+        "orientation": "south",
+        "variation": "red",
+        "life": "0.35",
+        "score": 1,
+        "minerals": 5,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "x": 11,
+        "y": 4,
+        "orientation": "west",
+        "variation": "pink",
+        "life": "1",
+        "score": 3,
+        "minerals": 2,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "x": 7,
+        "y": 29,
+        "orientation": "west",
         "variation": "white",
         "life": "0.35",
         "score": 1,
         "minerals": 5,
-        "pilot": "stdClass",
-        "sleepString": "something"
-    }
-], "rail": [
-    {
-        "x": 15,
-        "y": 11,
-        "orientation": "east",
-        "variation": "suite"
-    },
-    {
-        "x": 6,
-        "y": 11,
-        "orientation": "east",
-        "variation": "source"
-    },
-    {
-        "x": 7,
-        "y": 11,
-        "orientation": "east",
-        "variation": "suite"
-    },
-    {
-        "x": 8,
-        "y": 11,
-        "orientation": "east",
-        "variation": "suite"
-    },
-    {
-        "x": 9,
-        "y": 11,
-        "orientation": "east",
-        "variation": "suite"
-    },
-    {
-        "x": 10,
-        "y": 11,
-        "orientation": "east",
-        "variation": "suite"
-    },
-    {
-        "x": 11,
-        "y": 11,
-        "orientation": "east",
-        "variation": "suite"
-    },
-    {
-        "x": 12,
-        "y": 11,
-        "orientation": "east",
-        "variation": "suite"
-    },
-    {
-        "x": 13,
-        "y": 11,
-        "orientation": "east",
-        "variation": "suite"
-    },
-    {
-        "x": 14,
-        "y": 11,
-        "orientation": "east",
-        "variation": "suite"
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
     }
 ], "rocket": [
     {
-        "x": 48,
-        "y": 11,
-        "orientation": "east"
+        "x": 20,
+        "y": 9,
+        "orientation": "south"
+    },
+    {
+        "x": 3,
+        "y": 29,
+        "orientation": "west"
     }
 ]}
