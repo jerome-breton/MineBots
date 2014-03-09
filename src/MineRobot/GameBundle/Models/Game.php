@@ -8,9 +8,14 @@
 
 namespace MineRobot\GameBundle\Models;
 
+use MineRobot\GameBundle\Models\GridObject\Collector;
+use MineRobot\GameBundle\Models\GridObject\Explosion;
+use MineRobot\GameBundle\Models\GridObject\Gauntlet;
 use MineRobot\GameBundle\Models\GridObject\GridObjectAbstract;
 use MineRobot\GameBundle\Models\GridObject\Mineral;
+use MineRobot\GameBundle\Models\GridObject\Rail;
 use MineRobot\GameBundle\Models\GridObject\Robot;
+use MineRobot\GameBundle\Models\GridObject\Rocket;
 
 class Game
 {
@@ -202,17 +207,19 @@ class Game
     }
 
     /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $shield
+     * @param Explosion $explosion
+     * @param Robot     $robot
      */
     protected function _whenExplosionReachesRobot($explosion, $robot)
     {
-        $robot->setDestroyed();
+        if (!$robot->hasShield()) {
+            $robot->setDestroyed();
+        }
     }
 
     /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $shield
+     * @param Explosion $explosion
+     * @param Rocket    $rocket
      */
     protected function _whenExplosionReachesRocket($explosion, $rocket)
     {
@@ -220,17 +227,8 @@ class Game
     }
 
     /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $shield
-     */
-    protected function _whenRocketReachesShield($rocket, $shield)
-    {
-        $rocket->setDestroyed();
-    }
-
-    /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $robot
+     * @param Gauntlet $gauntlet
+     * @param Rocket   $rocket
      */
     protected function _whenGauntletReachesRocket($gauntlet, $rocket)
     {
@@ -238,8 +236,8 @@ class Game
     }
 
     /**
-     * @param GridObjectAbstract $rocketA
-     * @param GridObjectAbstract $rocketB
+     * @param Rocket $rocketA
+     * @param Rocket $rocketB
      */
     protected function _whenRocketReachesRocket($rocketA, $rocketB)
     {
@@ -252,8 +250,8 @@ class Game
     }
 
     /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $robot
+     * @param Rocket    $rocket
+     * @param Collector $collector
      */
     protected function _whenRocketReachesCollector($rocket, $collector)
     {
@@ -261,54 +259,39 @@ class Game
     }
 
     /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $robot
+     * @param Rocket $rocket
+     * @param Robot  $robot
      */
     protected function _whenRocketReachesRobot($rocket, $robot)
     {
         $rocket->setDestroyed();
-        $robot->setDestroyed();
     }
 
     /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $robot
+     * @param Gauntlet $gauntlet
+     * @param Robot    $robot
      */
     protected function _whenGauntletReachesRobot($gauntlet, $robot)
     {
-        $robot->setDestroyed();
+        if (!$robot->hasShield()) {
+            $robot->setDestroyed();
+        }
     }
 
     /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $robot
-     */
-    protected function _whenGauntletReachesShield($gauntlet, $shield)
-    {
-        $gauntlet->setDestroyed();
-    }
-
-    /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $robot
-     */
-    protected function _whenRailReachesShield($rail, $shield)
-    {
-        $rail->setDestroyed();
-    }
-
-    /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $robot
+     * @param Rail  $rail
+     * @param Robot $robot
      */
     protected function _whenRailReachesRobot($rail, $robot)
     {
-        $robot->setDestroyed();
+        if (!$robot->hasShield()) {
+            $robot->setDestroyed();
+        }
     }
 
     /**
-     * @param GridObjectAbstract $rocket
-     * @param GridObjectAbstract $robot
+     * @param Rail   $rail
+     * @param Rocket $rocket
      */
     protected function _whenRailReachesRocket($rail, $rocket)
     {
@@ -316,8 +299,8 @@ class Game
     }
 
     /**
-     * @param GridObjectAbstract $rocket
-     * @param Robot              $robot
+     * @param Robot     $robot
+     * @param Collector $collector
      */
     protected function _whenRobotReachesCollector($robot, $collector)
     {
@@ -325,8 +308,8 @@ class Game
     }
 
     /**
-     * @param Mineral $mineral
      * @param Robot   $robot
+     * @param Mineral $mineral
      */
     protected function _whenRobotReachesMineral($robot, $mineral)
     {
@@ -334,8 +317,8 @@ class Game
     }
 
     /**
-     * @param Mineral $mineral
-     * @param Robot   $robot
+     * @param Robot $robotIncoming
+     * @param Robot $robotInCell
      */
     protected function _whenRobotReachesRobot($robotIncoming, $robotInCell)
     {

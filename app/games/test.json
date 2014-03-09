@@ -1,6 +1,6 @@
 {"game": {
     "name": "Test",
-    "iteration": 20,
+    "iteration": 120,
     "status": "running"
 }, "options": {
     "weapons": {
@@ -46,15 +46,11 @@
         "score": 1,
         "minerals": 5,
         "pilot": "C:48:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\RandomNoMove\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
-    },
+    }
+], "rocket": [
     {
-        "x": 8,
-        "y": 31,
-        "orientation": "south",
-        "variation": "white",
-        "life": "0.35",
-        "score": 1,
-        "minerals": 6,
-        "pilot": "C:43:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Forward\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+        "x": 11,
+        "y": 10,
+        "orientation": "west"
     }
 ]}

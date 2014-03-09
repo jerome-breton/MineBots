@@ -25,6 +25,8 @@ class Robot extends GridObjectAbstract
     protected $_score = 0;
     protected $_minerals = 0;
 
+    protected $_shieldEnabled = false;
+
     public function __construct($data)
     {
         parent::__construct($data);
@@ -71,13 +73,13 @@ class Robot extends GridObjectAbstract
                 $this->_rocket();
                 break;
             case PilotAbstract::ORDER_ATTACK_GAUNTLET:
-            $this->_gauntlet();
+                $this->_gauntlet();
                 break;
             case PilotAbstract::ORDER_ATTACK_RAIL:
-            $this->_rail();
+                $this->_rail();
                 break;
             case PilotAbstract::ORDER_STAY_SHIELD:
-            $this->_shield();
+                $this->_shield();
                 break;
             case PilotAbstract::ORDER_STAY_REPAIR:
                 //@TODO
@@ -100,6 +102,7 @@ class Robot extends GridObjectAbstract
 
     protected function _shield()
     {
+        $this->_shieldEnabled = true;
         $this->_createObject('shield', 0);
     }
 
@@ -151,5 +154,10 @@ class Robot extends GridObjectAbstract
         if ($this->getX() == $robotInCell->getX() && $this->getY() == $robotInCell->getY()) {
             $this->_resetPosition();
         }
+    }
+
+    public function hasShield()
+    {
+        return $this->_shieldEnabled;
     }
 }
