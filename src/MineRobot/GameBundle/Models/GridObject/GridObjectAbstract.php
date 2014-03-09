@@ -27,7 +27,10 @@ abstract class GridObjectAbstract
     protected $_variations = array();
 
     protected $_destroyed = false;
+
     protected $_objectsToCreate = array();
+    protected $_createObjectX;
+    protected $_createObjectY;
 
     const ORIENTATION_NORTH = 'north';
     const ORIENTATION_SOUTH = 'south';
@@ -43,20 +46,22 @@ abstract class GridObjectAbstract
         if ($this->_useOrientation) {
             $this->_orientation = $data['orientation'];
         }
-        if ($this->_useVariation){
-            if(isset($data['variation'])){
+        if ($this->_useVariation) {
+            if (isset($data['variation'])) {
                 $this->setVariation($data['variation']);
-            }else{
+            } else {
                 $this->setVariation(0);
             }
         }
     }
 
-    public function run(){
+    public function run()
+    {
         return $this;
     }
 
-    public function getSleepArray(){
+    public function getSleepArray()
+    {
         $array = array(
             'x' => $this->getX(),
             'y' => $this->getY()
@@ -64,23 +69,24 @@ abstract class GridObjectAbstract
         if ($this->_useOrientation) {
             $array['orientation'] = $this->_orientation;
         }
-        if ($this->_useVariation){
+        if ($this->_useVariation) {
             $array['variation'] = $this->_variation;
         }
 
         return $array;
     }
 
-    public function setVariation($variation){
-        if(is_numeric($variation)){
+    public function setVariation($variation)
+    {
+        if (is_numeric($variation)) {
             $this->_variation = $this->_variations[$variation % count($this->_variations)];
-        }elseif(in_array($variation, $this->_variations)){
+        } elseif (in_array($variation, $this->_variations)) {
             $this->_variation = $variation;
-        }else{
+        } else {
             throw new \OutOfBoundsException('Invalid variation');
         }
 
-        $this->_picture = $this->_base_picture . '/'.$this->_variation;
+        $this->_picture = $this->_base_picture . '/' . $this->_variation;
 
         return $this;
     }
@@ -116,7 +122,7 @@ abstract class GridObjectAbstract
     {
         if ($this->_useOrientation) {
             return $this->_picture . '/' . $this->getOrientation() . '.gif';
-        }else{
+        } else {
             return $this->_picture . '.gif';
         }
     }
@@ -143,6 +149,33 @@ abstract class GridObjectAbstract
     public function getOriginalY()
     {
         return $this->_originalY;
+    }
+
+    /**
+     * @param int $x
+     * @param int $y
+     */
+    public function setCreatePosition($x, $y)
+    {
+        $this->_createObjectX = $x;
+        $this->_createObjectY = $y;
+    }
+
+    /**
+     * @param null $x
+     */
+    public function resetCreatePosition()
+    {
+        $this->_createObjectX = null;
+        $this->_createObjectY = null;
+    }
+
+    /**
+     * @param null $y
+     */
+    public function setY($y)
+    {
+        $this->_y = $y;
     }
 
     /**
@@ -217,7 +250,8 @@ abstract class GridObjectAbstract
         }
     }
 
-    protected function _forward($distance = 1){
+    protected function _forward($distance = 1)
+    {
         switch ($this->_orientation) {
             case self::ORIENTATION_NORTH:
                 $this->_y = $this->getY() - $distance;
@@ -235,32 +269,37 @@ abstract class GridObjectAbstract
         }
     }
 
-    protected function _destroy(){
+    protected function _destroy()
+    {
         $this->setDestroyed();
     }
 
-    protected function _createObject($type, $distance = 1, $side = 0, $rotation = 0, $variation = null){
+    protected function _createObject($type, $distance = 1, $side = 0, $rotation = 0, $variation = null)
+    {
+
+        $createX = isset($this->_createObjectX) ? $this->_createObjectX : $this->_x;
+        $createY = isset($this->_createObjectY) ? $this->_createObjectY : $this->_y;
 
         switch ($this->_orientation) {
             case self::ORIENTATION_NORTH:
-                $y = $this->getY() - $distance;
-                $x = $this->getX() + $side;
+                $y = $createY - $distance;
+                $x = $createX + $side;
                 break;
             case self::ORIENTATION_EAST:
-                $x = $this->getX() + $distance;
-                $y = $this->getY() - $side;
+                $x = $createX + $distance;
+                $y = $createY - $side;
                 break;
             case self::ORIENTATION_SOUTH:
-                $y = $this->getY() + $distance;
-                $x = $this->getX() - $side;
+                $y = $createY + $distance;
+                $x = $createX - $side;
                 break;
             case self::ORIENTATION_WEST:
-                $x = $this->getX() - $distance;
-                $y = $this->getY() + $side;
+                $x = $createX - $distance;
+                $y = $createY + $side;
                 break;
             default:
-                $x = $this->getX();
-                $y = $this->getY();
+                $x = $createX;
+                $y = $createY;
         }
 
         $data = array(
@@ -269,7 +308,7 @@ abstract class GridObjectAbstract
             'y' => $y,
             'orientation' => $this->getOrientation()
         );
-        if(!is_null($variation)){
+        if (!is_null($variation)) {
             $data['variation'] = $variation;
         }
         $this->_objectsToCreate[] = $data;
@@ -282,7 +321,8 @@ abstract class GridObjectAbstract
         return strtolower(str_replace('MineRobot\\GameBundle\\Models\\GridObject\\', '', get_class($this)));
     }
 
-    protected function _resetPosition(){
+    protected function _resetPosition()
+    {
         $this->_x = $this->_originalX;
         $this->_y = $this->_originalY;
     }
