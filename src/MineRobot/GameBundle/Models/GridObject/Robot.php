@@ -76,12 +76,15 @@ class Robot extends GridObjectAbstract
             case PilotAbstract::ORDER_ATTACK_RAIL:
             $this->_rail();
                 break;
-            case PilotAbstract::ORDER_DEFEND_SHIELD:
+            case PilotAbstract::ORDER_STAY_SHIELD:
             $this->_shield();
                 break;
-            case PilotAbstract::ORDER_REPAIR:
-                //Do nothing;
-            break;
+            case PilotAbstract::ORDER_STAY_REPAIR:
+                //@TODO
+                break;
+            case PilotAbstract::ORDER_STAY_SCAN:
+                //@TODO
+                break;
             case PilotAbstract::ORDER_TURN_LEFT:
                 $this->_rotateLeft();
                 break;

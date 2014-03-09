@@ -11,7 +11,7 @@ namespace MineRobot\GameBundle\Pilots\AI\Dumb;
 
 use MineRobot\GameBundle\Pilots\PilotAbstract;
 
-class Random extends PilotAbstract
+class RandomNoMove extends PilotAbstract
 {
 
     protected $_dummyVar = 'something';
@@ -33,10 +33,6 @@ class Random extends PilotAbstract
     public function getOrder($env)
     {
         switch (rand(1, 10)) {
-            case 1:
-                return self::ORDER_TURN_LEFT;
-            case 2:
-                return self::ORDER_TURN_RIGHT;
             case 3:
                 return self::ORDER_ATTACK_GAUNTLET;
             case 4:
@@ -46,7 +42,7 @@ class Random extends PilotAbstract
             case 6:
                 return self::ORDER_STAY_SHIELD;
             default:
-                return self::ORDER_MOVE_FORWARD;
+                return self::ORDER_STAY_REPAIR;
         }
     }
 }

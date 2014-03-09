@@ -1,6 +1,6 @@
 {"game": {
     "name": "Test",
-    "iteration": 32,
+    "iteration": 20,
     "status": "running"
 }, "options": {
     "weapons": {
@@ -35,51 +35,26 @@
     {
         "x": 35,
         "y": 25
-    },
-    {
-        "x": 15,
-        "y": 15
     }
 ], "robot": [
     {
         "x": 20,
-        "y": 8,
-        "orientation": "south",
+        "y": 10,
+        "orientation": "west",
         "variation": "red",
         "life": "0.35",
         "score": 1,
         "minerals": 5,
-        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+        "pilot": "C:48:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\RandomNoMove\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
     },
     {
-        "x": 11,
-        "y": 4,
-        "orientation": "west",
-        "variation": "pink",
-        "life": "1",
-        "score": 3,
-        "minerals": 2,
-        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
-    },
-    {
-        "x": 7,
-        "y": 29,
-        "orientation": "west",
+        "x": 8,
+        "y": 31,
+        "orientation": "south",
         "variation": "white",
         "life": "0.35",
         "score": 1,
-        "minerals": 5,
-        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
-    }
-], "rocket": [
-    {
-        "x": 20,
-        "y": 9,
-        "orientation": "south"
-    },
-    {
-        "x": 3,
-        "y": 29,
-        "orientation": "west"
+        "minerals": 6,
+        "pilot": "C:43:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Forward\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
     }
 ]}
