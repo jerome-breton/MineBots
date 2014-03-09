@@ -61,7 +61,7 @@ class Robot extends GridObjectAbstract
 
     public function run()
     {
-        switch (rand(1, 10)) {
+        switch (rand(3, 6)) {
             case 1:
                 $this->_rotateLeft();
                 break;

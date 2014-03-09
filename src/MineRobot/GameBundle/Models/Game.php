@@ -127,8 +127,10 @@ class Game
             $this->_grid[$x][$y] = array();
         }
         if ($handleCollisions) {
-            //Test collisions for each cell along deplacement
-            if ($ox == $x) {
+            if ($ox == $x && $oy == $y) {
+                $this->_handleCollisions($x, $y, $gridObject);
+            } elseif ($ox == $x) {
+                //Test collisions for each cell along deplacement
                 $sy = ($oy < $y) ? 1 : -1;
                 for ($dy = $oy + $sy; $sy * $dy <= $sy * $y; $dy += $sy) {
                     $this->_handleCollisions($x, $dy, $gridObject);
@@ -151,12 +153,12 @@ class Game
             }
 
             $objectsToCreate = $object->getObjectsToCreate();
+            $object->resetObjectsToCreate();
             if (!empty($objectsToCreate)) {
                 foreach ($objectsToCreate as $objectToCreate) {
                     $class = $this->getClassByType($objectToCreate['type']);
                     $this->_writeGrid(new $class($objectToCreate), $handleCollisions);
                 }
-                $object->resetObjectsToCreate();
             }
 
         }
