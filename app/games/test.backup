@@ -6,9 +6,9 @@
     },
     "options": {
         "weapons": {
-            "gauntlet": 1,
-            "rail": 0.5,
-            "rocket": 0.2
+            "gauntlet": 0.8,
+            "rail": 0.2,
+            "rocket": 0.8
         },
         "robots": {
             "life": 1

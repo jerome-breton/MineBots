@@ -1,0 +1,298 @@
+{"game": {
+    "name": "Test",
+    "iteration": 1,
+    "status": "running"
+}, "options": {
+    "weapons": {
+        "gauntlet": 0.8,
+        "rail": 0.2,
+        "rocket": 0.8
+    },
+    "robots": {
+        "life": 1,
+        "heal": 0.1,
+        "healTurnBonus": 0.1
+    },
+    "minerals": {
+        "score": 3
+    },
+    "grid": {
+        "width": 50,
+        "height": 50
+    }
+}, "collector": [
+    {
+        "x": 25,
+        "y": 25
+    }
+], "mineral": [
+    {
+        "x": 5,
+        "y": 5
+    },
+    {
+        "x": 10,
+        "y": 5
+    },
+    {
+        "x": 15,
+        "y": 5
+    },{
+        "x": 20,
+        "y": 5
+    },
+    {
+        "x": 25,
+        "y": 5
+    },
+    {
+        "x": 30,
+        "y": 5
+    },
+    {
+        "x": 35,
+        "y": 5
+    },
+    {
+        "x": 40,
+        "y": 5
+    },
+    {
+        "x": 45,
+        "y": 5
+    },{
+        "x": 5,
+        "y": 15
+    },
+    {
+        "x": 10,
+        "y": 15
+    },
+    {
+        "x": 15,
+        "y": 15
+    },{
+        "x": 20,
+        "y": 15
+    },
+    {
+        "x": 25,
+        "y": 15
+    },
+    {
+        "x": 30,
+        "y": 15
+    },
+    {
+        "x": 35,
+        "y": 15
+    },
+    {
+        "x": 40,
+        "y": 15
+    },
+    {
+        "x": 45,
+        "y": 15
+    },{
+        "x": 5,
+        "y": 25
+    },
+    {
+        "x": 10,
+        "y": 25
+    },
+    {
+        "x": 15,
+        "y": 25
+    },{
+        "x": 20,
+        "y": 25
+    },
+    {
+        "x": 30,
+        "y": 25
+    },
+    {
+        "x": 35,
+        "y": 25
+    },
+    {
+        "x": 40,
+        "y": 25
+    },
+    {
+        "x": 45,
+        "y": 25
+    },{
+        "x": 5,
+        "y": 35
+    },
+    {
+        "x": 10,
+        "y": 35
+    },
+    {
+        "x": 15,
+        "y": 35
+    },{
+        "x": 20,
+        "y": 35
+    },
+    {
+        "x": 25,
+        "y": 35
+    },
+    {
+        "x": 30,
+        "y": 35
+    },
+    {
+        "x": 35,
+        "y": 35
+    },
+    {
+        "x": 40,
+        "y": 35
+    },
+    {
+        "x": 45,
+        "y": 35
+    },{
+        "x": 5,
+        "y": 45
+    },
+    {
+        "x": 10,
+        "y": 45
+    },
+    {
+        "x": 15,
+        "y": 45
+    },{
+        "x": 20,
+        "y": 45
+    },
+    {
+        "x": 25,
+        "y": 45
+    },
+    {
+        "x": 30,
+        "y": 45
+    },
+    {
+        "x": 35,
+        "y": 45
+    },
+    {
+        "x": 40,
+        "y": 45
+    },
+    {
+        "x": 45,
+        "y": 45
+    }
+], "robot": [
+    {
+        "x": 10,
+        "y": 10,
+        "orientation": "west",
+        "variation": "1",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },{
+        "x": 20,
+        "y": 10,
+        "orientation": "west",
+        "variation": "2",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },{
+        "x": 30,
+        "y": 10,
+        "orientation": "west",
+        "variation": "3",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },{
+        "x": 40,
+        "y": 10,
+        "orientation": "west",
+        "variation": "4",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },{
+        "x": 40,
+        "y": 20,
+        "orientation": "west",
+        "variation": "5",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },{
+        "x": 30,
+        "y": 20,
+        "orientation": "west",
+        "variation": "6",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },{
+        "x": 20,
+        "y": 20,
+        "orientation": "west",
+        "variation": "7",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },{
+        "x": 10,
+        "y": 20,
+        "orientation": "west",
+        "variation": "8",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },{
+        "x": 10,
+        "y": 30,
+        "orientation": "west",
+        "variation": "9",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },{
+        "x": 20,
+        "y": 30,
+        "orientation": "west",
+        "variation": "0",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    }
+]}

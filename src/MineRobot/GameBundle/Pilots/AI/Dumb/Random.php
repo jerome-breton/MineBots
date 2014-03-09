@@ -45,6 +45,8 @@ class Random extends PilotAbstract
                 return self::ORDER_ATTACK_ROCKET;
             case 6:
                 return self::ORDER_STAY_SHIELD;
+            case 7:
+                return self::ORDER_STAY_REPAIR;
             default:
                 return self::ORDER_MOVE_FORWARD;
         }

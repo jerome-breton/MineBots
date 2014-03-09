@@ -32,17 +32,21 @@ abstract class GridObjectAbstract
     protected $_createObjectX;
     protected $_createObjectY;
 
+    protected $_options = null;
+
     const ORIENTATION_NORTH = 'north';
     const ORIENTATION_SOUTH = 'south';
     const ORIENTATION_EAST = 'east';
     const ORIENTATION_WEST = 'west';
 
-    public function __construct($data)
+    public function __construct($data, $options)
     {
         $this->_x = $data['x'];
         $this->_y = $data['y'];
         $this->_originalX = $data['x'];
         $this->_originalY = $data['y'];
+        $this->_options = $options;
+
         if ($this->_useOrientation) {
             $this->_orientation = $data['orientation'];
         }
@@ -121,9 +125,9 @@ abstract class GridObjectAbstract
     public function getPicture()
     {
         if ($this->_useOrientation) {
-            return $this->_picture . '/' . $this->getOrientation() . '.gif';
+            return $this->_picture . '/' . $this->getOrientation() . '.png';
         } else {
-            return $this->_picture . '.gif';
+            return $this->_picture . '.png';
         }
     }
 

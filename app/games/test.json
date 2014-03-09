@@ -1,15 +1,17 @@
 {"game": {
     "name": "Test",
-    "iteration": 120,
+    "iteration": 85,
     "status": "running"
 }, "options": {
     "weapons": {
-        "gauntlet": 1,
-        "rail": 0.5,
-        "rocket": 0.2
+        "gauntlet": 0.8,
+        "rail": 0.2,
+        "rocket": 0.8
     },
     "robots": {
-        "life": 1
+        "life": 1,
+        "heal": 0.1,
+        "healTurnBonus": 0.1
     },
     "minerals": {
         "score": 3
@@ -26,31 +28,461 @@
 ], "mineral": [
     {
         "x": 25,
+        "y": 5
+    },
+    {
+        "x": 25,
+        "y": 15
+    },
+    {
+        "x": 25,
         "y": 35
+    },
+    {
+        "x": 25,
+        "y": 45
+    },
+    {
+        "x": 15,
+        "y": 5
+    },
+    {
+        "x": 15,
+        "y": 15
+    },
+    {
+        "x": 15,
+        "y": 25
+    },
+    {
+        "x": 15,
+        "y": 35
+    },
+    {
+        "x": 15,
+        "y": 45
     },
     {
         "x": 5,
         "y": 5
     },
     {
+        "x": 5,
+        "y": 15
+    },
+    {
+        "x": 5,
+        "y": 25
+    },
+    {
+        "x": 5,
+        "y": 35
+    },
+    {
+        "x": 5,
+        "y": 45
+    },
+    {
+        "x": 40,
+        "y": 5
+    },
+    {
+        "x": 40,
+        "y": 25
+    },
+    {
+        "x": 40,
+        "y": 35
+    },
+    {
+        "x": 40,
+        "y": 45
+    },
+    {
+        "x": 10,
+        "y": 5
+    },
+    {
+        "x": 10,
+        "y": 15
+    },
+    {
+        "x": 10,
+        "y": 25
+    },
+    {
+        "x": 10,
+        "y": 35
+    },
+    {
+        "x": 10,
+        "y": 45
+    },
+    {
+        "x": 45,
+        "y": 5
+    },
+    {
+        "x": 45,
+        "y": 15
+    },
+    {
+        "x": 45,
+        "y": 25
+    },
+    {
+        "x": 45,
+        "y": 35
+    },
+    {
+        "x": 45,
+        "y": 45
+    },
+    {
+        "x": 20,
+        "y": 5
+    },
+    {
+        "x": 20,
+        "y": 15
+    },
+    {
+        "x": 20,
+        "y": 25
+    },
+    {
+        "x": 20,
+        "y": 35
+    },
+    {
+        "x": 20,
+        "y": 45
+    },
+    {
+        "x": 35,
+        "y": 5
+    },
+    {
+        "x": 35,
+        "y": 15
+    },
+    {
         "x": 35,
         "y": 25
+    },
+    {
+        "x": 35,
+        "y": 35
+    },
+    {
+        "x": 35,
+        "y": 45
+    },
+    {
+        "x": 30,
+        "y": 5
+    },
+    {
+        "x": 30,
+        "y": 15
+    },
+    {
+        "x": 30,
+        "y": 25
+    },
+    {
+        "x": 30,
+        "y": 35
+    },
+    {
+        "x": 30,
+        "y": 45
     }
 ], "robot": [
     {
-        "x": 20,
-        "y": 10,
+        "x": 14,
+        "y": 21,
         "orientation": "west",
         "variation": "red",
-        "life": "0.35",
-        "score": 1,
-        "minerals": 5,
-        "pilot": "C:48:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\RandomNoMove\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "x": 37,
+        "y": 13,
+        "orientation": "north",
+        "variation": "pink",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "x": 4,
+        "y": 29,
+        "orientation": "west",
+        "variation": "yellow",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "x": 11,
+        "y": 9,
+        "orientation": "west",
+        "variation": "blue",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "x": 7,
+        "y": 23,
+        "orientation": "east",
+        "variation": "white",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "x": 36,
+        "y": 21,
+        "orientation": "west",
+        "variation": "green",
+        "life": 0.8,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 1,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "x": 17,
+        "y": 28,
+        "orientation": "north",
+        "variation": "black",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "x": 21,
+        "y": 24,
+        "orientation": "west",
+        "variation": "purple",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    }
+], "shield": [
+    {
+        "x": 14,
+        "y": 21
+    },
+    {
+        "x": 36,
+        "y": 21
     }
 ], "rocket": [
     {
-        "x": 11,
+        "x": 14,
         "y": 10,
+        "orientation": "north"
+    },
+    {
+        "x": 11,
+        "y": 24,
         "orientation": "west"
+    },
+    {
+        "x": 45,
+        "y": 31,
+        "orientation": "east"
+    },
+    {
+        "x": 8,
+        "y": 24,
+        "orientation": "west"
+    },
+    {
+        "x": 21,
+        "y": 19,
+        "orientation": "west"
+    },
+    {
+        "x": 1,
+        "y": 9,
+        "orientation": "west"
+    }
+], "explosion": [
+    {
+        "x": 14,
+        "y": 24
+    },
+    {
+        "x": 14,
+        "y": 23
+    },
+    {
+        "x": 14,
+        "y": 22
+    },
+    {
+        "x": 13,
+        "y": 24
+    },
+    {
+        "x": 13,
+        "y": 23
+    },
+    {
+        "x": 13,
+        "y": 22
+    },
+    {
+        "x": 12,
+        "y": 23
+    },
+    {
+        "x": 12,
+        "y": 24
+    },
+    {
+        "x": 12,
+        "y": 22
+    },
+    {
+        "x": 1,
+        "y": 29
+    },
+    {
+        "x": 1,
+        "y": 28
+    },
+    {
+        "x": 1,
+        "y": 30
+    },
+    {
+        "x": 2,
+        "y": 29
+    },
+    {
+        "x": 2,
+        "y": 28
+    },
+    {
+        "x": 2,
+        "y": 30
+    },
+    {
+        "x": 0,
+        "y": 28
+    },
+    {
+        "x": 0,
+        "y": 29
+    },
+    {
+        "x": 0,
+        "y": 30
+    }
+], "rail": [
+    {
+        "x": 14,
+        "y": 23,
+        "orientation": "east",
+        "variation": "suite"
+    },
+    {
+        "x": 11,
+        "y": 23,
+        "orientation": "east",
+        "variation": "suite"
+    },
+    {
+        "x": 17,
+        "y": 23,
+        "orientation": "east",
+        "variation": "suite"
+    },
+    {
+        "x": 15,
+        "y": 23,
+        "orientation": "east",
+        "variation": "suite"
+    },
+    {
+        "x": 10,
+        "y": 23,
+        "orientation": "east",
+        "variation": "suite"
+    },
+    {
+        "x": 3,
+        "y": 29,
+        "orientation": "west",
+        "variation": "source"
+    },
+    {
+        "x": 13,
+        "y": 23,
+        "orientation": "east",
+        "variation": "suite"
+    },
+    {
+        "x": 8,
+        "y": 23,
+        "orientation": "east",
+        "variation": "source"
+    },
+    {
+        "x": 9,
+        "y": 23,
+        "orientation": "east",
+        "variation": "suite"
+    },
+    {
+        "x": 12,
+        "y": 23,
+        "orientation": "east",
+        "variation": "suite"
+    },
+    {
+        "x": 1,
+        "y": 29,
+        "orientation": "west",
+        "variation": "suite"
+    },
+    {
+        "x": 2,
+        "y": 29,
+        "orientation": "west",
+        "variation": "suite"
+    },
+    {
+        "x": 0,
+        "y": 29,
+        "orientation": "west",
+        "variation": "suite"
+    },
+    {
+        "x": 16,
+        "y": 23,
+        "orientation": "east",
+        "variation": "suite"
     }
 ]}

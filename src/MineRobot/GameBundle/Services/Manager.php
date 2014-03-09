@@ -82,12 +82,7 @@ class Manager
                 'iteration' => $game->getIteration(),
                 'status' => $game->getStatus(),
             ),
-            'options' => array(
-                'weapons' => $game->getOptions()->getWeapons(),
-                'robots' => $game->getOptions()->getRobots(),
-                'minerals' => $game->getOptions()->getMinerals(),
-                'grid' => $game->getOptions()->getGrid(),
-            )
+            'options' => $game->options
         );
         foreach ($game->getGrid() as $x => $column) {
             foreach ($column as $y => $objects) {

@@ -25,14 +25,19 @@ class Robot extends GridObjectAbstract
     protected $_score = 0;
     protected $_minerals = 0;
 
+    protected $_healingTurns = 0;
+
     protected $_shieldEnabled = false;
 
-    public function __construct($data)
+    public function __construct($data, $options)
     {
-        parent::__construct($data);
+        parent::__construct($data, $options);
 
         if (isset($data['life'])) {
             $this->_life = $data['life'];
+        }
+        if (isset($data['healingTurns'])) {
+            $this->_healingTurns = $data['healingTurns'];
         }
         if (isset($data['score'])) {
             $this->_score = $data['score'];
@@ -50,11 +55,30 @@ class Robot extends GridObjectAbstract
         $array = parent::getSleepArray();
 
         $array['life'] = $this->_life;
+        $array['healingTurns'] = $this->_healingTurns;
         $array['score'] = $this->_score;
         $array['minerals'] = $this->_minerals;
         $array['pilot'] = $this->_pilot;
 
         return $array;
+    }
+
+    public function damage($amount)
+    {
+        $this->_life -= $amount;
+        if ($this->_life <= 0) {
+            $this->setDestroyed();
+        }
+    }
+
+    public function _heal()
+    {
+        $this->_life += $this->_options['robots']['heal']
+            * (1 + $this->_healingTurns * $this->_options['robots']['healTurnBonus']);
+
+        if ($this->_life > $this->_options['robots']['life']) {
+            $this->_life = $this->_options['robots']['life'];
+        }
     }
 
     public function run()
@@ -64,6 +88,10 @@ class Robot extends GridObjectAbstract
         $order = $pilot->getOrder('@todo');
 
         $this->_pilot = serialize($pilot);
+
+        if ($order != PilotAbstract::ORDER_STAY_REPAIR) {
+            $this->_healingTurns = 0;
+        }
 
         switch ($order) {
             case PilotAbstract::ORDER_MOVE_FORWARD:
@@ -82,7 +110,7 @@ class Robot extends GridObjectAbstract
                 $this->_shield();
                 break;
             case PilotAbstract::ORDER_STAY_REPAIR:
-                //@TODO
+                $this->_heal();
                 break;
             case PilotAbstract::ORDER_STAY_SCAN:
                 //@TODO
@@ -127,13 +155,16 @@ class Robot extends GridObjectAbstract
     {
         if ($destroyed) {
             $this->_createObject('explosion', 0);
+            for ($x = $this->_minerals; $x > 0; $x--) {
+                $this->_createObject('mineral', rand(-3, 3), rand(-3, 3));
+            }
         }
         return parent::setDestroyed($destroyed);
     }
 
     public function atCollector()
     {
-        $this->_score += $this->_minerals;
+        $this->_score += $this->_minerals * $this->_options['minerals']['points'];
         $this->_minerals = 0;
     }
 

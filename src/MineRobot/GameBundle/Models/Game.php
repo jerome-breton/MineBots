@@ -41,11 +41,7 @@ class Game
     const STATUS_RUNNING = 'running';
     const STATUS_FINISHED = 'finished';
 
-    /**
-     * Game options
-     * @var Options
-     */
-    protected $_options = null;
+    public $options = null;
 
     protected $_grid = array();
 
@@ -57,13 +53,13 @@ class Game
             $this->_initGame($data['game']);
         }
         if ($data['options']) {
-            $this->_options = new Options($data['options']);
+            $this->options = $data['options'];
         }
         foreach ($this->_objectsInGrid as $objectType) {
             if (isset($data[$objectType])) {
                 $objectClassName = $this->getClassByType($objectType);
                 foreach ($data[$objectType] as $objectData) {
-                    $object = new $objectClassName($objectData);
+                    $object = new $objectClassName($objectData, $this->options);
                     $this->_writeGrid($object);
                 }
             }
@@ -92,11 +88,11 @@ class Game
     }
 
     /**
-     * @return \MineRobot\GameBundle\Models\Options
+     * @return array
      */
     public function getOptions()
     {
-        return $this->_options;
+        return $this->options;
     }
 
     public function readGrid($x, $y)
@@ -112,27 +108,36 @@ class Game
 
     protected function _writeGrid(GridObjectAbstract $gridObject, $handleCollisions = false)
     {
+        //Unset previous position in grid
         $hash = spl_object_hash($gridObject);
         $ox = $gridObject->getOriginalX();
         $oy = $gridObject->getOriginalY();
         if (isset($this->_grid[$ox][$oy][$hash])) {
             unset($this->_grid[$ox][$oy][$hash]);
         }
+
+        //Check if position is not out of bounds
         $x = $gridObject->getX();
         $y = $gridObject->getY();
-        $gridSize = $this->getOptions()->getGrid();
-        if ($x < 0 || $x >= $gridSize['width'] || $y < 0 || $y >= $gridSize['height']) {
+        if ($x < 0 || $x >= $this->options['grid']['width']
+            || $y < 0 || $y >= $this->options['grid']['height']
+        ) {
             $gridObject->setDestroyed();
             return $this;
         }
+
+        //Init grid arrays if not done yet
         if (!isset($this->_grid[$x])) {
             $this->_grid[$x] = array();
         }
         if (!isset($this->_grid[$x][$y])) {
             $this->_grid[$x][$y] = array();
         }
+
+        //Handle collisions
         if ($handleCollisions) {
             if ($ox == $x && $oy == $y) {
+                //Test for not moving objects
                 $this->_handleCollisions($x, $y, $gridObject);
             } elseif ($ox == $x) {
                 //Test collisions for each cell along deplacement
@@ -151,23 +156,26 @@ class Game
             }
         }
 
+        //Write objects in grid
         $this->_grid[$x][$y][$hash] = $gridObject;
         foreach ($this->_grid[$x][$y] as $hash => $object) {
+
+            //Remove destroyed objects (mainly due to collisions)
             if ($object->isDestroyed()) {
                 unset($this->_grid[$x][$y][$hash]);
             }
 
+            //Adds subobjects to grid using recursive call
             $objectsToCreate = $object->getObjectsToCreate();
             $object->resetObjectsToCreate();
             if (!empty($objectsToCreate)) {
                 foreach ($objectsToCreate as $objectToCreate) {
                     $class = $this->getClassByType($objectToCreate['type']);
-                    $this->_writeGrid(new $class($objectToCreate), $handleCollisions);
+                    $this->_writeGrid(new $class($objectToCreate, $this->options), $handleCollisions);
                 }
             }
 
         }
-        gc_collect_cycles();
         return $this;
     }
 
@@ -213,7 +221,7 @@ class Game
     protected function _whenExplosionReachesRobot($explosion, $robot)
     {
         if (!$robot->hasShield()) {
-            $robot->setDestroyed();
+            $robot->damage($this->options['weapons']['rocket']);
         }
     }
 
@@ -264,6 +272,7 @@ class Game
      */
     protected function _whenRocketReachesRobot($rocket, $robot)
     {
+        //Robot will take damage from explosion, not the rocket itself
         $rocket->setDestroyed();
     }
 
@@ -274,7 +283,7 @@ class Game
     protected function _whenGauntletReachesRobot($gauntlet, $robot)
     {
         if (!$robot->hasShield()) {
-            $robot->setDestroyed();
+            $robot->damage($this->options['weapons']['gauntlet']);
         }
     }
 
@@ -285,7 +294,7 @@ class Game
     protected function _whenRailReachesRobot($rail, $robot)
     {
         if (!$robot->hasShield()) {
-            $robot->setDestroyed();
+            $robot->damage($this->options['weapons']['rail']);
         }
     }
 
@@ -333,11 +342,10 @@ class Game
     public function run()
     {
         $inGridObjects = array();
-        foreach ($this->getGrid() as $x => $column) {
-            foreach ($column as $y => $objects) {
-
+        foreach ($this->getGrid() as $column) {
+            foreach ($column as $objects) {
                 /** @var GridObjectAbstract $object */
-                foreach ($objects as $o => $object) {
+                foreach ($objects as $object) {
                     $timeStart = microtime(true);
                     try {
                         $object->run();
@@ -347,15 +355,7 @@ class Game
                     $timeStop = microtime(true);
                     $celerity = (double)round(($timeStop - $timeStart) * pow(10, 15));
 
-                    $inGridObjects[] = array('object' => $object, 'celerity' => $celerity++);
-                    /*$objectsToCreate = $object->getObjectsToCreate();
-                    if (!empty($objectsToCreate)) {
-                        foreach ($objectsToCreate as $objectToCreate) {
-                            $class = $this->getClassByType($objectToCreate['type']);
-                            $inGridObjects[] = array('object' => new $class($objectToCreate), 'celerity' => $celerity++);
-                        }
-                        $object->resetObjectsToCreate();
-                    }*/
+                    $inGridObjects[] = array('object' => $object, 'celerity' => $celerity);
                 }
             }
         }
