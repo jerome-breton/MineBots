@@ -20,6 +20,7 @@ abstract class GridObjectAbstract
 
     protected $_picture = 'nothing';
     protected $_base_picture = 'nothing';
+    protected $_pic_extension = 'gif';
 
     protected $_orientation = null;
     protected $_variation = null;
@@ -125,9 +126,9 @@ abstract class GridObjectAbstract
     public function getPicture()
     {
         if ($this->_useOrientation) {
-            return $this->_picture . '/' . $this->getOrientation() . '.png';
+            return $this->_picture . '/' . $this->getOrientation() . '.' . $this->_pic_extension;
         } else {
-            return $this->_picture . '.png';
+            return $this->_picture . '.' . $this->_pic_extension;
         }
     }
 
@@ -330,4 +331,4 @@ abstract class GridObjectAbstract
         $this->_x = $this->_originalX;
         $this->_y = $this->_originalY;
     }
-} 
+}

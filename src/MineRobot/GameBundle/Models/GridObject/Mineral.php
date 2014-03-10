@@ -13,4 +13,5 @@ class Mineral extends GridObjectAbstract{
     protected $_useOrientation = false;
 
     protected $_picture = 'mineral';
-} 
+    protected $_pic_extension = 'png';
+}
