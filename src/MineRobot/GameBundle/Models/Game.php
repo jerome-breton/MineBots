@@ -21,6 +21,16 @@ class Game
 {
     const CONTEXT_OBJECTS = 'objects_in_sight';
     const CONTEXT_OPTIONS = 'options';
+    const CONTEXT_SELF = 'self';
+
+    const OBJECT_COLLECTOR = 'collector';
+    const OBJECT_ROBOT = 'robot';
+    const OBJECT_MINERAL = 'mineral';
+    const OBJECT_ROCKET = 'rocket';
+    const OBJECT_EXPLOSION = 'explosion';
+    const OBJECT_SHIELD = 'shield';
+    const OBJECT_GAUNTLET = 'gauntlet';
+    const OBJECT_RAIL = 'rail';
 
     /**
      * Name of the Game
@@ -47,7 +57,16 @@ class Game
 
     protected $_grid = array();
 
-    protected $_objectsInGrid = ['collector', 'robot', 'mineral', 'rocket', 'explosion', 'shield', 'gauntlet', 'rail'];
+    protected $_objectsInGrid = [
+        self::OBJECT_COLLECTOR,
+        self::OBJECT_ROBOT,
+        self::OBJECT_MINERAL,
+        self::OBJECT_ROCKET,
+        self::OBJECT_EXPLOSION,
+        self::OBJECT_SHIELD,
+        self::OBJECT_GAUNTLET,
+        self::OBJECT_RAIL
+    ];
 
     public function __construct($data)
     {
@@ -223,7 +242,7 @@ class Game
     protected function _whenExplosionReachesRobot($explosion, $robot)
     {
         if (!$robot->hasShield()) {
-            $robot->damage($this->options['weapons']['rocket']);
+            $robot->damage($this->options['weapons'][self::OBJECT_ROCKET]);
         }
     }
 
@@ -285,7 +304,7 @@ class Game
     protected function _whenGauntletReachesRobot($gauntlet, $robot)
     {
         if (!$robot->hasShield()) {
-            $robot->damage($this->options['weapons']['gauntlet']);
+            $robot->damage($this->options['weapons'][self::OBJECT_GAUNTLET]);
         }
     }
 
@@ -296,7 +315,7 @@ class Game
     protected function _whenRailReachesRobot($rail, $robot)
     {
         if (!$robot->hasShield()) {
-            $robot->damage($this->options['weapons']['rail']);
+            $robot->damage($this->options['weapons'][self::OBJECT_RAIL]);
         }
     }
 
@@ -412,23 +431,48 @@ class Game
             $scanDistance = $this->options['sight']['base'];
         }
         $context = array(
-            self::CONTEXT_OBJECTS => $this->_getObjectsInSight($object->getX(), $object->getY(), $scanDistance),
+            self::CONTEXT_OBJECTS => $this->_getObjectsInSight(
+                    $object->getX(), $object->getY(), $scanDistance, spl_object_hash($object)
+                ),
             self::CONTEXT_OPTIONS => $this->options,
+            self::CONTEXT_SELF => array(
+                'x' => $object->getX(),
+                'y' => $object->getY(),
+                'orientation' => $object->getOrientation(),
+            )
         );
+        if ($object instanceof Robot) {
+            $context[self::CONTEXT_SELF]['life'] = $object->getLife();
+            $context[self::CONTEXT_SELF]['minerals'] = $object->getMinerals();
+            $context[self::CONTEXT_SELF]['score'] = $object->getScore();
+            $context[self::CONTEXT_SELF]['healingTurns'] = $object->getHealingTurns();
+        }
 
         return $context;
     }
 
-    protected function _getObjectsInSight($cx, $cy, $d)
+    protected function _getObjectsInSight($cx, $cy, $d, $h)
     {
         $objectsInSight = array();
         for ($x = $cx - $d; $x <= $cx + $d; $x++) {
             for ($y = $cy - $d; $y <= $cy + $d; $y++) {
                 if (isset($this->_grid[$x]) && isset($this->_grid[$x][$y]) && !empty($this->_grid[$x][$y])) {
+                    /** @var GridObjectAbstract $object */
+                    foreach ($this->_grid[$x][$y] as $hash => $object) {
+                        if ($hash == $h) {
+                            continue;
+                        }
+                        $objectsInSight[$hash] = array(
+                            'type' => $object->getType(),
+                            'x' => $object->getX(),
+                            'y' => $object->getY(),
+                            'orientation' => $object->getOrientation()
+                        );
+                    }
                     $objectsInSight = array_merge($objectsInSight, $this->_grid[$x][$y]);
                 }
             }
         }
         return $objectsInSight;
     }
-} 
+}

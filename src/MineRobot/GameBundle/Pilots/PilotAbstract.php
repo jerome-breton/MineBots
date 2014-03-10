@@ -9,6 +9,9 @@
 namespace MineRobot\GameBundle\Pilots;
 
 
+use MineRobot\GameBundle\Models\Game;
+use MineRobot\GameBundle\Models\GridObject\GridObjectAbstract;
+
 abstract class PilotAbstract implements \Serializable
 {
     //Move a case further according to direction
@@ -29,5 +32,43 @@ abstract class PilotAbstract implements \Serializable
     //Sacrifice a move to get better sight at next turn
     const ORDER_STAY_SCAN = 'scan';
 
+    const ORIENTATION_NORTH = GridObjectAbstract::ORIENTATION_NORTH;
+    const ORIENTATION_SOUTH = GridObjectAbstract::ORIENTATION_SOUTH;
+    const ORIENTATION_EAST = GridObjectAbstract::ORIENTATION_EAST;
+    const ORIENTATION_WEST = GridObjectAbstract::ORIENTATION_WEST;
+
+    const CONTEXT_OBJECTS = Game::CONTEXT_OBJECTS;
+    const CONTEXT_OPTIONS = Game::CONTEXT_OPTIONS;
+    const CONTEXT_SELF = Game::CONTEXT_SELF;
+
+    const OBJECT_COLLECTOR = Game::OBJECT_COLLECTOR;
+    const OBJECT_ROBOT = Game::OBJECT_ROBOT;
+    const OBJECT_MINERAL = Game::OBJECT_MINERAL;
+    const OBJECT_ROCKET = Game::OBJECT_ROCKET;
+    const OBJECT_EXPLOSION = Game::OBJECT_EXPLOSION;
+    const OBJECT_SHIELD = Game::OBJECT_SHIELD;
+    const OBJECT_GAUNTLET = Game::OBJECT_GAUNTLET;
+    const OBJECT_RAIL = Game::OBJECT_RAIL;
+
+    protected $_objectTypes = [
+        self::OBJECT_COLLECTOR,
+        self::OBJECT_ROBOT,
+        self::OBJECT_MINERAL,
+        self::OBJECT_ROCKET,
+        self::OBJECT_EXPLOSION,
+        self::OBJECT_SHIELD,
+        self::OBJECT_GAUNTLET,
+        self::OBJECT_RAIL
+    ];
+
     abstract function getOrder($env);
+
+    public function serialize()
+    {
+        return '';
+    }
+
+    public function unserialize($string)
+    {
+    }
 }

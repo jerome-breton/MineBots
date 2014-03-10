@@ -76,14 +76,17 @@ class Robot extends GridObjectAbstract
         }
     }
 
-    public function _heal()
+    protected function _heal()
     {
-        $this->_life += $this->_options['robots']['heal']
-            * (1 + $this->_healingTurns * $this->_options['robots']['healTurnBonus']);
-
-        if ($this->_life > $this->_options['robots']['life']) {
-            $this->_life = $this->_options['robots']['life'];
+        if ($this->_healingTurns < count($this->_options['robots']['heal'])) {
+            $this->_life += $this->_options['robots']['heal'][$this->_healingTurns];
+            if ($this->_life > $this->_options['robots']['life']) {
+                $this->_life = $this->_options['robots']['life'];
+            }
+        } else {
+            $this->_life = 1;
         }
+        $this->_healingTurns++;
 //        $this->_createObject('shield', 0);    Add visual effect ?
     }
 
@@ -211,5 +214,37 @@ class Robot extends GridObjectAbstract
     public function isScanning()
     {
         return $this->_scan;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLife()
+    {
+        return $this->_life;
+    }
+
+    /**
+     * @return int
+     */
+    public function getScore()
+    {
+        return $this->_score;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMinerals()
+    {
+        return $this->_minerals;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHealingTurns()
+    {
+        return $this->_healingTurns;
     }
 }
