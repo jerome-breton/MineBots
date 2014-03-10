@@ -2,12 +2,9 @@
 
 namespace MineRobot\GameBundle\Controller;
 
-use MineRobot\GameBundle\Helpers\GameManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 // these import the "@Route" and "@Template" annotations
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class ViewController extends Controller
 {
@@ -19,17 +16,36 @@ class ViewController extends Controller
     {
         $rootDir = $this->get('kernel')->getRootDir();
 
-        return array('games' => GameManager::getGamesList($rootDir));
+        return array('games' => $this->get('minerobot_game.manager')->getGamesList($rootDir));
     }
 
     /**
-     * @Route("/view/{game}", name="_view")
+     * @Route("/view/{gameFileName}", name="_view")
      * @Template()
      */
-    public function rungameAction($game)
+    public function viewgameAction($gameFileName)
     {
         $rootDir = $this->get('kernel')->getRootDir();
 
-        return array('game' => GameManager::loadGame($rootDir, $game));
+        $game = $this->get('minerobot_game.manager')->loadGame($rootDir, $gameFileName, false);
+
+        return array('game' => $game, 'filename' => $gameFileName);
+    }
+
+    /**
+     * @Route("/view/run/{gameFileName}", name="_view_run")
+     * @Template()
+     */
+    public function rungameAction($gameFileName)
+    {
+        $rootDir = $this->get('kernel')->getRootDir();
+
+        $game = $this->get('minerobot_game.manager')->loadGame($rootDir, $gameFileName, false);
+
+        $game->run();
+
+        $this->get('minerobot_game.manager')->saveGame($rootDir, $game, $gameFileName);
+
+        return array('game' => $game);
     }
 }

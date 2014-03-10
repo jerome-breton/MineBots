@@ -12,5 +12,5 @@ namespace MineRobot\GameBundle\Models\GridObject;
 class Mineral extends GridObjectAbstract{
     protected $_useOrientation = false;
 
-    protected $_picture = 'M';
+    protected $_picture = 'mineral';
 } 

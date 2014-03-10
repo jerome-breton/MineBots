@@ -8,13 +8,46 @@
 }
 
 #grid tr, #grid td{
-    border:solid 1px white;
+    border:solid 1px #C49981;
     padding:0;
     margin:0;
     font-size:8px;
+    line-height:6px;
     width:15px;
     height:15px;
     text-align: center;
     vertical-align: middle;
     color: white;
+    position: relative;
+}
+
+#grid td img{
+    width: 15px;
+    height: 15px;
+    border:0;
+    padding:0;
+    margin:0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@font-face {
+    font-family: 'GELIcons';
+    src: url('../fonts/gel.eot');
+    src: url('../fonts/gel.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/gel.woff') format('woff'),
+    url('../fonts/gel.ttf') format('truetype'),
+    url('../fonts/gel.svg#gel') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    font-family: 'GELIcons';
+    font-size: 150%;
+}
+
+.pointer{
+    cursor: pointer;
 }

@@ -1,0 +1,3 @@
+services:
+  minerobot_game.manager:
+    class: MineRobot\GameBundle\Services\Manager

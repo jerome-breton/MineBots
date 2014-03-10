@@ -12,5 +12,5 @@ namespace MineRobot\GameBundle\Models\GridObject;
 class Collector extends GridObjectAbstract{
     protected $_useOrientation = false;
 
-    protected $_picture = 'C';
+    protected $_picture = 'collector';
 } 

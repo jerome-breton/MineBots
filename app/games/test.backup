@@ -1,0 +1,90 @@
+{
+    "game": {
+        "name": "Test",
+        "iteration": 0,
+        "status": "running"
+    },
+    "options": {
+        "weapons": {
+            "gauntlet": 0.8,
+            "rail": 0.2,
+            "rocket": 0.8
+        },
+        "robots": {
+            "life": 1
+        },
+        "minerals": {
+            "score": 3
+        },
+        "grid": {
+            "width": 50,
+            "height": 50
+        }
+    },
+    "collector": [
+        {
+            "x": 25,
+            "y": 25
+        }
+    ],
+    "robot": [
+        {
+            "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}",
+            "x": 4,
+            "y": 4,
+            "variation": 3,
+            "orientation": "west",
+            "life": "1",
+            "score": 3,
+            "minerals": 2
+        },
+        {
+            "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}",
+            "x": 20,
+            "y": 10,
+            "variation": 7,
+            "orientation": "south",
+            "life": "0.35",
+            "score": 1,
+            "minerals": 5
+        },
+        {
+            "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}",
+            "x": 10,
+            "y": 10,
+            "variation": 5,
+            "orientation": "west",
+            "life": "1",
+            "score": 3,
+            "minerals": 2
+        },
+        {
+            "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}",
+            "x": 10,
+            "y": 20,
+            "variation": 8,
+            "orientation": "south",
+            "life": "0.35",
+            "score": 1,
+            "minerals": 5
+        }
+    ],
+    "mineral": [
+        {
+            "x": 5,
+            "y": 5
+        },
+        {
+            "x": 25,
+            "y": 35
+        },
+        {
+            "x": 35,
+            "y": 25
+        },
+        {
+            "x": 15,
+            "y": 15
+        }
+    ]
+}
