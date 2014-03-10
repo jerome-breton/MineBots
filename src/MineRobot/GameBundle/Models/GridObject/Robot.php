@@ -18,6 +18,7 @@ class Robot extends GridObjectAbstract
     protected $_variations = ['black', 'blue', 'cyan', 'gray', 'green', 'pink', 'purple', 'red', 'white', 'yellow'];
 
     protected $_base_picture = 'robot';
+    protected $_needContext = true;
 
     protected $_pilot = null;
 
@@ -26,6 +27,7 @@ class Robot extends GridObjectAbstract
     protected $_minerals = 0;
 
     protected $_healingTurns = 0;
+    protected $_scan = false;
 
     protected $_shieldEnabled = false;
 
@@ -38,6 +40,9 @@ class Robot extends GridObjectAbstract
         }
         if (isset($data['healingTurns'])) {
             $this->_healingTurns = $data['healingTurns'];
+        }
+        if (isset($data['scan'])) {
+            $this->_scan = $data['scan'];
         }
         if (isset($data['score'])) {
             $this->_score = $data['score'];
@@ -79,19 +84,21 @@ class Robot extends GridObjectAbstract
         if ($this->_life > $this->_options['robots']['life']) {
             $this->_life = $this->_options['robots']['life'];
         }
+//        $this->_createObject('shield', 0);    Add visual effect ?
     }
 
-    public function run()
+    public function run($context = array())
     {
         $pilot = unserialize($this->_pilot);
 
-        $order = $pilot->getOrder('@todo');
+        $order = $pilot->getOrder($context);
 
         $this->_pilot = serialize($pilot);
 
         if ($order != PilotAbstract::ORDER_STAY_REPAIR) {
             $this->_healingTurns = 0;
         }
+        $this->_scan = false;
 
         switch ($order) {
             case PilotAbstract::ORDER_MOVE_FORWARD:
@@ -113,7 +120,7 @@ class Robot extends GridObjectAbstract
                 $this->_heal();
                 break;
             case PilotAbstract::ORDER_STAY_SCAN:
-                //@TODO
+                $this->_scan();
                 break;
             case PilotAbstract::ORDER_TURN_LEFT:
                 $this->_rotateLeft();
@@ -132,6 +139,12 @@ class Robot extends GridObjectAbstract
     {
         $this->_shieldEnabled = true;
         $this->_createObject('shield', 0);
+    }
+
+    protected function _scan()
+    {
+        $this->_scan = true;
+//        $this->_createObject('shield', 0);    Add visual effect ?
     }
 
     protected function _gauntlet()
@@ -190,5 +203,13 @@ class Robot extends GridObjectAbstract
     public function hasShield()
     {
         return $this->_shieldEnabled;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isScanning()
+    {
+        return $this->_scan;
     }
 }

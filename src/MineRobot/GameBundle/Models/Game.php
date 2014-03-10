@@ -19,6 +19,8 @@ use MineRobot\GameBundle\Models\GridObject\Rocket;
 
 class Game
 {
+    const CONTEXT_OBJECTS = 'objects_in_sight';
+    const CONTEXT_OPTIONS = 'options';
 
     /**
      * Name of the Game
@@ -346,9 +348,10 @@ class Game
             foreach ($column as $objects) {
                 /** @var GridObjectAbstract $object */
                 foreach ($objects as $object) {
+                    $context = $object->getNeedContext() ? $this->_getContext($object) : null;
                     $timeStart = microtime(true);
                     try {
-                        $object->run();
+                        $object->run($context);
                     } catch (Exception $e) {
                         $object->setDestroyed();
                     }
@@ -399,5 +402,33 @@ class Game
     public function getClassByType($type)
     {
         return 'MineRobot\\GameBundle\\Models\\GridObject\\' . ucwords($type);
+    }
+
+    protected function _getContext(GridObjectAbstract $object)
+    {
+        if ($object instanceof Robot && $object->isScanning()) {
+            $scanDistance = $this->options['sight']['scan'];
+        } else {
+            $scanDistance = $this->options['sight']['base'];
+        }
+        $context = array(
+            self::CONTEXT_OBJECTS => $this->_getObjectsInSight($object->getX(), $object->getY(), $scanDistance),
+            self::CONTEXT_OPTIONS => $this->options,
+        );
+
+        return $context;
+    }
+
+    protected function _getObjectsInSight($cx, $cy, $d)
+    {
+        $objectsInSight = array();
+        for ($x = $cx - $d; $x <= $cx + $d; $x++) {
+            for ($y = $cy - $d; $y <= $cy + $d; $y++) {
+                if (isset($this->_grid[$x]) && isset($this->_grid[$x][$y]) && !empty($this->_grid[$x][$y])) {
+                    $objectsInSight = array_merge($objectsInSight, $this->_grid[$x][$y]);
+                }
+            }
+        }
+        return $objectsInSight;
     }
 } 

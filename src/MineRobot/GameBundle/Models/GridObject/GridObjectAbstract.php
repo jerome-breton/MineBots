@@ -35,6 +35,8 @@ abstract class GridObjectAbstract
 
     protected $_options = null;
 
+    protected $_needContext = false;
+
     const ORIENTATION_NORTH = 'north';
     const ORIENTATION_SOUTH = 'south';
     const ORIENTATION_EAST = 'east';
@@ -181,6 +183,14 @@ abstract class GridObjectAbstract
     public function setY($y)
     {
         $this->_y = $y;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getNeedContext()
+    {
+        return $this->_needContext;
     }
 
     /**
