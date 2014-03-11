@@ -37,7 +37,9 @@ Règles du jeu
 Concept
 -------
 
-<img src="https://github.com/jerome-breton/MineBots/raw/master/web/minerobot/images/screenshot.png" style="float:right" />Sur l'arène sont disseminés des minerais. Chaque robot peut collecter un minerai en se rendant sur la même case. Une fois ce minerai collecté, il doit alors aller le déposer au collecteur afin de comptabiliser ses points.
+![screenshot](https://github.com/jerome-breton/MineBots/raw/master/web/minerobot/images/screenshot.png)
+
+Sur l'arène sont disseminés des minerais. Chaque robot peut collecter un minerai en se rendant sur la même case. Une fois ce minerai collecté, il doit alors aller le déposer au collecteur afin de comptabiliser ses points.
 
 
 Robots ![robot](https://github.com/jerome-breton/MineBots/raw/master/web/minerobot/images/robot/blue/north.gif)&nbsp;![robot](https://github.com/jerome-breton/MineBots/raw/master/web/minerobot/images/robot/red/west.gif)&nbsp;![robot](https://github.com/jerome-breton/MineBots/raw/master/web/minerobot/images/robot/green/south.gif)&nbsp;![robot](https://github.com/jerome-breton/MineBots/raw/master/web/minerobot/images/robot/yellow/east.gif)
