@@ -35,7 +35,10 @@ class ViewController extends Controller
     }
 
     /**
-     * @Route("/view/run/{gameFileName}", name="_view_run")
+     * @Route("/view/run/{gameFileName}.{_format}",
+     *     defaults = { "_format" = "html" },
+     *     requirements = { "_format" = "html|json" },
+     *     name="_view_run")
      * @Template()
      */
     public function rungameAction($gameFileName)

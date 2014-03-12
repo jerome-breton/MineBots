@@ -17,19 +17,27 @@
 
     <script type="text/javascript">
         function refreshGrid(){
-            //var from = (new Date()).getTime();
-            jQuery.get('{{ path("_view_run", {'gameFileName': filename}) }}', function( data ) {
-                $( "#gridArea" ).html( data );
-                if(jQuery('#run:checked').length){
-                    //var to = (new Date()).getTime();
-                    //var delay = 500;
-                    //if(to-from>delay){
-                    refreshGrid();
-                    //}else{
-                    //    window.setTimeout(refreshGrid,delay-to+from);
-                    //}
-                }
-            });
+            
+            $.ajax({
+              url: '{{ path("_view_run", {'gameFileName': filename}) }}.json',
+              data: '',
+              dataType: 'json',
+              success: function( data ) {
+              
+                      $( "#gridArea" ).html( data.html );
+                      
+                      if(jQuery('#run:checked').length){
+                          
+                          setTimeout(function() {
+                              refreshGrid();
+                              }, 500);
+                         
+                      }
+                  }
+              });
+            
+            
+            
         }
 
         jQuery('#run').click(function(){
