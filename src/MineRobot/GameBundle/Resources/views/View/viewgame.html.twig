@@ -16,41 +16,51 @@
     </div>
 
     <script type="text/javascript">
-        function refreshGrid(){
-            
+        function refreshGrid() {
+
             $.ajax({
-              url: '{{ path("_view_run", {'gameFileName': filename}) }}.json',
-              data: '',
-              dataType: 'json',
-              success: function( data ) {
-              
-                      $( "#gridArea" ).html( data.html );
-                      
-                      if(jQuery('#run:checked').length){
-                          
-                          setTimeout(function() {
-                              refreshGrid();
-                              }, 500);
-                         
-                      }
-                  }
-              });
-            
-            
-            
+                url: '{{ path("_view_run", {'gameFileName': filename}) }}.json',
+                data: '',
+                dataType: 'json',
+                success: function (data) {
+
+                    $.each(data.del, function (hash, data) {
+                        $('#' + hash).remove();
+                    });
+                    $.each(data.add, function (hash, data) {
+                        $('#' + data.x + '-' + data.y).append('<img src="{{ asset('minerobot/images/') }}' + data.img + '" id="' + hash + '" />');
+                    });
+                    $.each(data.move, function (hash, data) {
+                        $('#' + hash).appendTo($('#' + data.x + '-' + data.y));
+                    });
+                    $.each(data.rotate, function (hash, data) {
+                        $('#' + hash).attr('src', '{{ asset('minerobot/images/') }}' + data.img);
+                    });
+
+                    if (jQuery('#run:checked').length) {
+
+                        setTimeout(function () {
+                            refreshGrid();
+                        }, 500);
+
+                    }
+                }
+            });
+
+
         }
 
-        jQuery('#run').click(function(){
-            if(jQuery('#run').prop( "checked" )){
+        jQuery('#run').click(function () {
+            if (jQuery('#run').prop("checked")) {
                 jQuery('#run_label').html('P');
                 refreshGrid();
-            }else{
+            } else {
                 jQuery('#run_label').html('+');
             }
         });
 
-        jQuery('#next').click(function(){
-            if(!jQuery('#run').prop( "checked" )){
+        jQuery('#next').click(function () {
+            if (!jQuery('#run').prop("checked")) {
                 refreshGrid();
             }
         });

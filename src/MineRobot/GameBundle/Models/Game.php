@@ -56,7 +56,7 @@ class Game
     public $options = null;
 
     protected $_grid = array();
-    public $gridModifications = array('add' => array(), 'move' => array(), 'del' => array());
+    public $gridModifications = array('add' => array(), 'move' => array(), 'del' => array(), 'rotate' => array());
 
     protected $_objectsInGrid = [
         self::OBJECT_COLLECTOR,
@@ -134,7 +134,7 @@ class Game
         $hash = $gridObject->getHash();
         $ox = $gridObject->getOriginalX();
         $oy = $gridObject->getOriginalY();
-        $oo = $gridObject->getOrientation();
+        $oo = $gridObject->getOriginalOrientation();
         $new = true;
         if (isset($this->_grid[$ox][$oy][$hash])) {
             $new = false;
@@ -144,11 +144,12 @@ class Game
         //Check if position is not out of bounds
         $x = $gridObject->getX();
         $y = $gridObject->getY();
+        $jsonData = array('x' => $x, 'y' => $y, 'img' => $gridObject->getPicture());
         if ($x < 0 || $x >= $this->options['grid']['width']
             || $y < 0 || $y >= $this->options['grid']['height']
         ) {
             $gridObject->setDestroyed();
-            return $this;
+            $this->gridModifications['del'][$hash] = $jsonData;
         }
 
         //Init grid arrays if not done yet
@@ -188,6 +189,7 @@ class Game
             //Remove destroyed objects (mainly due to collisions)
             if ($object->isDestroyed()) {
                 unset($this->_grid[$x][$y][$hash]);
+                $this->gridModifications['del'][$hash] = $jsonData;
             }
 
             //Adds subobjects to grid using recursive call
@@ -201,17 +203,15 @@ class Game
             }
 
         }
-        if ($handleCollisions) {
-            if ($gridObject->isDestroyed()) {
-                $this->gridModifications['del'][] = $hash;
-            } else if ($new) {
-                $this->gridModifications['add'][] = array(
-                    'hash' => $hash, 'x' => $x, 'y' => $y, 'img' => $gridObject->getPicture()
-                );
-            } else if ($oo != $gridObject->getOrientation() || $ox != $x || $oy != $y) {
-                $this->gridModifications['move'][] = array(
-                    'hash' => $hash, 'x' => $x, 'y' => $y, 'img' => $gridObject->getPicture()
-                );
+
+        if ($handleCollisions && !$gridObject->isDestroyed()) {
+            if ($new) {
+                $this->gridModifications['add'][$hash] = $jsonData;
+            } else if ($ox != $x || $oy != $y) {
+                $this->gridModifications['move'][$hash] = $jsonData;
+            }
+            if ($oo != $gridObject->getOrientation()) {
+                $this->gridModifications['rotate'][$hash] = $jsonData;
             }
         }
         return $this;

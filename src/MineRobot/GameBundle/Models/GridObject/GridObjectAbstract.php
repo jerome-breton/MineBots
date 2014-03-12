@@ -55,6 +55,7 @@ abstract class GridObjectAbstract
 
         if ($this->_useOrientation) {
             $this->_orientation = $data['orientation'];
+            $this->_originalOrientation = $data['orientation'];
         }
         if ($this->_useVariation) {
             if (isset($data['variation'])) {
@@ -66,7 +67,7 @@ abstract class GridObjectAbstract
         if (isset($data['hash'])) {
             $this->_hash = $data['hash'];
         } else {
-            $this->_hash = uniqid($this->getType(), true);
+            $this->_hash = $this->getType() . hash('sha1', uniqid($this->getType(), true));
         }
     }
 
@@ -208,6 +209,14 @@ abstract class GridObjectAbstract
     public function getHash()
     {
         return $this->_hash;
+    }
+
+    /**
+     * @return null
+     */
+    public function getOriginalOrientation()
+    {
+        return $this->_originalOrientation;
     }
 
     /**
