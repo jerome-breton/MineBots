@@ -1,1 +1,549 @@
-{"game":{"name":"Test","iteration":764,"status":"running"},"options":{"weapons":{"gauntlet":0.8,"rail":0.2,"rocket":0.8},"robots":{"life":1,"heal":[0.1,0.15,0.2,0.3,0.5,0.75,1]},"minerals":{"score":3},"grid":{"width":50,"height":50},"sight":{"base":5,"scan":10}},"collector":[{"x":25,"y":25}],"mineral":[{"x":25,"y":5},{"x":25,"y":45},{"x":20,"y":5},{"x":20,"y":15},{"x":20,"y":35},{"x":15,"y":5},{"x":15,"y":15},{"x":15,"y":35},{"x":30,"y":5},{"x":30,"y":25},{"x":30,"y":35},{"x":30,"y":45},{"x":5,"y":15},{"x":5,"y":25},{"x":5,"y":35},{"x":5,"y":45},{"x":10,"y":5},{"x":10,"y":15},{"x":10,"y":25},{"x":10,"y":35},{"x":10,"y":45},{"x":45,"y":5},{"x":45,"y":15},{"x":45,"y":25},{"x":45,"y":35},{"x":45,"y":45},{"x":40,"y":5},{"x":40,"y":25},{"x":40,"y":35},{"x":40,"y":45},{"x":35,"y":5},{"x":35,"y":15},{"x":35,"y":25},{"x":35,"y":35},{"x":35,"y":45},{"x":34,"y":25}],"robot":[{"x":23,"y":13,"orientation":"east","variation":"purple","life":1,"healingTurns":0,"score":0,"minerals":4,"pilot":"C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"}],"rocket":[{"x":46,"y":11,"orientation":"east"}]}
+{"game": {
+    "name": "Test",
+    "iteration": 10,
+    "status": "running"
+}, "options": {
+    "weapons": {
+        "gauntlet": 0.8,
+        "rail": 0.2,
+        "rocket": 0.8
+    },
+    "robots": {
+        "life": 1,
+        "heal": [0.1, 0.15, 0.2, 0.3, 0.5, 0.75, 1]
+    },
+    "minerals": {
+        "score": 3
+    },
+    "grid": {
+        "width": 50,
+        "height": 50
+    },
+    "sight": {
+        "base": 5,
+        "scan": 10
+    }
+}, "collector": [
+    {
+        "hash": "collector5320cd0df40af8.76706124",
+        "x": 25,
+        "y": 25
+    }
+], "mineral": [
+    {
+        "hash": "mineral5320cd0e00e103.60413202",
+        "x": 25,
+        "y": 5
+    },
+    {
+        "hash": "mineral5320cd0e00e105.04172361",
+        "x": 25,
+        "y": 15
+    },
+    {
+        "hash": "mineral5320cd0e00e100.64125326",
+        "x": 25,
+        "y": 35
+    },
+    {
+        "hash": "mineral5320cd0e00e109.80858785",
+        "x": 25,
+        "y": 45
+    },
+    {
+        "hash": "mineral5320cd0e011f84.02989976",
+        "x": 10,
+        "y": 5
+    },
+    {
+        "hash": "mineral5320cd0e011f84.78058706",
+        "x": 10,
+        "y": 15
+    },
+    {
+        "hash": "mineral5320cd0e011f83.39892680",
+        "x": 10,
+        "y": 25
+    },
+    {
+        "hash": "mineral5320cd0e011f88.53491547",
+        "x": 10,
+        "y": 35
+    },
+    {
+        "hash": "mineral5320cd0e011f89.04610801",
+        "x": 10,
+        "y": 45
+    },
+    {
+        "hash": "mineral5320cd0e011f86.98003217",
+        "x": 20,
+        "y": 5
+    },
+    {
+        "hash": "mineral5320cd0e015e09.71559228",
+        "x": 20,
+        "y": 15
+    },
+    {
+        "hash": "mineral5320cd0e015e05.79807456",
+        "x": 20,
+        "y": 25
+    },
+    {
+        "hash": "mineral5320cd0e015e04.89828512",
+        "x": 20,
+        "y": 35
+    },
+    {
+        "hash": "mineral5320cd0e015e09.57995938",
+        "x": 20,
+        "y": 45
+    },
+    {
+        "hash": "mineral5320cd0e015e06.43670622",
+        "x": 30,
+        "y": 5
+    },
+    {
+        "hash": "mineral5320cd0e019c89.61398652",
+        "x": 30,
+        "y": 15
+    },
+    {
+        "hash": "mineral5320cd0e019c84.35364227",
+        "x": 30,
+        "y": 25
+    },
+    {
+        "hash": "mineral5320cd0e019c82.71146040",
+        "x": 30,
+        "y": 35
+    },
+    {
+        "hash": "mineral5320cd0e019c83.86621281",
+        "x": 30,
+        "y": 45
+    },
+    {
+        "hash": "mineral5320cd0e019c88.12318145",
+        "x": 40,
+        "y": 5
+    },
+    {
+        "hash": "mineral5320cd0e01db02.11774047",
+        "x": 40,
+        "y": 15
+    },
+    {
+        "hash": "mineral5320cd0e01db02.99409714",
+        "x": 40,
+        "y": 25
+    },
+    {
+        "hash": "mineral5320cd0e01db09.97748446",
+        "x": 40,
+        "y": 35
+    },
+    {
+        "hash": "mineral5320cd0e01db06.18195891",
+        "x": 40,
+        "y": 45
+    },
+    {
+        "hash": "mineral5320cd0e01db05.45938744",
+        "x": 5,
+        "y": 5
+    },
+    {
+        "hash": "mineral5320cd0e01db06.42843136",
+        "x": 5,
+        "y": 15
+    },
+    {
+        "hash": "mineral5320cd0e021980.73830798",
+        "x": 5,
+        "y": 25
+    },
+    {
+        "hash": "mineral5320cd0e021985.88089288",
+        "x": 5,
+        "y": 35
+    },
+    {
+        "hash": "mineral5320cd0e021984.48941370",
+        "x": 5,
+        "y": 45
+    },
+    {
+        "hash": "mineral5320cd0e021985.17536011",
+        "x": 15,
+        "y": 5
+    },
+    {
+        "hash": "mineral5320cd0e021982.47081485",
+        "x": 15,
+        "y": 15
+    },
+    {
+        "hash": "mineral5320cd0e025801.16297646",
+        "x": 15,
+        "y": 25
+    },
+    {
+        "hash": "mineral5320cd0e025800.90077381",
+        "x": 15,
+        "y": 35
+    },
+    {
+        "hash": "mineral5320cd0e025805.30200398",
+        "x": 15,
+        "y": 45
+    },
+    {
+        "hash": "mineral5320cd0e025804.76649904",
+        "x": 35,
+        "y": 5
+    },
+    {
+        "hash": "mineral5320cd0e025806.16271225",
+        "x": 35,
+        "y": 15
+    },
+    {
+        "hash": "mineral5320cd0e025807.02492125",
+        "x": 35,
+        "y": 25
+    },
+    {
+        "hash": "mineral5320cd0e029687.21515757",
+        "x": 35,
+        "y": 35
+    },
+    {
+        "hash": "mineral5320cd0e029682.20424198",
+        "x": 35,
+        "y": 45
+    },
+    {
+        "hash": "mineral5320cd0e029681.11345003",
+        "x": 45,
+        "y": 5
+    },
+    {
+        "hash": "mineral5320cd0e029686.45539109",
+        "x": 45,
+        "y": 15
+    },
+    {
+        "hash": "mineral5320cd0e029687.24190421",
+        "x": 45,
+        "y": 25
+    },
+    {
+        "hash": "mineral5320cd0e02d500.87849965",
+        "x": 45,
+        "y": 35
+    },
+    {
+        "hash": "mineral5320cd0e02d501.18127427",
+        "x": 45,
+        "y": 45
+    }
+], "robot": [
+    {
+        "hash": "robot5320cd0e002585.75095514",
+        "x": 10,
+        "y": 17,
+        "orientation": "north",
+        "variation": "white",
+        "life": 1,
+        "healingTurns": 1,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot5320cd0e002586.19868250",
+        "x": 10,
+        "y": 27,
+        "orientation": "north",
+        "variation": "yellow",
+        "life": 0.9,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot5320cd0e006406.08221016",
+        "x": 20,
+        "y": 8,
+        "orientation": "east",
+        "variation": "cyan",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot5320cd0e006400.86484603",
+        "x": 30,
+        "y": 9,
+        "orientation": "north",
+        "variation": "gray",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot5320cd0e006401.72138587",
+        "x": 39,
+        "y": 11,
+        "orientation": "south",
+        "variation": "green",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot5320cd0e006409.51009158",
+        "x": 29,
+        "y": 20,
+        "orientation": "south",
+        "variation": "purple",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot5320cd0e00a288.59146985",
+        "x": 18,
+        "y": 20,
+        "orientation": "south",
+        "variation": "red",
+        "life": 0.8,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot5320cd0e002580.03850813",
+        "x": 11,
+        "y": 10,
+        "orientation": "east",
+        "variation": "blue",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot5320cd0e00a283.12399408",
+        "x": 17,
+        "y": 30,
+        "orientation": "west",
+        "variation": "black",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot5320cd0e00a287.46677527",
+        "x": 41,
+        "y": 20,
+        "orientation": "west",
+        "variation": "pink",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 0,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    }
+], "rocket": [
+    {
+        "hash": "rocket5320cd0e096ca4.65331793",
+        "x": 10,
+        "y": 22,
+        "orientation": "north"
+    },
+    {
+        "hash": "rocket5320cd0e02d506.90360338",
+        "x": 10,
+        "y": 20,
+        "orientation": "north"
+    },
+    {
+        "hash": "rocket5320cd13f1af66.85402703",
+        "x": 15,
+        "y": 8,
+        "orientation": "west"
+    },
+    {
+        "hash": "rocket5320cd195e0e36.38723894",
+        "x": 15,
+        "y": 20,
+        "orientation": "west"
+    }
+], "rail": [
+    {
+        "hash": "rail5320cd208343c5.66693088",
+        "x": 30,
+        "y": 5,
+        "orientation": "north",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd20830541.54455174",
+        "x": 30,
+        "y": 8,
+        "orientation": "north",
+        "variation": "source"
+    },
+    {
+        "hash": "rail5320cd20830543.50596452",
+        "x": 30,
+        "y": 7,
+        "orientation": "north",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd208343c6.75671098",
+        "x": 30,
+        "y": 6,
+        "orientation": "north",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd208343c9.02920108",
+        "x": 30,
+        "y": 4,
+        "orientation": "north",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd20838249.95628773",
+        "x": 30,
+        "y": 3,
+        "orientation": "north",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd20838244.24150711",
+        "x": 30,
+        "y": 2,
+        "orientation": "north",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd20838241.41686761",
+        "x": 30,
+        "y": 1,
+        "orientation": "north",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd2083c0c2.75219689",
+        "x": 30,
+        "y": 0,
+        "orientation": "north",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd2084bac6.14139070",
+        "x": 29,
+        "y": 21,
+        "orientation": "south",
+        "variation": "source"
+    },
+    {
+        "hash": "rail5320cd2084bac1.98664454",
+        "x": 29,
+        "y": 22,
+        "orientation": "south",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd2084bac7.79069644",
+        "x": 29,
+        "y": 23,
+        "orientation": "south",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd2084f949.75128374",
+        "x": 29,
+        "y": 24,
+        "orientation": "south",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd2084f946.63663078",
+        "x": 29,
+        "y": 25,
+        "orientation": "south",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd2084f940.69453650",
+        "x": 29,
+        "y": 26,
+        "orientation": "south",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd2084f941.78101338",
+        "x": 29,
+        "y": 27,
+        "orientation": "south",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd208537c1.77623561",
+        "x": 29,
+        "y": 28,
+        "orientation": "south",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd208537c4.88149744",
+        "x": 29,
+        "y": 29,
+        "orientation": "south",
+        "variation": "suite"
+    },
+    {
+        "hash": "rail5320cd208537c5.34577096",
+        "x": 29,
+        "y": 30,
+        "orientation": "south",
+        "variation": "suite"
+    }
+], "shield": [
+    {
+        "hash": "shield5320cd20847c46.92534828",
+        "x": 39,
+        "y": 11
+    },
+    {
+        "hash": "shield5320cd2081ccb9.96221372",
+        "x": 11,
+        "y": 10
+    },
+    {
+        "hash": "shield5320cd208055b4.77750563",
+        "x": 17,
+        "y": 30
+    }
+]}

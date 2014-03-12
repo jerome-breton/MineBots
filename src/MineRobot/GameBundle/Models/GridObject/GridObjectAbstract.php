@@ -16,15 +16,16 @@ abstract class GridObjectAbstract
     protected $_originalY = null;
 
     protected $_useOrientation = true;
-    protected $_useVariation = false;
+    protected $_orientation = null;
+    protected $_originalOrientation = null;
+
 
     protected $_picture = 'nothing';
-    protected $_base_picture = 'nothing';
     protected $_pic_extension = 'gif';
 
-    protected $_orientation = null;
+    protected $_useVariation = false;
+    protected $_base_picture = 'nothing';
     protected $_variation = null;
-
     protected $_variations = array();
 
     protected $_destroyed = false;
@@ -34,6 +35,8 @@ abstract class GridObjectAbstract
     protected $_createObjectY;
 
     protected $_options = null;
+
+    protected $_hash = null;
 
     protected $_needContext = false;
 
@@ -60,6 +63,11 @@ abstract class GridObjectAbstract
                 $this->setVariation(0);
             }
         }
+        if (isset($data['hash'])) {
+            $this->_hash = $data['hash'];
+        } else {
+            $this->_hash = uniqid($this->getType(), true);
+        }
     }
 
     public function run()
@@ -70,6 +78,7 @@ abstract class GridObjectAbstract
     public function getSleepArray()
     {
         $array = array(
+            'hash' => $this->getHash(),
             'x' => $this->getX(),
             'y' => $this->getY()
         );
@@ -191,6 +200,14 @@ abstract class GridObjectAbstract
     public function getNeedContext()
     {
         return $this->_needContext;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getHash()
+    {
+        return $this->_hash;
     }
 
     /**

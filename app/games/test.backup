@@ -11,7 +11,8 @@
             "rocket": 0.8
         },
         "robots": {
-            "life": 1
+            "life": 1,
+                                 "heal":[0.1,0.15,0.2,0.3,0.5,0.75,1]
         },
         "minerals": {
             "score": 3
@@ -19,7 +20,11 @@
         "grid": {
             "width": 50,
             "height": 50
-        }
+        },
+             "sight" : {
+                 "base" : 5,
+                 "scan" : 10
+             }
     },
     "collector": [
         {
