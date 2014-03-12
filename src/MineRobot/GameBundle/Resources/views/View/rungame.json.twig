@@ -1,0 +1,5 @@
+{% set html %}
+    {% include '@MineRobotGame/View/rungame.html.twig' %}
+{% endset %}
+{% set data = {'html':html} %}
+{{data|json_encode()|raw}}
