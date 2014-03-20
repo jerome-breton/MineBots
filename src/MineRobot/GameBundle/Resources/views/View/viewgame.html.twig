@@ -10,11 +10,23 @@
         <label id="run_label" class="pointer icon" for="run">+</label>
         <span class="pointer icon" id="next">}</span>
     </h1>
-
-    <div id="gridArea">
-        {% include '@MineRobotGame/View/rungame.html.twig' %}
+    
+    <div>
+        <div id="gridArea" class="visu-grid">
+            {% include '@MineRobotGame/View/rungame.html.twig' %}
+        </div>
+        
+        <div id="robots" class="visu-robots">
+            <ul id="robot-list"></ul>
+        
+        
+        
+              lsfhksh fhkqshfkh
+        </div>
     </div>
-
+    
+    
+    
     <script type="text/javascript">
         function refreshGrid() {
 
@@ -36,6 +48,14 @@
                     $.each(data.rotate, function (hash, data) {
                         $('#' + hash).attr('src', '{{ asset('minerobot/images/') }}' + data.img);
                     });
+console.log("helo");
+                    $.each(data.robots, function (hash, data) {
+                    console.log(hash);
+                    console.log(data);
+                    
+                        //$('#robots').html(data);
+                    });
+                    
 
                     if (jQuery('#run:checked').length) {
 
@@ -65,4 +85,16 @@
             }
         });
     </script>
+    
+     <!-- Templates -->
+
+  <script type="text/template" id="item-template">
+    <div class="view">
+      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+      <label><%- title %></label>
+      <a class="destroy"></a>
+    </div>
+    <input class="edit" type="text" value="<%- title %>" />
+  </script>
+  
 {% endblock %}

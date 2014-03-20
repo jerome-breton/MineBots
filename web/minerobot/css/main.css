@@ -27,7 +27,7 @@
     border:0;
     padding:0;
     margin:0;
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     left: 0;
 }
@@ -50,4 +50,15 @@
 
 .pointer{
     cursor: pointer;
+}
+
+div.visu-robots {
+	float: left;
+	margin-left: 10px;
+	border: solid 1px red;
+	min-height: 150px;
+	width: 300px;
+}
+div.visu-grid {
+	float: left;
 }

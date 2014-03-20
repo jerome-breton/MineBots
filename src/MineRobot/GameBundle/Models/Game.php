@@ -56,7 +56,7 @@ class Game
     public $options = null;
 
     protected $_grid = array();
-    public $gridModifications = array('add' => array(), 'move' => array(), 'del' => array(), 'rotate' => array());
+    public $gridModifications = array('add' => array(), 'move' => array(), 'del' => array(), 'rotate' => array(), 'robots' => array());
 
     protected $_objectsInGrid = [
         self::OBJECT_COLLECTOR,
@@ -463,6 +463,13 @@ class Game
             $context[self::CONTEXT_SELF]['minerals'] = $object->getMinerals();
             $context[self::CONTEXT_SELF]['score'] = $object->getScore();
             $context[self::CONTEXT_SELF]['healingTurns'] = $object->getHealingTurns();
+            $this->gridModifications['robots'][$object->getHash()] = array(
+            	'name' => $object->getHash(),
+            	'life' => $context[self::CONTEXT_SELF]['life'],
+            	'minerals' => $context[self::CONTEXT_SELF]['minerals'],
+            	'score' => $context[self::CONTEXT_SELF]['score'],
+            	'healingTurns' => $context[self::CONTEXT_SELF]['healingTurns']
+            );
         }
 
         return $context;
