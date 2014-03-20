@@ -1,1 +1,285 @@
-{"game":{"name":"Test","iteration":764,"status":"running"},"options":{"weapons":{"gauntlet":0.8,"rail":0.2,"rocket":0.8},"robots":{"life":1,"heal":[0.1,0.15,0.2,0.3,0.5,0.75,1]},"minerals":{"score":3},"grid":{"width":50,"height":50},"sight":{"base":5,"scan":10}},"collector":[{"x":25,"y":25}],"mineral":[{"x":25,"y":5},{"x":25,"y":45},{"x":20,"y":5},{"x":20,"y":15},{"x":20,"y":35},{"x":15,"y":5},{"x":15,"y":15},{"x":15,"y":35},{"x":30,"y":5},{"x":30,"y":25},{"x":30,"y":35},{"x":30,"y":45},{"x":5,"y":15},{"x":5,"y":25},{"x":5,"y":35},{"x":5,"y":45},{"x":10,"y":5},{"x":10,"y":15},{"x":10,"y":25},{"x":10,"y":35},{"x":10,"y":45},{"x":45,"y":5},{"x":45,"y":15},{"x":45,"y":25},{"x":45,"y":35},{"x":45,"y":45},{"x":40,"y":5},{"x":40,"y":25},{"x":40,"y":35},{"x":40,"y":45},{"x":35,"y":5},{"x":35,"y":15},{"x":35,"y":25},{"x":35,"y":35},{"x":35,"y":45},{"x":34,"y":25}],"robot":[{"x":23,"y":13,"orientation":"east","variation":"purple","life":1,"healingTurns":0,"score":0,"minerals":4,"pilot":"C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"}],"rocket":[{"x":46,"y":11,"orientation":"east"}]}
+{"game": {
+    "name": "Test",
+    "iteration": 262,
+    "status": "running"
+}, "options": {
+    "weapons": {
+        "gauntlet": 0.8,
+        "rail": 0.2,
+        "rocket": 0.8
+    },
+    "robots": {
+        "life": 1,
+        "heal": [0.1, 0.15, 0.2, 0.3, 0.5, 0.75, 1]
+    },
+    "minerals": {
+        "score": 3
+    },
+    "grid": {
+        "width": 50,
+        "height": 50
+    },
+    "sight": {
+        "base": 5,
+        "scan": 10
+    }
+}, "collector": [
+    {
+        "hash": "collector10869464fb2c5831ca79824b0470f584ed1e2d26",
+        "x": 25,
+        "y": 25
+    }
+], "mineral": [
+    {
+        "hash": "mineralce76f090b2d2e4653763210ea01717ee0d68dcb2",
+        "x": 25,
+        "y": 5
+    },
+    {
+        "hash": "minerala933ea7a6ee5c38e441eb992f4b1d4ccd759cfd0",
+        "x": 25,
+        "y": 15
+    },
+    {
+        "hash": "mineral2ea26b6bcbb9270f88b5bd8de0f7818b551eb1ac",
+        "x": 25,
+        "y": 35
+    },
+    {
+        "hash": "mineral4c44387535d512d7ac451efadcd9e2244f5c0fad",
+        "x": 25,
+        "y": 45
+    },
+    {
+        "hash": "minerald132371ee0fe98dc1e9240dd8f4b7a0aa6d608d9",
+        "x": 15,
+        "y": 45
+    },
+    {
+        "hash": "minerald47a6232436a3d16621c862620221e57bddf32b6",
+        "x": 45,
+        "y": 25
+    },
+    {
+        "hash": "mineral6cb2762f87c077973d6f09b219a8510229c1b8fd",
+        "x": 45,
+        "y": 35
+    },
+    {
+        "hash": "mineral3c9d78490a24886ea1a0a1e2faee7713a46e638a",
+        "x": 45,
+        "y": 45
+    },
+    {
+        "hash": "mineral13e3a1ffb2bd56b4c0a3bba4aea77d307c40e820",
+        "x": 47,
+        "y": 6
+    },
+    {
+        "hash": "minerald5e257b9723d3687b3a493588248e9ca503660c1",
+        "x": 20,
+        "y": 5
+    },
+    {
+        "hash": "mineral0e1112790bf6d68b5dd131538938449f4dade90d",
+        "x": 20,
+        "y": 15
+    },
+    {
+        "hash": "mineralab5d11a05b6323b9f27eaecb2a170771b9f2d372",
+        "x": 20,
+        "y": 25
+    },
+    {
+        "hash": "mineral102c33a9f91d3200dc054fc2499234cdbe4d4a5d",
+        "x": 20,
+        "y": 35
+    },
+    {
+        "hash": "mineral80c6ece3105f571d5376a323c268d3fb261055ac",
+        "x": 20,
+        "y": 45
+    },
+    {
+        "hash": "mineralf60e57555efcb80af2f3128e3d189b9b0fb7b29d",
+        "x": 21,
+        "y": 3
+    },
+    {
+        "hash": "mineral066a5135b4810f777a3346bdf0c1f545ba7b1c6e",
+        "x": 40,
+        "y": 15
+    },
+    {
+        "hash": "mineralbc9c4f932d205547a2f4354c27d6d38063ba9020",
+        "x": 40,
+        "y": 25
+    },
+    {
+        "hash": "mineralad651e5fdcbcb5e458ef4bbe28228a498d36ea42",
+        "x": 40,
+        "y": 35
+    },
+    {
+        "hash": "mineral6bbd647e31186e3afadc8c7f32e57581f7223cb0",
+        "x": 40,
+        "y": 45
+    },
+    {
+        "hash": "mineralf035febb7cef66313a8c724239ac27a32892d733",
+        "x": 35,
+        "y": 5
+    },
+    {
+        "hash": "mineral38732ab7c29941f535bbccf9948760abcd803b03",
+        "x": 35,
+        "y": 15
+    },
+    {
+        "hash": "mineralb04a0e2d24a4636e465611b0c9ad8ee427ad478f",
+        "x": 35,
+        "y": 25
+    },
+    {
+        "hash": "mineral138fa8e2bbcbed8adfbb4b7f2609dfcb3ca2c52e",
+        "x": 35,
+        "y": 35
+    },
+    {
+        "hash": "mineral800ac1617e5c4d4a793ce3d1c6096d42ee296415",
+        "x": 35,
+        "y": 45
+    },
+    {
+        "hash": "mineralcfca9311f4b493582f37e5a649f45e082e6e2e6d",
+        "x": 30,
+        "y": 15
+    },
+    {
+        "hash": "mineralac7568edc4afcb8f063d4b82473893511352451b",
+        "x": 30,
+        "y": 25
+    },
+    {
+        "hash": "mineralda98fd5b2782c8defa30fb43d966d4f6ccc27763",
+        "x": 30,
+        "y": 35
+    },
+    {
+        "hash": "mineraladd1105bdf50eec551e3f7e0c6d20ee109befcb2",
+        "x": 30,
+        "y": 45
+    },
+    {
+        "hash": "mineralab29b2a6f5c769e3c66beb7bd5faad9a061567ac",
+        "x": 10,
+        "y": 5
+    },
+    {
+        "hash": "mineral4de4411e61f04c3fdb9dfa0de3d5e1d72252ce29",
+        "x": 10,
+        "y": 15
+    },
+    {
+        "hash": "mineral433942eb01db5440149049ab54a6374fad1d60e9",
+        "x": 10,
+        "y": 35
+    },
+    {
+        "hash": "minerald336b977dd960381a25f4c7b1bf8e6dbdd2dfdd8",
+        "x": 10,
+        "y": 45
+    },
+    {
+        "hash": "mineraleda821a2ad6b48e026eb33ce8d59fda39a00c999",
+        "x": 5,
+        "y": 5
+    },
+    {
+        "hash": "mineral4585683a10295d2e2efca5ef1dc73be7e446a370",
+        "x": 5,
+        "y": 15
+    },
+    {
+        "hash": "mineral97fba3eab8cbbac93f534c6a4316330eb393d1c2",
+        "x": 5,
+        "y": 25
+    },
+    {
+        "hash": "mineraldc31277177ef987b8f9db6eb5144988f06e829ac",
+        "x": 5,
+        "y": 35
+    },
+    {
+        "hash": "mineral4c3fbb7e98ed1b98fed33eb3e3b320c821d888de",
+        "x": 5,
+        "y": 45
+    },
+    {
+        "hash": "mineral23c8c940c3a940cd471646b43b32f06ccb2de210",
+        "x": 48,
+        "y": 6
+    }
+], "robot": [
+    {
+        "hash": "robot799994d45ed2adec41a4ba7030731da3ac028bd4",
+        "x": 43,
+        "y": 11,
+        "orientation": "west",
+        "variation": "pink",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 1,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robotfc85136ca6e0e295a2d4634442d611a4b2b27451",
+        "x": 12,
+        "y": 22,
+        "orientation": "west",
+        "variation": "yellow",
+        "life": 1,
+        "healingTurns": 1,
+        "score": 0,
+        "minerals": 3,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    },
+    {
+        "hash": "robot0806d00b29a1b94df4bee9ecddfb4db8ccc1b1c7",
+        "x": 13,
+        "y": 23,
+        "orientation": "east",
+        "variation": "red",
+        "life": 1,
+        "healingTurns": 0,
+        "score": 0,
+        "minerals": 1,
+        "pilot": "C:42:\"MineRobot\\GameBundle\\Pilots\\AI\\Dumb\\Random\":37:{a:1:{s:8:\"dummyVar\";s:9:\"something\";}}"
+    }
+], "rocket": [
+    {
+        "hash": "rocket4d20c0d7fe6c7f407a896b72a2e292e4ab724f89",
+        "x": 43,
+        "y": 8,
+        "orientation": "north"
+    },
+    {
+        "hash": "rocket0f6f3a7e4554fe94f083006113fc9ffdbff3d8a4",
+        "x": 15,
+        "y": 7,
+        "orientation": "north"
+    },
+    {
+        "hash": "rocket39979c1f772c76ca54dd25bc93023f0276ce8d82",
+        "x": 17,
+        "y": 23,
+        "orientation": "east"
+    },
+    {
+        "hash": "rocket9ba2109d397840f8c59594a415b1503ba6668b9d",
+        "x": 9,
+        "y": 22,
+        "orientation": "west"
+    }
+]}

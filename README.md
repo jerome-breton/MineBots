@@ -307,7 +307,7 @@ Nice-to-have
 ------------
 
 - [ ] Eclater Game en plusieurs sous classes
-- [ ] Remplacer l'AJAX qui renvoie tout l'HTML de la grille par un JSON avec seulement les mouvements d'objets
+- [X] Remplacer l'AJAX qui renvoie tout l'HTML de la grille par un JSON avec seulement les mouvements d'objets
 - [ ] Commenter le code
 - [ ] Ajouter des Tests Unitaires...
 

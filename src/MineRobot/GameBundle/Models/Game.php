@@ -56,6 +56,7 @@ class Game
     public $options = null;
 
     protected $_grid = array();
+    public $gridModifications = array('add' => array(), 'move' => array(), 'del' => array(), 'rotate' => array());
 
     protected $_objectsInGrid = [
         self::OBJECT_COLLECTOR,
@@ -130,21 +131,25 @@ class Game
     protected function _writeGrid(GridObjectAbstract $gridObject, $handleCollisions = false)
     {
         //Unset previous position in grid
-        $hash = spl_object_hash($gridObject);
+        $hash = $gridObject->getHash();
         $ox = $gridObject->getOriginalX();
         $oy = $gridObject->getOriginalY();
+        $oo = $gridObject->getOriginalOrientation();
+        $new = true;
         if (isset($this->_grid[$ox][$oy][$hash])) {
+            $new = false;
             unset($this->_grid[$ox][$oy][$hash]);
         }
 
         //Check if position is not out of bounds
         $x = $gridObject->getX();
         $y = $gridObject->getY();
+        $jsonData = array('x' => $x, 'y' => $y, 'img' => $gridObject->getPicture());
         if ($x < 0 || $x >= $this->options['grid']['width']
             || $y < 0 || $y >= $this->options['grid']['height']
         ) {
             $gridObject->setDestroyed();
-            return $this;
+            $this->gridModifications['del'][$hash] = $jsonData;
         }
 
         //Init grid arrays if not done yet
@@ -184,6 +189,7 @@ class Game
             //Remove destroyed objects (mainly due to collisions)
             if ($object->isDestroyed()) {
                 unset($this->_grid[$x][$y][$hash]);
+                $this->gridModifications['del'][$hash] = $jsonData;
             }
 
             //Adds subobjects to grid using recursive call
@@ -196,6 +202,17 @@ class Game
                 }
             }
 
+        }
+
+        if ($handleCollisions && !$gridObject->isDestroyed()) {
+            if ($new) {
+                $this->gridModifications['add'][$hash] = $jsonData;
+            } else if ($ox != $x || $oy != $y) {
+                $this->gridModifications['move'][$hash] = $jsonData;
+            }
+            if ($oo != $gridObject->getOrientation()) {
+                $this->gridModifications['rotate'][$hash] = $jsonData;
+            }
         }
         return $this;
     }
@@ -369,11 +386,11 @@ class Game
                 foreach ($objects as $object) {
                     $context = $object->getNeedContext() ? $this->_getContext($object) : null;
                     $timeStart = microtime(true);
-                    try {
-                        $object->run($context);
-                    } catch (Exception $e) {
-                        $object->setDestroyed();
-                    }
+//                    try {
+                    $object->run($context);
+//                    } catch (Exception $e) {
+//                        $object->setDestroyed();
+//                    }
                     $timeStop = microtime(true);
                     $celerity = (double)round(($timeStop - $timeStart) * pow(10, 15));
 
