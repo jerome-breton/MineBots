@@ -5,6 +5,8 @@
 {% block content_header '' %}
 
 {% block content %}
+<div ng-app="robotApp">
+
     <h1 class="title">{{ game.name }}
         <input type="checkbox" value="1" name="run" id="run" style="display:none">
         <label id="run_label" class="pointer icon" for="run">+</label>
@@ -16,18 +18,28 @@
             {% include '@MineRobotGame/View/rungame.html.twig' %}
         </div>
         
-        <div id="robots" class="visu-robots">
-            <ul id="robot-list"></ul>
-        
-        
-        
-              lsfhksh fhkqshfkh
+        {% verbatim %}    
+        <div id="RobotListCtrl" ng-controller="RobotListCtrl">
+        hello
+            <ul>
+              <li ng-repeat="robot in robots | orderBy:scoreProp">
+              1111
+                  {{robot.id}}
+                  <p>{{robot.name}}</p>
+                  <p>{{robot.message}}</p>
+                  <p>{{robot.score}}</p>
+                  <p>{{robot.minerals}}</p>
+              </li>
+            </ul>
         </div>
+        {% endverbatim %}
     </div>
-    
+
     
     
     <script type="text/javascript">
+
+        
         function refreshGrid() {
 
             $.ajax({
@@ -48,12 +60,13 @@
                     $.each(data.rotate, function (hash, data) {
                         $('#' + hash).attr('src', '{{ asset('minerobot/images/') }}' + data.img);
                     });
-console.log("helo");
                     $.each(data.robots, function (hash, data) {
-                    console.log(hash);
-                    console.log(data);
+                    //listView.addItem(hash, data);
                     
-                        //$('#robots').html(data);
+                      //scope.addRobot(hash, data);
+                      var scope = angular.element($('#RobotListCtrl')).scope();
+                      scope.addRobot(hash, data);
+                      scope.$apply();
                     });
                     
 
@@ -86,15 +99,8 @@ console.log("helo");
         });
     </script>
     
-     <!-- Templates -->
+    
 
-  <script type="text/template" id="item-template">
-    <div class="view">
-      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-      <label><%- title %></label>
-      <a class="destroy"></a>
-    </div>
-    <input class="edit" type="text" value="<%- title %>" />
-  </script>
-  
+
+  </div>
 {% endblock %}

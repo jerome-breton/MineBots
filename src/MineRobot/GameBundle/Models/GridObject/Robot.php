@@ -92,6 +92,7 @@ class Robot extends GridObjectAbstract
 
     public function run($context = array())
     {
+     // var_dump($this->_pilot, unserialize($this->_pilot));die;
         $pilot = unserialize($this->_pilot);
 
         $order = $pilot->getOrder($context);
@@ -246,5 +247,14 @@ class Robot extends GridObjectAbstract
     public function getHealingTurns()
     {
         return $this->_healingTurns;
+    }
+
+    public function getMessage() {
+      $pilot = unserialize($this->_pilot);
+      return $pilot->getMessage();
+    }
+    public function getName() {
+      $pilot = unserialize($this->_pilot);
+      return $pilot->getName();
     }
 }

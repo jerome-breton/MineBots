@@ -1,61 +1,51 @@
+// Objet appli angular
+var robotApp = angular.module('robotApp', []);
 
-
-$(function() {
-	var Robot = Backbone.Model.extend({
-		defaults : function() {
-			return {
-				title : "empty robot...",
-				score : 0
-			};
-		}
-	});
-
-	var RobotList = Backbone.Collection.extend({
-		model : Robot,
-		comparator : 'score'
-	});
-
-	var Robots = new RobotList;
-
-	var RobotView = Backbone.View.extend({
-		template : _.template($('#item-template').html()),
-
-		
-		render : function() {
-			this.$el.html(this.template(this.model.toJSON()));
-			return this;
-		}
-		
-	});
-
-	var AppView = Backbone.View.extend({
-
-		el : $("#robots"),
-
-		initialize : function() {
-
-			Robots.fetch();
-		},
-		
-		addOne : function(robot) {
-			var view = new RobotView({
-				model : robot
-			});
-			this.$("#robot-list").append(view.render().el);
-		},
-		addAll : function() {
-			Robots.each(this.addOne, this);
-		}
-
-	});
-
-	var App = new AppView;
+robotApp.controller('RobotListCtrl', function($scope) {
+	console.log('coucou');
+	$scope.robots = [ {
+		'id' : 'r2d2',
+		'name' : 'I robot',
+		'score' : 3,
+		'health' : 100,
+		'minerals' : 0,
+		'message' : "Hello world"
+	},
+	{
+		'id' : 'r2d32',
+		'name' : 'I rosdsdbot',
+		'score' : 2,
+		'health' : 100,
+		'minerals' : 0,
+		'message' : "Hello world"
+	}];
 	
-	
-	Robots.create({
-        title : 'rrrr',
-        score: 10
-      });
+	$scope.scoreProp = 'score';
+	$scope.addRobot = function(hash, data) {
+		var found = false;
+		 angular.forEach($scope.robots, function(robot) {
+			 if (robot.id == hash) {
+				 robot.score = data.score;
+				 robot.health = data.life * 100;
+				 robot.minerals = data.minerals;
+				 robot.message = data.message;
+				 found = true;
+			 }
+		});
+		 if(! found)                {
+			
+			 $scope.robots.push({
+					'id': data.id,
+					'name' : data.name,
+					'score' : data.score,
+					'health' :data.health,
+					'minerals' :data.minerals,
+					'message' : data.message,
+						});
+			
+		 }
+		 
+		
+	};
 });
-
 

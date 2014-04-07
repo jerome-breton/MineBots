@@ -71,4 +71,11 @@ abstract class PilotAbstract implements \Serializable
     public function unserialize($string)
     {
     }
+
+    public function getMessage() {
+      return '';
+    }
+    public function getName() {
+      return '';
+    }
 }

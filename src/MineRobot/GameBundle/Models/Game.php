@@ -395,10 +395,26 @@ class Game
                     $celerity = (double)round(($timeStop - $timeStart) * pow(10, 15));
 
                     $inGridObjects[] = array('object' => $object, 'celerity' => $celerity);
+                    if ($object instanceof Robot) {
+                      $this->gridModifications['robots'][$object->getHash()] = array(
+                                                              	'id' => $object->getHash(),
+                                                              	'name' => $object->getName(),
+                                                              	'life' => $context[self::CONTEXT_SELF]['life'],
+                                                              	'minerals' => $context[self::CONTEXT_SELF]['minerals'],
+                                                              	'score' => $context[self::CONTEXT_SELF]['score'],
+                                                              	'healingTurns' => $context[self::CONTEXT_SELF]['healingTurns'],
+                                                              	'message' => $object->getMessage(),
+                      );
+                    }
+
                 }
             }
         }
         //$this->_grid = array();
+
+
+
+
 
         usort($inGridObjects, function ($a, $b) {
             if ($b['celerity'] == $a['celerity']) {
@@ -463,13 +479,6 @@ class Game
             $context[self::CONTEXT_SELF]['minerals'] = $object->getMinerals();
             $context[self::CONTEXT_SELF]['score'] = $object->getScore();
             $context[self::CONTEXT_SELF]['healingTurns'] = $object->getHealingTurns();
-            $this->gridModifications['robots'][$object->getHash()] = array(
-            	'name' => $object->getHash(),
-            	'life' => $context[self::CONTEXT_SELF]['life'],
-            	'minerals' => $context[self::CONTEXT_SELF]['minerals'],
-            	'score' => $context[self::CONTEXT_SELF]['score'],
-            	'healingTurns' => $context[self::CONTEXT_SELF]['healingTurns']
-            );
         }
 
         return $context;
