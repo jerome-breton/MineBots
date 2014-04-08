@@ -52,6 +52,61 @@ class DpoV0 extends PilotAbstract
 
       switch ($this->_DpoVar) {
         case 1:
+          $return = self::ORDER_MOVE_FORWARD;
+          $this->_message = 'Move Forward';
+          break;
+        case 2:
+          $return = self::ORDER_TURN_LEFT;
+          $this->_message = 'ORDER_TURN_LEFT ';
+
+          break;
+        case 3:
+          $return = self::ORDER_TURN_RIGHT;
+          $this->_message = 'ORDER_TURN_RIGHT';
+
+        case 4:
+          $return = self::ORDER_ATTACK_ROCKET;
+          $this->_message = 'ORDER_ATTACK_ROCKET';
+
+          break;
+
+        case 5:
+          $return = self::ORDER_ATTACK_RAIL;
+          $this->_message = 'ORDER_ATTACK_RAIL';
+
+          break;
+
+        case 6:
+          $return = self::ORDER_ATTACK_GAUNTLET;
+          $this->_message = 'ORDER_ATTACK_GAUNTLET';
+
+          break;
+
+        case 7:
+          $return = self::ORDER_STAY_SHIELD;
+          $this->_message = 'ORDER_STAY_SHIELD';
+
+          break;
+
+        case 8:
+          $return = self::ORDER_STAY_REPAIR;
+          $this->_message = 'ORDER_STAY_REPAIR';
+
+          break;
+
+        case 9:
+          $return = self::ORDER_STAY_SCAN;
+          $this->_message = 'ORDER_STAY_SCAN';
+
+          break;
+
+        default:
+          if ($this->_DpoVar > 15) {
+          $this->_DpoVar = 1;
+        }
+        $return = self::ORDER_ATTACK_ROCKET;
+        $this->_message = 'HAHAHAHAHHAH FIRRRRERERRRERRERERE : ' . $this->_DpoVar;
+        /*case 1:
         case 4:
         case 8:
         case 12:
@@ -62,7 +117,7 @@ class DpoV0 extends PilotAbstract
         default:
           if ($this->_DpoVar > 15) {
             $this->_DpoVar = 1;
-          }
+          }*/
       }
 
       $this->_DpoVar++;

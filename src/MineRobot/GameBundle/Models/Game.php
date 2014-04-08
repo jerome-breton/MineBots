@@ -404,6 +404,7 @@ class Game
                                                               	'score' => $context[self::CONTEXT_SELF]['score'],
                                                               	'healingTurns' => $context[self::CONTEXT_SELF]['healingTurns'],
                                                               	'message' => $object->getMessage(),
+                                                              	'picture' => $object->getPicture()
                       );
                     }
 

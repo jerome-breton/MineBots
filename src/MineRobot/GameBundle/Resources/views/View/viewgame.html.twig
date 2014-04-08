@@ -19,18 +19,15 @@
         </div>
         
         {% verbatim %}    
-        <div id="RobotListCtrl" ng-controller="RobotListCtrl">
-        hello
-            <ul>
-              <li ng-repeat="robot in robots | orderBy:scoreProp">
-              1111
-                  {{robot.id}}
-                  <p>{{robot.name}}</p>
-                  <p>{{robot.message}}</p>
-                  <p>{{robot.score}}</p>
-                  <p>{{robot.minerals}}</p>
-              </li>
-            </ul>
+        <div id="RobotListCtrl" class="visu-info" ng-controller="RobotListCtrl">
+
+              <div class="mine-info-status" ng-repeat="robot in robots | orderBy:scoreProp:true">
+                  <span class="text name"><img src="/minerobot/images/{{robot.picture}}" />{{robot.name}}</span>
+                  <span class="text message">{{robot.message}}</span>
+                  <span class="text score">{{robot.score}}</span>
+                  <span class="text minerals">{{robot.minerals}}</span>
+              </div>
+
         </div>
         {% endverbatim %}
     </div>
@@ -61,9 +58,8 @@
                         $('#' + hash).attr('src', '{{ asset('minerobot/images/') }}' + data.img);
                     });
                     $.each(data.robots, function (hash, data) {
-                    //listView.addItem(hash, data);
                     
-                      //scope.addRobot(hash, data);
+                      console.log(data.picture);
                       var scope = angular.element($('#RobotListCtrl')).scope();
                       scope.addRobot(hash, data);
                       scope.$apply();
