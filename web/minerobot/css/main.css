@@ -93,6 +93,8 @@ margin-left: 24px;
 }
 .visu-info span.name img {
 	margin-right : 5px;
+	width: 15px;
+  height: 15px;
 }
 .visu-info span.message {
 margin-top: 56px;
@@ -110,4 +112,7 @@ margin-top: 5px;
 .visu-info span.minerals {
 margin-top: 25px;
 margin-left: 125px;
+}
+.visu-info span.minerals img {
+	margin-left: 5px;
 }

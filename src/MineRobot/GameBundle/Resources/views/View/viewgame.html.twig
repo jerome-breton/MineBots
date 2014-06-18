@@ -59,7 +59,7 @@
                     });
                     $.each(data.robots, function (hash, data) {
                     
-                      console.log(data.picture);
+                      //console.log(data.picture);
                       var scope = angular.element($('#RobotListCtrl')).scope();
                       scope.addRobot(hash, data);
                       scope.$apply();

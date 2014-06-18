@@ -413,10 +413,6 @@ class Game
         }
         //$this->_grid = array();
 
-
-
-
-
         usort($inGridObjects, function ($a, $b) {
             if ($b['celerity'] == $a['celerity']) {
                 return 0;

@@ -92,7 +92,6 @@ class Robot extends GridObjectAbstract
 
     public function run($context = array())
     {
-     // var_dump($this->_pilot, unserialize($this->_pilot));die;
         $pilot = unserialize($this->_pilot);
 
         $order = $pilot->getOrder($context);
