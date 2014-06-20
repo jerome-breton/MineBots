@@ -5,17 +5,38 @@
 {% block content_header '' %}
 
 {% block content %}
+<div ng-app="robotApp">
+
     <h1 class="title">{{ game.name }}
         <input type="checkbox" value="1" name="run" id="run" style="display:none">
         <label id="run_label" class="pointer icon" for="run">+</label>
         <span class="pointer icon" id="next">}</span>
     </h1>
+    
+    <div>
+        <div id="gridArea" class="visu-grid">
+            {% include '@MineRobotGame/View/rungame.html.twig' %}
+        </div>
+        
+        {% verbatim %}    
+        <div id="RobotListCtrl" class="visu-info" ng-controller="RobotListCtrl">
 
-    <div id="gridArea">
-        {% include '@MineRobotGame/View/rungame.html.twig' %}
+              <div class="mine-info-status" ng-repeat="robot in robots | orderBy:scoreProp:true">
+                  <span class="text name"><img src="/minerobot/images/{{robot.picture}}" />{{robot.name}}</span>
+                  <span class="text message">{{robot.message}}</span>
+                  <span class="text score">{{robot.score}}</span>
+                  <span class="text minerals">{{robot.minerals}}<img src="/minerobot/images/mineral.png" /></span>
+              </div>
+
+        </div>
+        {% endverbatim %}
     </div>
 
+    
+    
     <script type="text/javascript">
+
+        
         function refreshGrid() {
 
             $.ajax({
@@ -36,6 +57,14 @@
                     $.each(data.rotate, function (hash, data) {
                         $('#' + hash).attr('src', '{{ asset('minerobot/images/') }}' + data.img);
                     });
+                    $.each(data.robots, function (hash, data) {
+                    
+                      //console.log(data.picture);
+                      var scope = angular.element($('#RobotListCtrl')).scope();
+                      scope.addRobot(hash, data);
+                      scope.$apply();
+                    });
+                    
 
                     if (jQuery('#run:checked').length) {
 
@@ -65,4 +94,9 @@
             }
         });
     </script>
+    
+    
+
+
+  </div>
 {% endblock %}

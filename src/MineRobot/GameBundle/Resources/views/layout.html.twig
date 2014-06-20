@@ -3,6 +3,13 @@
 {% block head %}
     <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
     <link rel="stylesheet" href="{{ asset('minerobot/css/main.css') }}" />
+    
+    {% javascripts 
+        '@MineRobotGameBundle/Resources/public/js/angular.js'
+        '@MineRobotGameBundle/Resources/public/js/robot.js' %}
+      <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
 {% endblock %}
 
 {% block title 'MineRobot' %}

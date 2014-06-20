@@ -247,4 +247,13 @@ class Robot extends GridObjectAbstract
     {
         return $this->_healingTurns;
     }
+
+    public function getMessage() {
+      $pilot = unserialize($this->_pilot);
+      return $pilot->getMessage();
+    }
+    public function getName() {
+      $pilot = unserialize($this->_pilot);
+      return $pilot->getName();
+    }
 }

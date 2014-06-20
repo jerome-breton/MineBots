@@ -27,7 +27,7 @@
     border:0;
     padding:0;
     margin:0;
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     left: 0;
 }
@@ -50,4 +50,69 @@
 
 .pointer{
     cursor: pointer;
+}
+
+div.visu-robots {
+	float: left;
+	margin-left: 10px;
+	border: solid 1px red;
+	min-height: 150px;
+	width: 300px;
+}
+div.visu-grid {
+	float: left;
+}
+
+/******************************
+   Gestion visuel des status des robots
+******************************/
+.visu-info {
+	float: left;
+	width: 300px;
+	margin: 10px;
+}
+
+div.mine-info-status{
+  background: linear-gradient(135deg, #4C4C4C 0%, #E0D433 8%, #E0D433 49%, #2C2C2C 61%, #AFDBDD 66%, #474747 71%, #EAEAEA 84%, #131313 100%) repeat scroll 0% 0% transparent;
+  height: 75px;
+  margin-left: 10px;
+  margin-top: 10px;
+	border: 1px solid #7C1D1D;
+	box-shadow: 3px 2px 2px 2px #D0BD5C;
+
+}
+.visu-info .text{
+	display: inline-block;
+	position: absolute;
+}
+.visu-info span.name {
+	text-shadow: 1px 1px 9px #000;
+font-weight: bold;
+margin-top: 5px;
+margin-left: 24px;
+}
+.visu-info span.name img {
+	margin-right : 5px;
+	width: 15px;
+  height: 15px;
+}
+.visu-info span.message {
+margin-top: 56px;
+margin-left: 10px;
+color: #9D1414;
+text-shadow: 0px 1px 3px #FFF;
+font-weight: bold;
+}
+	
+.visu-info span.score {
+margin-left: 145px;
+margin-top: 5px;
+}
+
+.visu-info span.minerals {
+margin-top: 25px;
+margin-left: 125px;
+}
+.visu-info span.minerals img {
+	margin-left: 5px;
 }

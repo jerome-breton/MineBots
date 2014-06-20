@@ -56,7 +56,7 @@ class Game
     public $options = null;
 
     protected $_grid = array();
-    public $gridModifications = array('add' => array(), 'move' => array(), 'del' => array(), 'rotate' => array());
+    public $gridModifications = array('add' => array(), 'move' => array(), 'del' => array(), 'rotate' => array(), 'robots' => array());
 
     protected $_objectsInGrid = [
         self::OBJECT_COLLECTOR,
@@ -395,6 +395,19 @@ class Game
                     $celerity = (double)round(($timeStop - $timeStart) * pow(10, 15));
 
                     $inGridObjects[] = array('object' => $object, 'celerity' => $celerity);
+                    if ($object instanceof Robot) {
+                      $this->gridModifications['robots'][$object->getHash()] = array(
+                                                              	'id' => $object->getHash(),
+                                                              	'name' => $object->getName(),
+                                                              	'life' => $context[self::CONTEXT_SELF]['life'],
+                                                              	'minerals' => $context[self::CONTEXT_SELF]['minerals'],
+                                                              	'score' => $context[self::CONTEXT_SELF]['score'],
+                                                              	'healingTurns' => $context[self::CONTEXT_SELF]['healingTurns'],
+                                                              	'message' => $object->getMessage(),
+                                                              	'picture' => $object->getPicture()
+                      );
+                    }
+
                 }
             }
         }
